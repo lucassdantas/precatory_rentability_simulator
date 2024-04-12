@@ -180,7 +180,7 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
     let returnValue = amountInvested,
         counter = 0,
         currentYear = new Date().getFullYear(),
-        yearsOfCaltulation = [currentYear, currentYear+1, currentYear+2]
+        yearsOfCaltulation = [currentYear, currentYear+1, currentYear+2];
 
     for (year in rentabilitiesValuesByYear[selectedQuota]) {
         if (counter === 0 ){
@@ -201,22 +201,21 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
 //     amountInvested = document.querySelector("input[name='amountInvested']"),
 //     selectedQuotaRentabilityOnCurrentYear = handleCurrentRentability(validityYearInput, quotaTypeInput);
 
+const currentDate = new Date();
+const payback = new Date('2025-12-26'); 
+const selectedQuota = 'master'
+const amountInvested = 100000
+
+const workingDays = workingDaysCalculator(currentDate, payback, holidays);
+workingDays[2025] = 252
+let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear(), selectedQuota)
+console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
 
 
 const precnetValue = 100,
     cdbValue = 100,
     lciLcaValue = 5;
-
-const currentDate = new Date();
-const payback = new Date('2025-12-26'); 
-const workingDays = workingDaysCalculator(currentDate, payback, holidays);
- 
-const selectedQuota = 'master'
-const amountInvested = 100000
 //updateChart(precnetValue, cdbValue, lciLcaValue);
-let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear(), selectedQuota)
-workingDays[2025] = 252
 
-console.log("Dias úteis até o resgate:", workingDays);
-//console.log((100000*(1+0.060460/100)**190) * (1+0.059425/100) ** 252) 
-console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
+
+
