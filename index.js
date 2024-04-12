@@ -8,7 +8,7 @@ const dailyRentability = {
     currentYearRentabilityOn: {
         master: {
             currentYearOptionChosen: 0.060460,
-            nextYearOptionChosen: 0.060460,
+            nextYearOptionChosen: 0.059425,
             afterNextYearOptionChosen: 0.052597
         },
         cdb: {
@@ -113,8 +113,6 @@ const holidays = [
     new Date('11/15/2026').getTime(),
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
-
-
 ]
 
 const updateChart = (precnetValue, cdbValue, lciLcaValue) => {
@@ -164,13 +162,13 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     } else if (validityYearInput === currentYear + 1) {
         result[quotaTypeInput] = {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
-            nextYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].nextYearOptionChosen
+            nextYearOptionChosen: dailyRentability.nextYearRentabilityOn[quotaTypeInput].nextYearOptionChosen
         };
     } else if (validityYearInput === currentYear + 2) {
         result[quotaTypeInput] = {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
             nextYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].nextYearOptionChosen,
-            afterNextYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].afterNextYearOptionChosen
+            afterNextYearOptionChosen: dailyRentability.afterNextYearRentabilityOn[quotaTypeInput].afterNextYearOptionChosen
         };
     } else {
         return undefined;
@@ -217,7 +215,8 @@ const selectedQuota = 'master'
 const amountInvested = 100000
 //updateChart(precnetValue, cdbValue, lciLcaValue);
 let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear(), selectedQuota)
-//console.log("Dias úteis até o resgate:", workingDays);
+workingDays[2025] = 252
+
+console.log("Dias úteis até o resgate:", workingDays);
 //console.log((100000*(1+0.060460/100)**190) * (1+0.059425/100) ** 252) 
 console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
-//console.log(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays)
