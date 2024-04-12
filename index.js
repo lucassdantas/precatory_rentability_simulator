@@ -74,8 +74,47 @@ const dailyRentability = {
 };
 
 const holidays = [
-    new Date('2024-04-21').getTime(), 
-    new Date('2026-04-25').getTime(), 
+    new Date('01/01/2024').getTime(),
+    new Date('02/12/2024').getTime(),
+    new Date('02/13/2024').getTime(),
+    new Date('03/29/2024').getTime(),
+    new Date('04/21/2024').getTime(),
+    new Date('05/01/2024').getTime(),
+    new Date('05/30/2024').getTime(),
+    new Date('09/07/2024').getTime(),
+    new Date('10/12/2024').getTime(),
+    new Date('11/02/2024').getTime(),
+    new Date('11/15/2024').getTime(),
+    new Date('11/20/2024').getTime(),
+    new Date('12/25/2024').getTime(),
+    new Date('01/01/2025').getTime(),
+    new Date('03/03/2025').getTime(),
+    new Date('03/04/2025').getTime(),
+    new Date('04/18/2025').getTime(),
+    new Date('04/21/2025').getTime(),
+    new Date('05/01/2025').getTime(),
+    new Date('06/19/2025').getTime(),
+    new Date('09/07/2025').getTime(),
+    new Date('10/12/2025').getTime(),
+    new Date('11/02/2025').getTime(),
+    new Date('11/15/2025').getTime(),
+    new Date('11/20/2025').getTime(),
+    new Date('12/25/2025').getTime(),
+    new Date('01/01/2026').getTime(),
+    new Date('02/16/2026').getTime(),
+    new Date('02/17/2026').getTime(),
+    new Date('04/03/2026').getTime(),
+    new Date('04/21/2026').getTime(),
+    new Date('05/01/2026').getTime(),
+    new Date('06/04/2026').getTime(),
+    new Date('09/07/2026').getTime(),
+    new Date('10/12/2026').getTime(),
+    new Date('11/02/2026').getTime(),
+    new Date('11/15/2026').getTime(),
+    new Date('11/20/2026').getTime(),
+    new Date('12/25/2026').getTime(),
+
+
 ]
 
 const updateChart = (precnetValue, cdbValue, lciLcaValue) => {
@@ -181,3 +220,4 @@ let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear()
 //console.log("Dias úteis até o resgate:", workingDays);
 //console.log((100000*(1+0.060460/100)**190) * (1+0.059425/100) ** 252) 
 console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
+//console.log(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays)
