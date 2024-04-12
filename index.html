@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Precnet</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="simulatorContainer simulator">
+        <div class="simulatorBody">
+            <div class="row">
+                <div class="col col50 leftUserInputContainer">
+                    <div class="validityYear userInputData">
+                        <span class="inputIdentifier">Vencimento do ativo:</span>
+
+                        <input type="radio" name="year" id="year2025">
+                        <label>2025</label>
+
+                        <input type="radio" name="year" id="year2026">
+                        <label>2026</label>
+                    </div>
+                    <div class="quotaType userInputData">
+                        <span class="inputIdentifier">Cota:</span>
+
+                        <input type="radio" name="quotaType" id="masterQuota">
+                        <label>Cota Master</label>
+
+                        <input type="radio" name="quotaType" id="irFreeQuota">
+                        <label>IR Free</label>
+
+                        <input type="radio" name="quotaType" id="fitQuota">
+                        <label>Fit</label>
+                    </div>
+                    <div class="amountInvested userInputData">
+                        <span class="inputIdentifier">Valor investido:</span>
+                        <input type="number" name="amountInvested" id="amountInvested" placeholder="R$ 100,00">
+                    </div>
+                </div>
+                <div class="col col50 ">
+                    <div class="paymentMonth">
+                        <p>Mês de pagamento (do ano de vencimento)</p>
+                        <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11">
+                        <div class="monthList">
+                            <span>Jan</span>
+                            <span>Fev</span>
+                            <span>Mar</span>
+                            <span>Abr</span>
+                            <span>Mai</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Ago</span>
+                            <span>Set</span>
+                            <span>Out</span>
+                            <span>Nov</span>
+                            <span>Dez</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col100">
+                    <div class="chartContainer">
+                        <h3>Previsão de rentabilidade</h3>
+                        
+                        <div class="chart">
+                            <div class="bar" id="precnet"> </div>
+                            <div class="bar" id="cdb"> </div>
+                            <div class="bar" id="lci-lca"> </div>
+                        </div>
+    
+                        <div class="rentabilityPrevision">
+                            <div class="precnetRentability"></div>
+                            <div class="cdbRentability"></div>
+                            <div class="lciRentability"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
