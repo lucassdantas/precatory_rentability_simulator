@@ -3,7 +3,6 @@ const fixedFitQuota = {
     nextYearOptionChosen:15.50,
     afterNextYearOptionChosen:13.00
 }
-
 const dailyRentability = {
     currentYearRentabilityOn: {
         master: {
@@ -72,7 +71,6 @@ const dailyRentability = {
         }
     }
 };
-
 const holidays = [
     new Date('01/01/2024').getTime(),
     new Date('02/12/2024').getTime(),
@@ -114,13 +112,11 @@ const holidays = [
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
 ]
-
 const updateChart = (precnetValue, cdbValue, lciLcaValue) => {
     document.getElementById('precnet').style.width = precnetValue + '%';
     document.getElementById('cdb').style.width = cdbValue + '%';
     document.getElementById('lci-lca').style.width = lciLcaValue + '%';
 }
-
 const workingDaysCalculator = (initialDate, finalDate, holidays) => {
     initialDate = new Date(initialDate);
     finalDate = new Date(finalDate);
@@ -150,7 +146,6 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
 
     return workingDays;
 }
-
 const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     const currentYear = new Date().getFullYear();
     const result = {};
@@ -180,36 +175,68 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
     let returnValue = amountInvested,
         counter = 0,
         currentYear = new Date().getFullYear(),
-        yearsOfCaltulation = [currentYear, currentYear+1, currentYear+2];
+        yearsOfCalculation = [currentYear, currentYear+1, currentYear+2];
 
     for (year in rentabilitiesValuesByYear[selectedQuota]) {
         if (counter === 0 ){
-            returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100))**workingDays[yearsOfCaltulation[counter]])
+            returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100))**workingDays[yearsOfCalculation[counter]])
         }
         else {
-            returnValue *= (1+rentabilitiesValuesByYear[selectedQuota][year]/100)**workingDays[yearsOfCaltulation[counter]]
+            returnValue *= (1+rentabilitiesValuesByYear[selectedQuota][year]/100)**workingDays[yearsOfCalculation[counter]]
             
         }
         counter++
     }
     return returnValue
 }
+const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
+
+    if(selectedQuota === 'master'){
+        let rentabilitiesValuesByYearPrecnet = handleCurrentRentability(payBackDate, selectedQuota),
+            rentabilitiesValuesByYearAnotherQuota = handleCurrentRentability(payBackDate, 'cdb');
+        return {
+            precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
+            cdb: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'cdb', workingDays),
+        }
+    }
+    if(selectedQuota === 'irFree'){
+        let rentabilitiesValuesByYearPrecnet = handleCurrentRentability(payBackDate, selectedQuota),
+            rentabilitiesValuesByYearAnotherQuota = handleCurrentRentability(payBackDate, 'lcilca');
+        return {
+            precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
+            lciLca: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'lcilca', workingDays),
+        }
+    }
+    if(selectedQuota === 'fit'){
+        let rentabilitiesValuesByYearPrecnet = handleCurrentRentability(payBackDate, selectedQuota),
+        rentabilitiesValuesByYearAnotherQuota = handleCurrentRentability(payBackDate, 'fit');
+        return {
+            precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
+            fit: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'fit', workingDays),
+        }
+    }
+    return false;
+}
+
+
 
 // let validityYearInput = document.querySelector("input[name='year']:checked"),
 //     quotaTypeInput = document.querySelector("input[name='quotaType']:checked"),
 //     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
-//     amountInvested = document.querySelector("input[name='amountInvested']"),
+//     amountInvestedInput = document.querySelector("input[name='amountInvested']"),
 //     selectedQuotaRentabilityOnCurrentYear = handleCurrentRentability(validityYearInput, quotaTypeInput);
 
 const currentDate = new Date();
 const payback = new Date('2025-12-26'); 
-const selectedQuota = 'master'
+const selectedQuota = 'fit'
 const amountInvested = 100000
 
 const workingDays = workingDaysCalculator(currentDate, payback, holidays);
-workingDays[2025] = 252
 let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear(), selectedQuota)
+
+console.log(handleQuotaResult(amountInvested, selectedQuota, workingDays, payback.getFullYear()))
 console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
+
 
 
 const precnetValue = 100,
