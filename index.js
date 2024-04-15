@@ -127,9 +127,9 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
         lciLcaValue = document.querySelector("#lciLcaValue") ;
 
     
-    if (precnetRentabilityValue) precnetValue.innerHTML  = "PRECNET: " + precnetRentabilityValue.toFixed(4)
-    if (cdbRentabilityValue) cdbValue.innerHTML      = "CDB: " + cdbRentabilityValue.toFixed(4)
-    if (lciLcaRentabilityValue) lciLcaValue.innerHTML   = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4)
+    if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + precnetRentabilityValue.toFixed(4)
+    if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: " + cdbRentabilityValue.toFixed(4)
+    if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4)
 
     precNetBar.style.width = precnetPercentage + '%'
     
@@ -191,6 +191,7 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
             nextYearOptionChosen: dailyRentability.nextYearRentabilityOn[quotaTypeInput].nextYearOptionChosen
         };
+        console.log(result[quotaTypeInput].currentYearOptionChosen)
     } else if (validityYearInput === currentYear + 2) {
         result[quotaTypeInput] = {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
@@ -200,7 +201,6 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     } else {
         return undefined;
     }
-    console.log(result)
     return result;
 };
 const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuota, workingDays ) => {
@@ -230,16 +230,16 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
         }
     }
     if(selectedQuota === 'irFree'){
-        let rentabilitiesValuesByYearPrecnet = handleCurrentRentability(payBackDate, selectedQuota),
-            rentabilitiesValuesByYearAnotherQuota = handleCurrentRentability(payBackDate, 'lcilca');
+        let rentabilitiesValuesByYearPrecnet        = handleCurrentRentability(payBackDate, selectedQuota),
+            rentabilitiesValuesByYearAnotherQuota   = handleCurrentRentability(payBackDate, 'lciLca');
         return {
             precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
-            lciLca: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'lcilca', workingDays),
+            lciLca: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'lciLca', workingDays),
         }
     }
     if(selectedQuota === 'fit'){
-        let rentabilitiesValuesByYearPrecnet = handleCurrentRentability(payBackDate, selectedQuota),
-        rentabilitiesValuesByYearAnotherQuota = handleCurrentRentability(payBackDate, 'fit');
+        let rentabilitiesValuesByYearPrecnet    = handleCurrentRentability(payBackDate, selectedQuota),
+        rentabilitiesValuesByYearAnotherQuota   = handleCurrentRentability(payBackDate, 'fit');
         return {
             precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
             fit: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'fit', workingDays),
