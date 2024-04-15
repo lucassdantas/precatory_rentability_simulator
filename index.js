@@ -113,10 +113,27 @@ const holidays = [
     new Date('12/25/2026').getTime(),
 ]
 
-const updateChart = (precnetValue, cdbValue, lciLcaValue) => {
-    document.getElementById('precnet').style.width = precnetValue + '%';
-    document.getElementById('cdb').style.width = cdbValue + '%';
-    document.getElementById('lci-lca').style.width = lciLcaValue + '%';
+const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
+     
+    const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
+        precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100,
+        cdbPercentage = (cdbRentabilityValue / totalRentabilityValue) * 100,
+        lciLcaPercentage = (lciLcaRentabilityValue / totalRentabilityValue) * 100,
+        precNetBar = document.getElementById('precnet'),
+        cdbBar     = document.getElementById('cdb'),
+        lciLcaBar  = document.getElementById('lci-lca'),
+        precnetValue = document.querySelector("#precnetValue"), 
+        cdbValue = document.querySelector("#cdbValue"), 
+        lciLcaValue = document.querySelector("#lciLcaValue") ;
+
+    precnetValue.innerHTML  = "PRECNET: "+ precnetRentabilityValue.toFixed(4) || ' '
+    cdbValue.innerHTML      = "CDB: " + cdbRentabilityValue.toFixed(4) || ' '
+    lciLcaValue.innerHTML   = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4) || ' '
+
+    precNetBar.style.width = precnetPercentage + '%'
+    cdbBar.style.width = cdbPercentage + '%'
+    lciLcaBar.style.width = lciLcaPercentage + '%'
+
 }
 const workingDaysCalculator = (initialDate, finalDate, holidays) => {
     initialDate = new Date(initialDate);
