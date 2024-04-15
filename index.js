@@ -2,7 +2,7 @@ const fixedFitQuota = {
     currentYearOptionChosen:15.50,
     nextYearOptionChosen:15.50,
     afterNextYearOptionChosen:13.00
-}
+};
 const dailyRentability = {
     currentYearRentabilityOn: {
         master: {
@@ -111,14 +111,14 @@ const holidays = [
     new Date('11/15/2026').getTime(),
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
-]
+];
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
      
     const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
-        precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100,
-        cdbPercentage = (cdbRentabilityValue / totalRentabilityValue) * 100,
-        lciLcaPercentage = (lciLcaRentabilityValue / totalRentabilityValue) * 100,
+        precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0 ,
+        cdbPercentage = (cdbRentabilityValue / totalRentabilityValue) * 100 || 0,
+        lciLcaPercentage = (lciLcaRentabilityValue / totalRentabilityValue) * 100 || 0,
         precNetBar = document.getElementById('precnet'),
         cdbBar     = document.getElementById('cdb'),
         lciLcaBar  = document.getElementById('lci-lca'),
@@ -126,15 +126,17 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
         cdbValue = document.querySelector("#cdbValue"), 
         lciLcaValue = document.querySelector("#lciLcaValue") ;
 
-    precnetValue.innerHTML  = "PRECNET: "+ precnetRentabilityValue.toFixed(4) || ' '
-    cdbValue.innerHTML      = "CDB: " + cdbRentabilityValue.toFixed(4) || ' '
-    lciLcaValue.innerHTML   = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4) || ' '
+    
+    if (precnetRentabilityValue) precnetValue.innerHTML  = "PRECNET: " + precnetRentabilityValue.toFixed(4)
+    if (cdbRentabilityValue) cdbValue.innerHTML      = "CDB: " + cdbRentabilityValue.toFixed(4)
+    if (lciLcaRentabilityValue) lciLcaValue.innerHTML   = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4)
 
     precNetBar.style.width = precnetPercentage + '%'
     cdbBar.style.width = cdbPercentage + '%'
     lciLcaBar.style.width = lciLcaPercentage + '%'
+    console.log('aa', precNetBar)
 
-}
+};
 const workingDaysCalculator = (initialDate, finalDate, holidays) => {
     initialDate = new Date(initialDate);
     finalDate = new Date(finalDate);

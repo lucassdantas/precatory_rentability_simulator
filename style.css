@@ -76,10 +76,20 @@ body{
     height: 100%;
     flex-grow: 1;
     transition: width 0.5s ease;
-    margin:12px 0;
-    border-radius:20px;
-    max-width:100%;
+    margin: 12px 0;
+    border-radius: 20px;
+    max-width: 100%;
+    position: relative; /* Adicionado para posicionar o span */
 }
+
+.bar .value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
 
 #precnet {
     background-color: #ffcec3;
