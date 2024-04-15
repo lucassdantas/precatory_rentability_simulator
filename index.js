@@ -112,6 +112,8 @@ const holidays = [
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
 ]
+
+
 const updateChart = (precnetValue, cdbValue, lciLcaValue) => {
     document.getElementById('precnet').style.width = precnetValue + '%';
     document.getElementById('cdb').style.width = cdbValue + '%';
@@ -217,32 +219,44 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
     }
     return false;
 }
+const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
+    const   precnetValue = handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).precnet || null,
+            cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb || null,
+            lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca || null;
+    updateChart(precnetValue, cdbValue, lciLcaValue);
+}
+const pickCheckedRadio = inputsArray => inputsArray.forEach(input => input.checked? input:false);
 
+const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, monthOfPaymentInput) => {
+    if((amountInvestedInput || validityYearInput || quotaTypeInput || monthOfPaymentInput) == false){
+        return false
+    }
+    return true
+}
 
+let amountInvestedInput = document.querySelector("input[name='amountInvested']"),
+    validityYearInputs  = document.querySelectorAll("input[name='year']"),
+    quotaTypeInputs     = document.querySelectorAll("input[name='quotaType']"),
+    monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
+    validityYearValue,
+    quotaTypeValue,
+    monthOfPaymentValue,
+    workingDays;
 
-// let validityYearInput = document.querySelector("input[name='year']:checked"),
-//     quotaTypeInput = document.querySelector("input[name='quotaType']:checked"),
-//     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
-//     amountInvestedInput = document.querySelector("input[name='amountInvested']"),
-//     selectedQuotaRentabilityOnCurrentYear = handleCurrentRentability(validityYearInput, quotaTypeInput);
+amountInvestedInput.addEventListener('change', () => {
+    workingDays =  workingDaysCalculator(new Date(), amountInvestedInput.value, holidays);
+    validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
+    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26'))
+});
 
-const currentDate = new Date();
-const payback = new Date('2025-12-26'); 
-const selectedQuota = 'fit'
-const amountInvested = 100000
+validityYearInputs.forEach(input => input.addEventListener('click', () => {
+    if(amountInvestedInput.value != undefined)  showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26'))
+}));
 
-const workingDays = workingDaysCalculator(currentDate, payback, holidays);
-let currentRentabilityPerQuotas = handleCurrentRentability(payback.getFullYear(), selectedQuota)
+quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
+    if(amountInvestedInput.value != undefined)  showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26'))
+}))
 
-console.log(handleQuotaResult(amountInvested, selectedQuota, workingDays, payback.getFullYear()))
-console.log(calcRentability(amountInvested, currentRentabilityPerQuotas, selectedQuota, workingDays))
-
-
-
-const precnetValue = 100,
-    cdbValue = 100,
-    lciLcaValue = 5;
-//updateChart(precnetValue, cdbValue, lciLcaValue);
-
-
-
+monthOfPaymentInput.addEventListener('change', () => {
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26'))
+});
