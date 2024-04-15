@@ -73,13 +73,18 @@ body{
 }
 
 .bar {
+    display:flex;
+    align-items:center;
+    padding-left:12px;
     height: 100%;
     flex-grow: 1;
     transition: width 0.5s ease;
     margin: 12px 0;
     border-radius: 20px;
     max-width: 100%;
-    position: relative; /* Adicionado para posicionar o span */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1); /* Adicionando um tom de cinza claro */
+    overflow: hidden; /* Para ocultar o texto que se estende além da barra */
 }
 
 .bar .value {
@@ -87,7 +92,13 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #333; /* Mudando a cor do texto para um tom mais escuro */
+    font-size: 12px; /* Ajustando o tamanho da fonte */
+    font-weight: bold; /* Deixando o texto em negrito */
+    white-space: nowrap; /* Impedindo que o texto quebre em várias linhas */
+    padding: 2px 6px; /* Adicionando um espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.8); /* Adicionando um fundo branco translúcido */
+    border-radius: 10px; /* Arredondando as bordas do texto */
 }
 
 

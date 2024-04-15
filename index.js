@@ -132,8 +132,20 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
     if (lciLcaRentabilityValue) lciLcaValue.innerHTML   = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4)
 
     precNetBar.style.width = precnetPercentage + '%'
-    cdbBar.style.width = cdbPercentage + '%'
-    lciLcaBar.style.width = lciLcaPercentage + '%'
+    
+    if(cdbPercentage) {
+        cdbBar.style.display = ''
+        cdbBar.style.width = cdbPercentage + '%'
+    }else{
+        cdbBar.style.display = 'none'
+    }
+    if(lciLcaPercentage){
+        lciLcaBar.style.display = ''   
+        lciLcaBar.style.width = lciLcaPercentage + '%'
+    }else{
+        lciLcaBar.style.display = 'none'
+    }
+
     console.log('aa', precNetBar)
 
 };
@@ -188,7 +200,7 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     } else {
         return undefined;
     }
-
+    console.log(result)
     return result;
 };
 const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuota, workingDays ) => {
