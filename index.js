@@ -145,9 +145,6 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
     }else{
         lciLcaBar.style.display = 'none'
     }
-
-    console.log('aa', precNetBar)
-
 };
 const workingDaysCalculator = (initialDate, finalDate, holidays) => {
     initialDate = new Date(initialDate);
@@ -191,7 +188,6 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
             nextYearOptionChosen: dailyRentability.nextYearRentabilityOn[quotaTypeInput].nextYearOptionChosen
         };
-        console.log(result[quotaTypeInput].currentYearOptionChosen)
     } else if (validityYearInput === currentYear + 2) {
         result[quotaTypeInput] = {
             currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
@@ -238,6 +234,7 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
         }
     }
     if(selectedQuota === 'fit'){
+        console.log('fit')
         let rentabilitiesValuesByYearPrecnet    = handleCurrentRentability(payBackDate, selectedQuota),
         rentabilitiesValuesByYearAnotherQuota   = handleCurrentRentability(payBackDate, 'fit');
         return {
