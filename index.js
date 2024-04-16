@@ -75,6 +75,8 @@ const dailyRentability = {
             afterNextYearOptionChosen: 0.029029
         },
         fit: {
+            currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+            nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
             afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
         }
     }
