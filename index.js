@@ -114,23 +114,21 @@ const holidays = [
 ];
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
-    const formatNumber = (number) => {
-        return number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    };
-    const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
-        precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0 ,
-        cdbPercentage = (cdbRentabilityValue / totalRentabilityValue) * 100 || 0,
-        lciLcaPercentage = (lciLcaRentabilityValue / totalRentabilityValue) * 100 || 0,
-        precNetBar = document.getElementById('precnet'),
-        cdbBar     = document.getElementById('cdb'),
-        lciLcaBar  = document.getElementById('lci-lca'),
-        precnetValue = document.querySelector("#precnetValue"), 
-        cdbValue = document.querySelector("#cdbValue"), 
-        lciLcaValue = document.querySelector("#lciLcaValue") ;
+    const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+          totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
+          precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0,
+          cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 100 || 0,
+          lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 100 || 0,
+          precNetBar    = document.getElementById('precnet'),
+          cdbBar        = document.getElementById('cdb'),
+          lciLcaBar     = document.getElementById('lci-lca'),
+          precnetValue  = document.querySelector("#precnetValue"), 
+          cdbValue      = document.querySelector("#cdbValue"), 
+          lciLcaValue   = document.querySelector("#lciLcaValue") ;
 
     
     if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + formatNumber(precnetRentabilityValue)
-    if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: " + formatNumber(cdbRentabilityValue)
+    if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: "     + formatNumber(cdbRentabilityValue)
     if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + formatNumber(lciLcaRentabilityValue)
 
     precNetBar.style.width = precnetPercentage + '%'
@@ -154,7 +152,9 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
 
     if (isNaN(initialDate.getTime()) || isNaN(finalDate.getTime())) return "Datas inválidas";
 
-    let workingDays = {};
+    let workingDays = {
+        total: 0
+    };
 
     while (initialDate <= finalDate) {
         if (initialDate.getDay() !== 0 && initialDate.getDay() !== 6) {
@@ -170,13 +170,17 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
                 } else {
                     workingDays[year]++;
                 }
+                workingDays.total++; // Incrementa o total de dias úteis
             }
         }
         initialDate.setDate(initialDate.getDate() + 1);
     }
 
+    workingDays.totalYears = Object.keys(workingDays).length - 1; // Exclui a propriedade 'total'
+
     return workingDays;
-};
+}; 
+
 const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     const currentYear = new Date().getFullYear();
     const result = {};
@@ -207,12 +211,14 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
         counter = 0,
         currentYear = new Date().getFullYear(),
         yearsOfCalculation = [currentYear, currentYear+1, currentYear+2];
+
     for (year in rentabilitiesValuesByYear[selectedQuota]) {
         if (counter === 0 ){
-            returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100))**workingDays[yearsOfCalculation[counter]])
+            if(selectedQuota === 'fit') returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100)**(workingDays.total/252)))
+            else returnValue                        = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100))**workingDays[yearsOfCalculation[counter]])
         }
         else {
-            returnValue *= (1+rentabilitiesValuesByYear[selectedQuota][year]/100)**workingDays[yearsOfCalculation[counter]]
+            if (selectedQuota != 'fit') returnValue *= (1+rentabilitiesValuesByYear[selectedQuota][year]/100)**workingDays[yearsOfCalculation[counter]]
         }
         counter++
     }
@@ -236,20 +242,19 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
         }
     }
     if(selectedQuota === 'fit'){
-        console.log('fit')
-        let rentabilitiesValuesByYearPrecnet    = handleCurrentRentability(payBackDate, selectedQuota),
-        rentabilitiesValuesByYearAnotherQuota   = handleCurrentRentability(payBackDate, 'fit');
+        let rentabilitiesValuesByYearPrecnet        = handleCurrentRentability(payBackDate, selectedQuota),
+            rentabilitiesValuesByYearAnotherQuota   = handleCurrentRentability(payBackDate, 'lciLca');
         return {
             precnet: calcRentability(amountInvested, rentabilitiesValuesByYearPrecnet, selectedQuota, workingDays),
-            fit: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'fit', workingDays),
+            lciLca: calcRentability(amountInvested, rentabilitiesValuesByYearAnotherQuota, 'lciLca', workingDays),
         }
     }
     return false;
 };
 const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
     const   precnetValue =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).precnet || null,
-            cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb || null,
-            lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca || null;
+            cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb     || null,
+            lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca  || null;
     updateChart(precnetValue, cdbValue, lciLcaValue);
 };
 const pickCheckedRadio = inputsArray => {
@@ -257,7 +262,6 @@ const pickCheckedRadio = inputsArray => {
     inputsArray.forEach(input => {input.checked? checkedInput=input:false})
     return checkedInput
 };
-
 const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, monthOfPaymentInput) => {
     if((amountInvestedInput || validityYearInput || quotaTypeInput || monthOfPaymentInput) == false){
         return false
@@ -269,25 +273,25 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     validityYearInputs  = document.querySelectorAll(".yearInput"),
     quotaTypeInputs     = document.querySelectorAll(".quotaTypeInput"),
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
-    workingDays =  workingDaysCalculator(new Date(), new Date('2025-12-26'), holidays),
+    workingDays =  workingDaysCalculator(new Date(), new Date('2025-12-31'), holidays),
     validityYearValue,
     quotaTypeValue,
     monthOfPaymentValue;
 
 amountInvestedInput.addEventListener('input', () => {
     validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
-    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26').getFullYear())
+    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
 });
 
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26').getFullYear())
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
 }));
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26').getFullYear())
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
 }))
 
 monthOfPaymentInput.addEventListener('change', () => {
     workingDays =  workingDaysCalculator(new Date(), amountInvestedInput.value, holidays);
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-26').getFullYear())
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
 });
