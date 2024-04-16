@@ -55,15 +55,23 @@ const dailyRentability = {
     },
     afterNextYearRentabilityOn: {
         master: {
+            currentYearOptionChosen: 0.052597,
+            nextYearOptionChosen: 0.051563,
             afterNextYearOptionChosen: 0.051486
         },
         cdb: {
+            currentYearOptionChosen: 0.037891,
+            nextYearOptionChosen: 0.036857,
             afterNextYearOptionChosen: 0.036781
         },
         irFree: {
+            currentYearOptionChosen: 0.051874,
+            nextYearOptionChosen: 0.050840,
             afterNextYearOptionChosen: 0.050764
         },
         lciLca: {
+            currentYearOptionChosen: 0.030139,
+            nextYearOptionChosen: 0.029105,
             afterNextYearOptionChosen: 0.029029
         },
         fit: {
@@ -196,8 +204,8 @@ const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
         };
     } else if (validityYearInput === currentYear + 2) {
         result[quotaTypeInput] = {
-            currentYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
-            nextYearOptionChosen: dailyRentability.currentYearRentabilityOn[quotaTypeInput].nextYearOptionChosen,
+            currentYearOptionChosen: dailyRentability.afterNextYearRentabilityOn[quotaTypeInput].currentYearOptionChosen,
+            nextYearOptionChosen: dailyRentability.afterNextYearRentabilityOn[quotaTypeInput].nextYearOptionChosen,
             afterNextYearOptionChosen: dailyRentability.afterNextYearRentabilityOn[quotaTypeInput].afterNextYearOptionChosen
         };
     } else {
