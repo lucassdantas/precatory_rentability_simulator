@@ -114,7 +114,9 @@ const holidays = [
 ];
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
-     
+    const formatNumber = (number) => {
+        return number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
     const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
         precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0 ,
         cdbPercentage = (cdbRentabilityValue / totalRentabilityValue) * 100 || 0,
@@ -127,9 +129,9 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
         lciLcaValue = document.querySelector("#lciLcaValue") ;
 
     
-    if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + precnetRentabilityValue.toFixed(4)
-    if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: " + cdbRentabilityValue.toFixed(4)
-    if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + lciLcaRentabilityValue.toFixed(4)
+    if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + formatNumber(precnetRentabilityValue)
+    if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: " + formatNumber(cdbRentabilityValue)
+    if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + formatNumber(lciLcaRentabilityValue)
 
     precNetBar.style.width = precnetPercentage + '%'
     
