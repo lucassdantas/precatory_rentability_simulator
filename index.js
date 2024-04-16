@@ -273,25 +273,30 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     validityYearInputs  = document.querySelectorAll(".yearInput"),
     quotaTypeInputs     = document.querySelectorAll(".quotaTypeInput"),
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
-    workingDays =  workingDaysCalculator(new Date(), new Date('2025-12-31'), holidays),
+    validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30),
+    workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
     quotaTypeValue,
     monthOfPaymentValue;
 
 amountInvestedInput.addEventListener('input', () => {
     validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
-    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
+    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
 });
 
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
+    validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
+    workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 }));
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 }))
 
-monthOfPaymentInput.addEventListener('change', () => {
-    workingDays =  workingDaysCalculator(new Date(), amountInvestedInput.value, holidays);
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, new Date('2025-12-31').getFullYear())
+monthOfPaymentInput.addEventListener('input', () => {
+    console.log('change')
+    validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
+    workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
+    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 });
