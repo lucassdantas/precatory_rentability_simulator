@@ -295,7 +295,6 @@ quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
 }))
 
 monthOfPaymentInput.addEventListener('input', () => {
-    console.log('change')
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
