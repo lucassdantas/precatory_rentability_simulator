@@ -36,6 +36,9 @@ body{
     max-width:1200px;
 
 }
+#simulatorContainer input[type='radio']{
+    width:16px;
+}
 #simulatorContainer .row{
     display:flex;
     margin:24px 0;
@@ -130,11 +133,13 @@ body{
 
 #amountInvested{
     border-radius:20px;
-    border:1px solid #777;
-    padding:6px;
+    border:1px solid #04265E;
+    padding:6px 12px;
+    width:80%;
+    
 }
 
-#amountInvested .inputIdentifier{
+.amountInvested{
     color:#04265E;
 }
 
@@ -143,16 +148,7 @@ body{
     margin-top:12px;
 }
 
-#simulatorContainer input[type="number"] {
-    -webkit-appearance: textfield;
-       -moz-appearance: textfield;
-            appearance: textfield;
-  }
 
-#simulatorContainer input[type=number]::-webkit-inner-spin-button, 
-#simulatorContainer input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-}
 
 #simulatorContainer .inputAndLabelContainer{
     display:flex;
