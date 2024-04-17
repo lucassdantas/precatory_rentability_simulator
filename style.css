@@ -59,8 +59,12 @@ body{
     display:flex;
     justify-content: space-around;
 }
+#simulatorContainer .rightCol{
+    display:flex;
+    justify-content:space-between;
+}
 #simulatorContainer .userInputData{
-    margin-bottom:12px;
+    margin-bottom:24px;
     display:flex;
     flex-direction:column;
 }
@@ -74,6 +78,7 @@ body{
 }
 #simulatorContainer .chartContainer{
     height:120px;
+    margin-top:24px;
 }
 #simulatorContainer .chart {
     width: 500px;
@@ -129,6 +134,10 @@ body{
     padding:6px;
 }
 
+#amountInvested .inputIdentifier{
+    color:#04265E;
+}
+
 #monthOfPayment{
     width:100%;
     margin-top:12px;
@@ -157,7 +166,7 @@ body{
 }
 #simulatorContainer .instructionContainer{
     width:100%;
-    text-align:center;
+    margin-top:24px;
 }
 #simulatorContainer .monthContainer{
     font-weight:700;
