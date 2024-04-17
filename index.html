@@ -44,18 +44,21 @@
                     </div>
                     <div class="amountInvested userInputData">
                         <span class="inputIdentifier">Valor investido:</span>
-                        <input type="number" name="amountInvested" id="amountInvested" placeholder="R$ 100,00">
+                        <div>
+                            <span>R$ </span>
+                            <input type="number" name="amountInvested" id="amountInvested" placeholder="R$ 100,00">
+                        </div>
                     </div>
                 </div>
                 <div class="col col50 ">
                     <div class="paymentMonth">
                         <div class="monthRowContainer">
                             <div class="monthContainer">
-                                <span>Mês de pagamento </span>
+                                <span class="monthOfPaymentTitle">Mês de pagamento </span>
                                 <span class="validityYearText">(do ano de vencimento)</span>
                             </div>
                             <div class="selectedMonthContainer">
-                                <span id="selectedMonth">a</span>
+                                <span id="selectedMonth"></span>
                             </div>
                         </div>
                         <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11">
@@ -74,16 +77,9 @@
                             <span>Dez</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col100">
-                    <div class="instructionContainer">
-                        <span class="instruction">Insira um valor para realizar sua simulação</span>
-                    </div>
+
                     <div class="chartContainer hidden">
                         <h3>Previsão de rentabilidade</h3>
-                        
                         <div class="chart">
                             <div class="bar" id="precnet">
                                 <span class="precnetValue" id="precnetValue" ></span>
@@ -96,6 +92,14 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col100">
+                    <div class="instructionContainer">
+                        <span class="instruction">Insira um valor para realizar sua simulação</span>
+                    </div>
+                    
                     
                 </div>
             </div>

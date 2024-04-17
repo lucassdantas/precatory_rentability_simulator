@@ -69,6 +69,8 @@ body{
 }
 #simulatorContainer .inputIdentifier{
     margin-right:8px;
+    margin-bottom:5px;
+    font-weight:700;
 }
 #simulatorContainer .chartContainer{
     height:120px;
@@ -129,6 +131,7 @@ body{
 
 #monthOfPayment{
     width:100%;
+    margin-top:12px;
 }
 
 #simulatorContainer input[type="number"] {
@@ -156,7 +159,13 @@ body{
     width:100%;
     text-align:center;
 }
-
+#simulatorContainer .monthContainer{
+    font-weight:700;
+}
+#simulatorContainer .selectedMonthContainer{
+    display:none;
+    visibility:hidden;
+}
 @media(max-width:768px){
     #simulatorContainer .row{
         flex-direction:column;
@@ -189,5 +198,12 @@ body{
         display:none;
         visibility:hidden;
     }
-
+    #simulatorContainer .selectedMonthContainer{
+        display:inline-block;
+        visibility:visible;
+    }
+    #simulatorContainer #selectedMonth{
+        color:#206218;
+        font-weight:bold;
+    }
 }

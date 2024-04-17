@@ -332,6 +332,8 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     quotaTypeValue,
     monthOfPaymentValue;
 
+monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
+
 amountInvestedInput.addEventListener('input', () => {
     showHiddenChartContainer(amountInvestedInput.value)
     validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
