@@ -1,3 +1,4 @@
+let firstChangeOnInput = true
 const fixedFitQuota = {
     currentYearOptionChosen:15.50,
     nextYearOptionChosen:15.50,
@@ -267,6 +268,11 @@ const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBack
             lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca  || null;
     updateChart(precnetValue, cdbValue, lciLcaValue);
 };
+const showHiddenChartContainer = () => {
+    let chartContainer = document.querySelector('.simulatorContainer .chartContainer')
+    if (chartContainer.classList.contains('hidden')) chartContainer.classList.remove('hidden')
+
+}
 const pickCheckedRadio = inputsArray => {
     let checkedInput;
     inputsArray.forEach(input => {input.checked? checkedInput=input:false})
@@ -290,6 +296,8 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     monthOfPaymentValue;
 
 amountInvestedInput.addEventListener('input', () => {
+    if(firstChangeOnInput) showHiddenChartContainer()
+    firstChangeOnInput = !firstChangeOnInput
     validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
     showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
 });
