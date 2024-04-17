@@ -29,6 +29,10 @@ body{
     display:none;
     visibility:hidden;
 }
+#simulatorContainer h3{
+    font-size: 24px;
+    color:#474747;
+}
 #simulatorContainer .simulatorBody{
     padding:20px;
     min-height:250px;
@@ -78,6 +82,7 @@ body{
     margin-right:8px;
     margin-bottom:5px;
     font-weight:700;
+    font-size:20px;
 }
 #simulatorContainer .chartContainer{
     height:120px;
@@ -139,10 +144,6 @@ body{
     
 }
 
-.amountInvested{
-    color:#04265E;
-}
-
 #monthOfPayment{
     width:100%;
     margin-top:12px;
@@ -170,6 +171,9 @@ body{
 #simulatorContainer .selectedMonthContainer{
     display:none;
     visibility:hidden;
+}
+#simulatorContainer .monthOfPaymentTitle{
+    font-size:20px;
 }
 @media(max-width:768px){
     #simulatorContainer .row{
@@ -211,4 +215,57 @@ body{
         color:#206218;
         font-weight:bold;
     }
+    #simulatorContainer .monthOfPaymentTitle{
+        font-size:16px;
+    }
+    #simulatorContainer .inputIdentifier{
+        font-size:16px;
+    }
+    #simulatorContainer h3{
+        font-size:18px;
+    }
+    #simulatorContainer .bar{
+        max-width:300px;
+    }
+    
 }
+@media(max-width:400px){
+    #simulatorContainer .bar{
+      max-width:150px;
+  } 
+}
+
+#simulatorContainer input[type="range"] {
+    /* Remove estilos padrão */
+    -webkit-appearance: none;
+    -moz-apperance: none;
+    appearance: none;
+    /* Dimensões e layout */
+    width: 100%;
+    height: 20px;
+    /* Track */
+    background-color: #ccc; /* Cor de fundo cinza */
+    border-radius: 10px;
+    /* Thumb (alça) */
+    cursor: pointer;
+  }
+
+  #simulatorContainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* Dimensões e layout */
+    width: 20px;
+    height: 20px;
+    background-color: #04265E; /* Cor da bola */
+    border-radius: 50%; /* Forma circular */
+  }
+
+  #simulatorContainer input[type="range"]::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
+    /* Dimensões e layout */
+    width: 20px;
+    height: 20px;
+    background-color: #04265E; /* Cor da bola */
+    border-radius: 50%; /* Forma circular */
+  }
