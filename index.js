@@ -1,4 +1,3 @@
-let firstChangeOnInput = true
 const fixedFitQuota = {
     currentYearOptionChosen:15.50,
     nextYearOptionChosen:15.50,
@@ -191,7 +190,6 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
 
     return workingDays;
 }; 
-
 const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     const currentYear = new Date().getFullYear();
     const result = {};
@@ -268,11 +266,49 @@ const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBack
             lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca  || null;
     updateChart(precnetValue, cdbValue, lciLcaValue);
 };
-const showHiddenChartContainer = () => {
+const showHiddenChartContainer = (inputValue) => {
     let chartContainer = document.querySelector('.simulatorContainer .chartContainer')
-    if (chartContainer.classList.contains('hidden')) chartContainer.classList.remove('hidden')
+    if (inputValue != '') {
+        document.querySelector('.instructionContainer').classList.add('hidden')
+        chartContainer.classList.remove('hidden')
+        return
+    }
+    document.querySelector('.instructionContainer').classList.remove('hidden')
+    chartContainer.classList.add('hidden')
+    console.log('hidden')
+    return
 
-}
+};
+const changeMonthDisplay = (selectedMonthIndex) => {
+    switch(Number(selectedMonthIndex)) {
+        case 0:
+            return 'Jan';
+        case 1:
+            return 'Fev';
+        case 2:
+            return 'Mar';
+        case 3:
+            return 'Abr';
+        case 4:
+            return 'Mai';
+        case 5:
+            return 'Jun';
+        case 6:
+            return 'Jul';
+        case 7:
+            return 'Ago';
+        case 8:
+            return 'Set';
+        case 9:
+            return 'Out';
+        case 10:
+            return 'Nov';
+        case 11:
+            return 'Dez';
+        default:
+            return ''; 
+    }
+}; 
 const pickCheckedRadio = inputsArray => {
     let checkedInput;
     inputsArray.forEach(input => {input.checked? checkedInput=input:false})
@@ -289,6 +325,7 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     validityYearInputs  = document.querySelectorAll(".yearInput"),
     quotaTypeInputs     = document.querySelectorAll(".quotaTypeInput"),
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
+    monthDisplay        = document.querySelector('#selectedMonth'),
     validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
@@ -296,8 +333,7 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     monthOfPaymentValue;
 
 amountInvestedInput.addEventListener('input', () => {
-    if(firstChangeOnInput) showHiddenChartContainer()
-    firstChangeOnInput = !firstChangeOnInput
+    showHiddenChartContainer(amountInvestedInput.value)
     validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
     showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
 });
@@ -314,6 +350,7 @@ quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
 
 monthOfPaymentInput.addEventListener('input', () => {
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
+    monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 });

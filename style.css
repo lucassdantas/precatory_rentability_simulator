@@ -20,8 +20,7 @@ body{
 .simulatorContainer{
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
+   
     background-color:#E5E5E5;
     border-radius:20px;
 }
@@ -62,6 +61,8 @@ body{
 }
 #simulatorContainer .userInputData{
     margin-bottom:12px;
+    display:flex;
+    flex-direction:column;
 }
 #simulatorContainer .userInputData label{
     margin-right:12px;
@@ -138,5 +139,55 @@ body{
 
 #simulatorContainer input[type=number]::-webkit-inner-spin-button, 
 #simulatorContainer input[type=number]::-webkit-outer-spin-button { 
--webkit-appearance: none;
+    -webkit-appearance: none;
+}
+
+#simulatorContainer .inputAndLabelContainer{
+    display:flex;
+    flex-wrap:nowrap;
+}
+#simulatorContainer .inputAndLabelContainer input{
+    margin-right:5px;
+}
+#simulatorContainer .inputContainer{
+    display:flex;
+}
+#simulatorContainer .instructionContainer{
+    width:100%;
+    text-align:center;
+}
+
+@media(max-width:768px){
+    #simulatorContainer .row{
+        flex-direction:column;
+    }
+
+    #simulatorContainer .col{
+        width:100%;
+    }
+}
+
+@media(max-width:550px){
+    #simulatorContainer .inputContainer{
+        flex-direction:column;
+    }
+    #simulatorContainer .validityYearText{
+        display:block;
+    }
+    #simulatorContainer .monthList{
+        font-size:8px;
+    }
+    #simulatorContainer .monthRowContainer{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+    #simulatorContainer .monthContainer{
+        width:80%;
+    }
+    #simulatorContainer .monthList{
+        display:none;
+        visibility:hidden;
+    }
+
 }

@@ -13,24 +13,34 @@
                 <div class="col col50 leftUserInputContainer">
                     <div class="validityYear userInputData">
                         <span class="inputIdentifier">Vencimento do ativo:</span>
+                        <div class="inputContainer">
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
+                                <label>2025</label>
+                            </div>
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="year" class='yearInput' id="year2026" value="2026">
+                                <label>2026</label>
+                            </div>
+                        </div>
 
-                        <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
-                        <label>2025</label>
-
-                        <input type="radio" name="year" class='yearInput' id="year2026" value="2026">
-                        <label>2026</label>
                     </div>
                     <div class="quotaType userInputData">
                         <span class="inputIdentifier">Cota:</span>
-
-                        <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
-                        <label>Cota Master</label>
-
-                        <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
-                        <label>IR Free</label>
-
-                        <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota" value='fit'>
-                        <label>Fit</label>
+                        <div class="inputContainer">
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
+                                <label>Cota Master</label>
+                            </div>
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
+                                <label>IR Free</label>
+                            </div>
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
+                                <label>Fit</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="amountInvested userInputData">
                         <span class="inputIdentifier">Valor investido:</span>
@@ -39,7 +49,15 @@
                 </div>
                 <div class="col col50 ">
                     <div class="paymentMonth">
-                        <p>Mês de pagamento (do ano de vencimento)</p>
+                        <div class="monthRowContainer">
+                            <div class="monthContainer">
+                                <span>Mês de pagamento </span>
+                                <span class="validityYearText">(do ano de vencimento)</span>
+                            </div>
+                            <div class="selectedMonthContainer">
+                                <span id="selectedMonth">a</span>
+                            </div>
+                        </div>
                         <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11">
                         <div class="monthList">
                             <span>Jan</span>
@@ -60,6 +78,9 @@
             </div>
             <div class="row">
                 <div class="col col100">
+                    <div class="instructionContainer">
+                        <span class="instruction">Insira um valor para realizar sua simulação</span>
+                    </div>
                     <div class="chartContainer hidden">
                         <h3>Previsão de rentabilidade</h3>
                         
