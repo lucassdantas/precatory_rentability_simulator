@@ -25,49 +25,49 @@ body{
     border-radius:20px;
 }
 
-.simulatorBody{
+#simulatorContainer .simulatorBody{
     padding:20px;
     min-height:250px;
     height:100%;
     max-width:1200px;
 
 }
-.row{
+#simulatorContainer .row{
     display:flex;
     margin:24px 0;
 }
 
-.col{
+#simulatorContainer .col{
     flex-direction:column;
     padding:12px;
 }
 
-.col50{
+#simulatorContainer .col50{
     width:50%;
 }
 
-.col100{
+#simulatorContainer .col100{
     width:100%;
 }
-.monthList{
+#simulatorContainer .monthList{
     font-size:12px;
     width:100%;
     display:flex;
     justify-content: space-around;
 }
-.userInputData{
+#simulatorContainer .userInputData{
     margin-bottom:12px;
 }
-.userInputData label{
+#simulatorContainer .userInputData label{
     margin-right:12px;
 }
-.inputIdentifier{
+#simulatorContainer .inputIdentifier{
     margin-right:8px;
 }
-.chartContainer{
+#simulatorContainer .chartContainer{
     height:120px;
 }
-.chart {
+#simulatorContainer .chart {
     width: 500px;
     height: 30px;
 }
@@ -125,12 +125,13 @@ body{
     width:100%;
 }
 
-input[type="number"] {
+#simulatorContainer input[type="number"] {
     -webkit-appearance: textfield;
        -moz-appearance: textfield;
             appearance: textfield;
   }
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-  }
+
+#simulatorContainer input[type=number]::-webkit-inner-spin-button, 
+#simulatorContainer input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+}
