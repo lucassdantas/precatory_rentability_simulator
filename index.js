@@ -122,10 +122,10 @@ const holidays = [
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
 ];
+const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
-    const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
-          totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
+    const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
           precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0,
           cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 100 || 0,
           lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 100 || 0,
@@ -136,7 +136,7 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
           cdbValue      = document.querySelector("#cdbValue"), 
           lciLcaValue   = document.querySelector("#lciLcaValue") ;
 
-    
+    console.log(precnetRentabilityValue)
     if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + formatNumber(precnetRentabilityValue)
     if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: "     + formatNumber(cdbRentabilityValue)
     if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + formatNumber(lciLcaRentabilityValue)
@@ -334,10 +334,26 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
 
 monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
 
-amountInvestedInput.addEventListener('input', () => {
+const startSimulation = (amountInvestedInput) => {
+    amountInvestedInput.value = formatNumber(amountInvestedInput.value)
+    console.log(formatNumber(amountInvestedInput.value))
+
     showHiddenChartContainer(amountInvestedInput.value)
-    validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
-    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
+    validateFields(
+        amountInvestedInput, 
+        pickCheckedRadio(validityYearInputs), 
+        pickCheckedRadio(quotaTypeInputs), 
+        monthOfPaymentInput
+    )
+    showResultsOnScreen(
+        amountInvestedInput.value,
+        pickCheckedRadio(quotaTypeInputs).value,
+        workingDays,validityDate.getFullYear()
+    )
+}
+
+amountInvestedInput.addEventListener('input', (e) => {
+    startSimulation(e.target)
 });
 
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
@@ -357,10 +373,4 @@ monthOfPaymentInput.addEventListener('input', () => {
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 });
 
-const startSimulation = () => {
-    showHiddenChartContainer(amountInvestedInput.value)
-    validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
-    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
-}
-
-startSimulation()
+startSimulation(amountInvestedInput)
