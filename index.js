@@ -356,3 +356,11 @@ monthOfPaymentInput.addEventListener('input', () => {
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 });
+
+const startSimulation = () => {
+    showHiddenChartContainer(amountInvestedInput.value)
+    validateFields(amountInvestedInput, pickCheckedRadio(validityYearInputs), pickCheckedRadio(quotaTypeInputs), monthOfPaymentInput)
+    showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays,validityDate.getFullYear())
+}
+
+startSimulation()

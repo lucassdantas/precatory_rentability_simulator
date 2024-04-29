@@ -36,17 +36,19 @@
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
                                 <label>IR Free</label>
                             </div>
+                           <!-- 
                             <div class="inputAndLabelContainer">
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
                                 <label>Fit</label>
                             </div>
+                            -->
                         </div>
                     </div>
                     <div class="amountInvested userInputData">
                         <span class="inputIdentifier">Valor investido:</span>
                         <div>
                             <span>R$ </span>
-                            <input type="number" name="amountInvested" id="amountInvested" placeholder="100,00">
+                            <input type="number" name="amountInvested" id="amountInvested" placeholder="100,00" value='100000'>
                         </div>
                         <div class="instructionContainer">
                             <span class="instruction">Insira um valor para realizar sua simulação</span>
@@ -64,7 +66,7 @@
                                 <span id="selectedMonth"></span>
                             </div>
                         </div>
-                        <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11">
+                        <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
                         <div class="monthList">
                             <span>Jan</span>
                             <span>Fev</span>
