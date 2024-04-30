@@ -137,7 +137,6 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
           cdbValue      = document.querySelector("#cdbValue"), 
           lciLcaValue   = document.querySelector("#lciLcaValue") ;
 
-    console.log(precnetRentabilityValue)
     if (precnetRentabilityValue) precnetValue.innerHTML = "PRECNET: " + formatNumber(precnetRentabilityValue)
     if (cdbRentabilityValue)     cdbValue.innerHTML     = "CDB: "     + formatNumber(cdbRentabilityValue)
     if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "LCI/LCA: " + formatNumber(lciLcaRentabilityValue)
@@ -276,7 +275,6 @@ const showHiddenChartContainer = (inputValue) => {
     }
     document.querySelector('.instructionContainer').classList.remove('hidden')
     chartContainer.classList.add('hidden')
-    console.log('hidden')
     return
 
 };
@@ -324,7 +322,7 @@ const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, 
 const changeQuotaInformationText = (selectedQuota, quotaInformationText) => {
     if(selectedQuota === 'master') return quotaInformationText.innerText = '* valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.';
     if(selectedQuota === 'irFree') return quotaInformationText.innerText = '* valores líquidos caso o resgate seja inferior a R$35 mil. Com a PrecNet, os preços de cada cota ir free são calculados de modo que o investidor receba menos do que R$35 mil no resgate da operação, ficando assim isento de imposto de renda sobre o ganho de capital.';
-}
+};
 
 let amountInvestedInput = document.querySelector("input[name='amountInvested']"),
     validityYearInputs  = document.querySelectorAll(".yearInput"),
@@ -342,8 +340,6 @@ monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
 
 const startSimulation = (amountInvestedInput) => {
     amountInvestedInput.value = formatNumber(amountInvestedInput.value)
-    console.log(formatNumber(amountInvestedInput.value))
-
     showHiddenChartContainer(amountInvestedInput.value)
     validateFields(
         amountInvestedInput, 
