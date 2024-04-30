@@ -122,6 +122,9 @@ body{
     border-radius: 10px; /* Arredondando as bordas do texto */
 }
 
+.quotaInformationContainer{
+    text-align:center;
+}
 
 #precnet {
     background-color: #c4d9ff;

@@ -122,7 +122,8 @@ const holidays = [
     new Date('11/20/2026').getTime(),
     new Date('12/25/2026').getTime(),
 ];
-const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
     const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
@@ -320,11 +321,17 @@ const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, 
     }
     return true
 };
+const changeQuotaInformationText = (selectedQuota, quotaInformationText) => {
+    if(selectedQuota === 'master') quotaInformationText.innerText = '* valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.'
+    if(selectedQuota === 'irFree') quotaInformationText.innerText = '* valores líquidos caso o resgate seja inferior a R$35 mil. Com a PrecNet, os preços de cada cota ir free são calculados de modo que o investidor receba menos do que R$35 mil no resgate da operação, ficando assim isento de imposto de renda sobre o ganho de capital.'
+    console.log(selectedQuota)
+}
 
 let amountInvestedInput = document.querySelector("input[name='amountInvested']"),
     validityYearInputs  = document.querySelectorAll(".yearInput"),
     quotaTypeInputs     = document.querySelectorAll(".quotaTypeInput"),
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
+    quotaInformation    = document.querySelector(".quotaInformationContainer .information"),
     monthDisplay        = document.querySelector('#selectedMonth'),
     validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
@@ -364,6 +371,7 @@ validityYearInputs.forEach(input => input.addEventListener('click', () => {
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
+    changeQuotaInformationText(pickCheckedRadio(quotaTypeInputs).value, quotaInformation)
 }))
 
 monthOfPaymentInput.addEventListener('input', () => {
