@@ -454,7 +454,7 @@ input[type="checkbox"]:checked + label::after {
    transform: rotate(-45deg);
 }
 
-@media(max-width:768px){
+@media(max-width:1045px){
     #simulatorContainer .row{
         flex-direction:column;
     }
@@ -467,7 +467,6 @@ input[type="checkbox"]:checked + label::after {
         margin-bottom:12px;
     }
 }
-
 @media(max-width:550px){
     .simulatorContainer{
         padding:0.2em;
@@ -485,11 +484,11 @@ input[type="checkbox"]:checked + label::after {
         display:block;
     }
     #simulatorContainer #moneySimbol{
-        font-size:24px;
+        font-size:22px;
     }
     #simulatorContainer #amountInvested{
-        width:79%;
-        font-size:24px;
+        width:84%;
+        font-size:22px;
     }
     #simulatorContainer .monthRowContainer{
         display:flex;
@@ -528,10 +527,47 @@ input[type="checkbox"]:checked + label::after {
         width:95px;
         min-width:95px;
         max-width:95px;
+        padding:2% 0;
+    }
+    #simulatorContainer .chart{
+        font-size:14px;
+    }
+    #simulatorCOntainer .chartQuotaValue{
+        font-size:12px;
+    }
+    #simulatorContainer .chart #precnet{
+        width:100%!important;
+    }
+    #simulatorContainer .chart .bar{
+        width:97%!important;
+    }
+    #simulatorContainer .chart .bar{
+        width:97%!important;
     }
     
 }
 @media(max-width:300px){
-    #simulatorContainer .bar{
-  } 
+    .simulatorContainer{
+        padding:2px;
+    }
+    #simulatorContainer .simulatorHeader{
+        padding:15px 10px 0;
+    }
+    #simulatorContainer .simulatorBody{
+        padding:0px;
+    }
+    #simulatorContainer #moneySimbol{
+        font-size:16px;
+    }
+    #simulatorContainer #amountInvested{
+        width:80%;
+        font-size:16px;
+    }
+    #simulatorContainer .quotaInformationContainer{
+        padding:15px 5px;
+    }
+    #simulatorContainer .inputAndLabelContainer{
+        margin-right:0;
+        width:100%;
+    }
 }
