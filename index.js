@@ -450,12 +450,14 @@ validityYearsLabels.forEach(label => {
     label.addEventListener('click', () => {
         document.querySelector(`#${label.getAttribute('for')}`).click()
     })
-})
+});
+
 quotaTypeLabels.forEach(label => {
     label.addEventListener('click', () => {
         document.querySelector(`#${label.getAttribute('for')}`).click()
     })
-})
+});
+
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)

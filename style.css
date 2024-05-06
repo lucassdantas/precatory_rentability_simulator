@@ -36,14 +36,25 @@ body{
 
 
 .simulatorHeader{
+
+    padding:40px 32px 0;
+    width:100%;
+}
+.simulatorTitleContainer{
     border-bottom:2px solid #25D366;
     width:100%;
-    padding:20px;
 }
 .simulatorTitle{
     font-size:32px;
     text-align:left;
     font-weight:700;
+}
+
+#simulatorContainer .simulatorBody{
+    padding:20px;
+    min-height:250px;
+    height:100%;
+    width:100%;
 }
 
 .precnetText{
@@ -112,11 +123,7 @@ body{
     font-weight:700;
     margin-bottom:12px;
 }
-#simulatorContainer .simulatorBody{
-    padding:20px;
-    min-height:250px;
-    height:100%;
-}
+
 #simulatorContainer input[type='radio']{
     width:16px;
 }
@@ -480,7 +487,7 @@ input[type="checkbox"] + label::before {
 }
 
 input[type="radio"]:checked + label::before {
-   background: radial-gradient(circle at center, #54AA54 .6ex, white .7ex);
+   background: radial-gradient(circle at center, #54AA54 .9ex, #fff 1ex);
 }
 
 input[type="radio"] + label::before {
