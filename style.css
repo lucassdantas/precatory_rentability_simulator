@@ -122,16 +122,32 @@ body{
 #simulatorContainer .col100{
     width:100%;
 }
-#simulatorContainer .monthList{
-    font-size:12px;
+
+#simulatorContainer .monthListContainer{
     width:100%;
     display:flex;
-    justify-content: space-around;
+}
+#simulatorContainer .monthList{
+    width:94%;
+    display:flex;
+    justify-content:space-between;
+    margin:5px 0;
+}
+
+#simulatorContainer .topMonthList{
+    text-align:left;
+    justify-content:flex-start;
+}
+#simulatorContainer .bottomMonthList{
+    text-align:right;
+    justify-content:flex-end;
+}
+#simulatorContainer .monthList span{
+    margin-right:12%;
 }
 #simulatorContainer .rightCol{
     display:flex;
     justify-content:space-between;
-   
 }
 
 .monthPaymentAndList{
