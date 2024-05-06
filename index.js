@@ -31,11 +31,11 @@ const highlightSelectedCheckInput = input => {
 const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
     selectedMonth = document.querySelector(`.monthPaymentAndList #${selectedMonth}`)
     monthListSpans.forEach(span => {
-        span.classList.remove('selected');
+        span.classList.remove('textGreen');
         span.classList.remove('bold');
     });
 
-    selectedMonth.classList.add('selected');
+    selectedMonth.classList.add('textGreen');
     selectedMonth.classList.add('bold');
 }
 
