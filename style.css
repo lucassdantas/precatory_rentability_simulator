@@ -50,6 +50,10 @@ body{
     padding: 1.6%;
     padding-right: 5%;
     padding-left: 5%;
+    width:120px;
+    min-width:120px;
+    max-width:120px;
+    text-align:center;
     font-weight: bold;
 }
 
@@ -61,6 +65,10 @@ body{
     padding-right: 6%;
     padding-left: 6%;
     font-weight: bold;
+    width:120px;
+    min-width:120px;
+    max-width:120px;
+    text-align:center;
 
 }
     
@@ -76,6 +84,10 @@ body{
     padding-right: 11%;
     padding-left: 11%;
     font-weight: bold;
+    width:120px;
+    min-width:120px;
+    max-width:120px;
+    text-align:center;
     
 }
 
@@ -129,7 +141,7 @@ body{
     display:flex;
 }
 #simulatorContainer .monthList{
-    width:94%;
+    width:92%;
     display:flex;
     justify-content:space-between;
     margin:5px 0;
@@ -143,8 +155,11 @@ body{
     text-align:right;
     justify-content:flex-end;
 }
-#simulatorContainer .monthList span{
-    margin-right:12%;
+#simulatorContainer .topMonthList span{
+    margin-right:0;
+}
+#simulatorContainer .bottomMonthList span{
+    margin-left:0;
 }
 #simulatorContainer .rightCol{
     display:flex;
@@ -203,13 +218,12 @@ body{
 .bar {
     display:flex;
     align-items:center;
-    
+    width:fit-content;
     height: 100%;
     flex-grow: 1;
     transition: width 0.5s ease;
     margin: 12px 0;
     border-radius: 20px;
-    max-width: 100%;
     position: relative;
     background-color: rgba(0, 0, 0, 0.1); /* Adicionando um tom de cinza claro */
     overflow: hidden; /* Para ocultar o texto que se estende além da barra */
@@ -258,6 +272,9 @@ body{
     background-color: #6A976C;
 }
 
+#simulatorContainer .chartQuotaValue{
+    white-space:nowrap;
+}
 #simulatorContainer #moneySimbol{
     font-size:28px;
     font-weight:700;
@@ -395,7 +412,6 @@ body{
     -webkit-appearance: none;
     -moz-apperance: none;
     appearance: none;
-
     background-color: #ccc; /* Cor de fundo cinza */
     border-radius: 10px;
     /* Thumb (alça) */

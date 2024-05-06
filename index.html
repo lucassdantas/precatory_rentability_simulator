@@ -52,7 +52,7 @@
                         <div class="amountInvestedContainer">
                             <div class="moneySimbolAndAmountInvestedInputContainer">
                                 <span id='moneySimbol'>R$ </span>
-                                <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100.000'>
+                                <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100.000' max="100000000">
                             </div>
                         </div>
                         <div class="instructionContainer">
@@ -104,15 +104,16 @@
                         <div class="chart">
                             <div class="bar" id="precnet">
                                 <span class="precnetText"> PrecNet </span>
-                                <span class="precnetValue" id="precnetValue" ></span>
+                                <span class="precnetValue chartQuotaValue" id="precnetValue"></span>
+
                             </div>
                             <div class="bar" id="cdb">
                                 <span class="cdbText"> CDB </span>
-                                <span class="cdbValue" id="cdbValue"></span>
+                                <span class="cdbValue chartQuotaValue" id="cdbValue"></span>
                             </div>
                             <div class="bar" id="lci-lca">
                                 <span class="lcilcaText"> LCI/LCA </span>
-                                <span class="lciLcaValue" id="lciLcaValue"></span>
+                                <span class="lciLcaValue chartQuotaValue" id="lciLcaValue"></span>
                             </div>
                         </div>
 

@@ -2,11 +2,16 @@
 //frontend interactions functions
 const amountInvestedInputMask = event => {
     let input = event.target;
+    // Verifica se o valor é maior que 100000000
+    if (formatToOnlyNumbers(input.value) > 100000000) {
+        input.value = '100.000.000';
+    }
     let formattedValue = input.value.replace(/\D/g, '');
     formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     input.value = formattedValue;
 }
+
 
 const highlightSelectedCheckInput = input => {
     let currentInputType;
@@ -172,9 +177,9 @@ const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionD
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
     const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
-          precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 100 || 0,
-          cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 100 || 0,
-          lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 100 || 0,
+          precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 150 || 0,
+          cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 150 || 0,
+          lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 150 || 0,
           precNetBar    = document.getElementById('precnet'),
           cdbBar        = document.getElementById('cdb'),
           lciLcaBar     = document.getElementById('lci-lca'),
@@ -394,7 +399,6 @@ const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, 
     return true
 };
 const changeQuotaInformationText = (selectedQuota, quotaInformationText) => {
-    
     if(selectedQuota === 'master') return quotaInformationText.innerText = 'Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.';
     if(selectedQuota === 'irFree') return quotaInformationText.innerText = 'Valores líquidos caso o resgate seja inferior a R$35 mil. Com a PrecNet, os preços de cada cota ir free são calculados de modo que o investidor receba menos do que R$35 mil no resgate da operação, ficando assim isento de imposto de renda sobre o ganho de capital.';
 };
