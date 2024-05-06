@@ -279,35 +279,65 @@ const showHiddenChartContainer = (inputValue) => {
     return
 
 };
-const changeMonthDisplay = (selectedMonthIndex) => {
-    switch(Number(selectedMonthIndex)) {
+const changeMonthDisplay = (selectedMonthIndex, monthsList) => {
+    let selectedMonth, selectedMonthId;
+    switch (Number(selectedMonthIndex)) {
         case 0:
-            return 'Jan';
+            selectedMonth = 'Jan';
+            selectedMonthId = 'janMonth';
+            break;
         case 1:
-            return 'Fev';
+            selectedMonth = 'Fev';
+            selectedMonthId = 'fevMonth';
+            break;
         case 2:
-            return 'Mar';
+            selectedMonth = 'Mar';
+            selectedMonthId = 'marMonth';
+            break;
         case 3:
-            return 'Abr';
+            selectedMonth = 'Abr';
+            selectedMonthId = 'abrMonth';
+            break;
         case 4:
-            return 'Mai';
+            selectedMonth = 'Mai';
+            selectedMonthId = 'maiMonth';
+            break;
         case 5:
-            return 'Jun';
+            selectedMonth = 'Jun';
+            selectedMonthId = 'junMonth';
+            break;
         case 6:
-            return 'Jul';
+            selectedMonth = 'Jul';
+            selectedMonthId = 'julMonth';
+            break;
         case 7:
-            return 'Ago';
+            selectedMonth = 'Ago';
+            selectedMonthId = 'agoMonth';
+            break;
         case 8:
-            return 'Set';
+            selectedMonth = 'Set';
+            selectedMonthId = 'setMonth';
+            break;
         case 9:
-            return 'Out';
+            selectedMonth = 'Out';
+            selectedMonthId = 'outMonth';
+            break;
         case 10:
-            return 'Nov';
+            selectedMonth = 'Nov';
+            selectedMonthId = 'novMonth';
+            break;
         case 11:
-            return 'Dez';
+            selectedMonth = 'Dez';
+            selectedMonthId = 'dezMonth';
+            break;
         default:
-            return ''; 
+            selectedMonth = '';
+            selectedMonthId = '';
     }
+    
+
+    highlightSelectedMonth(selectedMonthId, monthsList)
+    return selectedMonth
 }; 
 const pickCheckedRadio = inputsArray => {
     let checkedInput;
@@ -338,14 +368,14 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
     quotaInformation    = document.querySelector(".quotaInformationContainer .information"),
     monthDisplay        = document.querySelector('#selectedMonth'),
+    monthListNames      = document.querySelectorAll('.monthList span'),
     validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
     quotaTypeValue,
     monthOfPaymentValue;
 
-monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
-
+monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value, monthListNames)
 const startSimulation = (amountInvestedInput) => {
     let formattedInputValue = formatToOnlyNumbers(amountInvestedInput.value)
     showHiddenChartContainer(formattedInputValue)
@@ -383,7 +413,7 @@ quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
 
 monthOfPaymentInput.addEventListener('input', () => {
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
-    monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
+    monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value, monthListNames)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 });
@@ -425,3 +455,13 @@ const highlightSelectedCheckInput = input => {
     input.nextElementSibling.classList.add('bold');
 };
 
+const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
+    selectedMonth = document.querySelector(`.monthPaymentAndList #${selectedMonth}`)
+    monthListSpans.forEach(span => {
+        span.classList.remove('selected');
+        span.classList.remove('bold');
+    });
+
+    selectedMonth.classList.add('selected');
+    selectedMonth.classList.add('bold');
+}

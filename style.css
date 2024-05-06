@@ -327,6 +327,10 @@ body{
     border: 1px solid #25D366;
 }
 
+#simulatorContainer .textGreen{
+    color: #25D366;
+}
+
 #simulatorContainer .bold {
     font-weight: bold;
 }
