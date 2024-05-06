@@ -214,7 +214,8 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
         total: 0
     };
 
-    while (initialDate <= finalDate) {
+    // Loop até o dia anterior ao finalDate
+    while (initialDate < finalDate) {
         if (initialDate.getDay() !== 0 && initialDate.getDay() !== 6) {
             if (!holidays.some(holyDay => {
                 const holyDayToDate = new Date(holyDay);
@@ -234,10 +235,29 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
         initialDate.setDate(initialDate.getDate() + 1);
     }
 
+    // Verifica se o finalDate é um dia útil e inclui-o se for
+    if (finalDate.getDay() !== 0 && finalDate.getDay() !== 6) {
+        if (!holidays.some(holyDay => {
+            const holyDayToDate = new Date(holyDay);
+            return holyDayToDate.getDate() === finalDate.getDate() &&
+                   holyDayToDate.getMonth() === finalDate.getMonth() &&
+                   holyDayToDate.getFullYear() === finalDate.getFullYear();
+        })) {
+            const year = finalDate.getFullYear();
+            if (!workingDays.hasOwnProperty(year)) {
+                workingDays[year] = 1;
+            } else {
+                workingDays[year]++;
+            }
+            workingDays.total++; // Incrementa o total de dias úteis
+        }
+    }
+
     workingDays.totalYears = Object.keys(workingDays).length - 1; // Exclui a propriedade 'total'
 
     return workingDays;
-}; 
+};
+
 const handleCurrentRentability = (validityYearInput, quotaTypeInput) => {
     const currentYear = new Date().getFullYear();
     const result = {};
@@ -268,7 +288,7 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
         counter = 0,
         currentYear = new Date().getFullYear(),
         yearsOfCalculation = [currentYear, currentYear+1, currentYear+2];
-
+    console.log(workingDays)
     for (year in rentabilitiesValuesByYear[selectedQuota]) {
         if (counter === 0 ){
             if(selectedQuota === 'fit') returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100)**(workingDays.total/252)))
@@ -417,7 +437,7 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     quotaInformation    = document.querySelector(".quotaInformationContainer .information"),
     monthDisplay        = document.querySelector('#selectedMonth'),
     monthListNames      = document.querySelectorAll('.monthList span'),
-    validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30),
+    validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 31),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
     quotaTypeValue,
@@ -459,11 +479,19 @@ quotaTypeLabels.forEach(label => {
 });
 
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
-    validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
-    workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
-    highlightSelectedCheckInput(input)
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
+    const selectedMonth = monthOfPaymentInput.value; // Obtém o mês selecionado
+    const selectedYear = pickCheckedRadio(validityYearInputs).value; // Obtém o ano selecionado
+    const lastDayOfMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate(); // Obtém o último dia do mês selecionado
+
+    validityDate = new Date(selectedYear, selectedMonth, lastDayOfMonth); // Cria a data com o último dia do mês
+    workingDays = workingDaysCalculator(new Date(), validityDate, holidays);
+    highlightSelectedCheckInput(input);
+    
+    if (amountInvestedInput.value != undefined) {
+        showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+    }
 }));
+
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
@@ -473,10 +501,16 @@ quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
 }))
 
 monthOfPaymentInput.addEventListener('input', () => {
-    validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
-    monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value, monthListNames)
-    workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
+    const selectedYear = pickCheckedRadio(validityYearInputs).value; // Obtém o ano selecionado
+    const selectedMonth = monthOfPaymentInput.value; // Obtém o mês selecionado
+    const lastDayOfMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate(); // Obtém o último dia do mês selecionado
+
+    validityDate = new Date(selectedYear, selectedMonth, lastDayOfMonth); // Cria a data com o último dia do mês
+    monthDisplay.innerHTML = changeMonthDisplay(selectedMonth, monthListNames); // Atualiza o display do mês
+    workingDays = workingDaysCalculator(new Date(), validityDate, holidays); // Calcula os dias úteis
+    if(amountInvestedInput.value != undefined) {
+        showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+    }
 });
 
 startSimulation(amountInvestedInput)
