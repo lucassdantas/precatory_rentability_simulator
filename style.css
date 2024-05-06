@@ -64,9 +64,7 @@ body{
 .precnetText{
     background-color: #04A5FF;
     border-radius: 45px;
-    padding: 1.6%;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding: 5px 5px;
     width:120px;
     min-width:120px;
     max-width:120px;
@@ -78,9 +76,7 @@ body{
 .lcilcaText{
     background-color: #90d55e;
     border-radius: 45px;
-    padding: 1.7%;
-    padding-right: 6%;
-    padding-left: 6%;
+    padding: 5px;
     font-weight: bold;
     width:120px;
     min-width:120px;
@@ -97,9 +93,7 @@ body{
     background-color: #90d55e;
     border-radius: 45px;
     z-index: 1;
-    padding: 1.6%;
-    padding-right: 11%;
-    padding-left: 11%;
+    padding: 5px;
     font-weight: bold;
     width:120px;
     min-width:120px;
@@ -494,7 +488,7 @@ input[type="checkbox"]:checked + label::after {
         width:100%;
     }
     #simulatorContainer .chartQuotaValue{
-        font-size:22px;
+        font-size:18px;
     }
 }
 

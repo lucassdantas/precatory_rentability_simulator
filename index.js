@@ -175,9 +175,9 @@ const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionD
 
 const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabilityValue) => {
     const totalRentabilityValue = precnetRentabilityValue + cdbRentabilityValue + lciLcaRentabilityValue,
-          precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 150 || 0,
-          cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 150 || 0,
-          lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 150 || 0,
+          precnetPercentage = (precnetRentabilityValue / totalRentabilityValue) * 170 || 0,
+          cdbPercentage     = (cdbRentabilityValue     / totalRentabilityValue) * 170 || 0,
+          lciLcaPercentage  = (lciLcaRentabilityValue  / totalRentabilityValue) * 170 || 0,
           precNetBar    = document.getElementById('precnet'),
           cdbBar        = document.getElementById('cdb'),
           lciLcaBar     = document.getElementById('lci-lca'),
