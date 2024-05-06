@@ -1,3 +1,48 @@
+
+//frontend interactions functions
+const amountInvestedInputMask = event => {
+    let input = event.target;
+    let formattedValue = input.value.replace(/\D/g, '');
+    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    input.value = formattedValue;
+}
+
+const highlightSelectedCheckInput = input => {
+    let currentInputType;
+    if(input.classList.contains('yearInput')){
+        currentInputType = '.validityYearInputContainer'
+    }
+    if(input.classList.contains('quotaTypeInput')){
+        currentInputType = '.quotaTypeInputContainer'
+    }
+
+    document.querySelectorAll(currentInputType +' .inputAndLabelContainer').forEach(container => {
+        container.classList.remove('selected');
+    });
+    document.querySelectorAll(currentInputType +' .inputAndLabelContainer label').forEach(label => {
+        label.classList.remove('bold');
+    });
+
+    input.closest('.inputAndLabelContainer').classList.add('selected');
+    input.nextElementSibling.classList.add('bold');
+};
+
+const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
+    selectedMonth = document.querySelector(`.monthPaymentAndList #${selectedMonth}`)
+    monthListSpans.forEach(span => {
+        span.classList.remove('selected');
+        span.classList.remove('bold');
+    });
+
+    selectedMonth.classList.add('selected');
+    selectedMonth.classList.add('bold');
+}
+
+//------------------------
+
+
+
 const fixedFitQuota = {
     currentYearOptionChosen:15.50,
     nextYearOptionChosen:15.50,
@@ -425,43 +470,3 @@ startSimulation(amountInvestedInput)
 
 
 
-//------------------------
-//frontend interactions functions
-const amountInvestedInputMask = event => {
-    let input = event.target;
-    let formattedValue = input.value.replace(/\D/g, '');
-    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    input.value = formattedValue;
-}
-
-const highlightSelectedCheckInput = input => {
-    let currentInputType;
-    if(input.classList.contains('yearInput')){
-        currentInputType = '.validityYearInputContainer'
-    }
-    if(input.classList.contains('quotaTypeInput')){
-        currentInputType = '.quotaTypeInputContainer'
-    }
-
-    document.querySelectorAll(currentInputType +' .inputAndLabelContainer').forEach(container => {
-        container.classList.remove('selected');
-    });
-    document.querySelectorAll(currentInputType +' .inputAndLabelContainer label').forEach(label => {
-        label.classList.remove('bold');
-    });
-
-    input.closest('.inputAndLabelContainer').classList.add('selected');
-    input.nextElementSibling.classList.add('bold');
-};
-
-const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
-    selectedMonth = document.querySelector(`.monthPaymentAndList #${selectedMonth}`)
-    monthListSpans.forEach(span => {
-        span.classList.remove('selected');
-        span.classList.remove('bold');
-    });
-
-    selectedMonth.classList.add('selected');
-    selectedMonth.classList.add('bold');
-}
