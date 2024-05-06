@@ -231,7 +231,12 @@ body{
 
 .quotaInformationContainer{
     text-align:center;
-    margin-top:12px;
+    margin-top:0px;
+    padding:0 80px;
+}
+#simulatorContainer .informationSimbol{
+    color:#0495EC;
+    font-size:12px;
 }
 #simulatorContainer .information{
     font-size:10px;
