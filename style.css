@@ -282,6 +282,7 @@ body{
 
 #simulatorContainer .chartQuotaValue{
     white-space:nowrap;
+    font-size:22px;
 }
 #simulatorContainer #moneySimbol{
     font-size:28px;
@@ -492,7 +493,17 @@ input[type="checkbox"]:checked + label::after {
     #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
         width:100%;
     }
+    #simulatorContainer .chartQuotaValue{
+        font-size:22px;
+    }
 }
+
+@media(max-width:768px){
+    #simulatorContainer .chartQuotaValue{
+        font-size:16px;
+    }
+}
+
 @media(max-width:550px){
     .simulatorContainer{
         padding:0.2em;
@@ -572,7 +583,7 @@ input[type="checkbox"]:checked + label::after {
     }
     
 }
-@media(max-width:300px){
+@media(max-width:350px){
     .simulatorContainer{
         padding:2px;
     }
@@ -595,5 +606,8 @@ input[type="checkbox"]:checked + label::after {
     #simulatorContainer .inputAndLabelContainer{
         margin-right:0;
         width:100%;
+    }
+    #simulatorContainer .chartQuotaValue{
+        font-size:10px;
     }
 }
