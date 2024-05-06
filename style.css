@@ -262,7 +262,13 @@ body{
     font-size:28px;
 }
 
+#simulatorContainer .selected {
+    border: 2px solid green;
+}
 
+#simulatorContainer .bold {
+    font-weight: bold;
+}
 
 
 #monthOfPayment{

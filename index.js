@@ -261,6 +261,7 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
     return false;
 };
 const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
+    amountInvested = formatToOnlyNumbers(amountInvested)
     const   precnetValue =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).precnet || null,
             cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb     || null,
             lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca  || null;
@@ -363,6 +364,7 @@ const startSimulation = (amountInvestedInput) => {
 
 amountInvestedInput.addEventListener('input', (e) => {
     startSimulation(e.target)
+    amountInvestedInputMask(e)
 });
 
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
@@ -391,7 +393,7 @@ startSimulation(amountInvestedInput)
 
 
 //------------------------
-//frontend interactions script
+//frontend interactions functions
 const amountInvestedInputMask = event => {
     let input = event.target;
     let formattedValue = input.value.replace(/\D/g, '');
@@ -400,4 +402,4 @@ const amountInvestedInputMask = event => {
     input.value = formattedValue;
 }
 
-amountInvestedInput.addEventListener('input', amountInvestedInputMask);
+
