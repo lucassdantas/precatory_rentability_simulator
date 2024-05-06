@@ -1,0 +1,1 @@
+console.log(Number('100,500.005'))
