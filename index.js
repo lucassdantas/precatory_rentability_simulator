@@ -1,9 +1,9 @@
 
-//frontend interactions functions
+//frontend interactions methods
 const amountInvestedInputMask = event => {
     let input = event.target;
     // Verifica se o valor é maior que 100000000
-    if (formatToOnlyNumbers(input.value) > 100000000) {
+    if (formatToOnlyNumbers(input.value) >= 100000000) {
         input.value = '100.000.000';
     }
     let formattedValue = input.value.replace(/\D/g, '');
@@ -11,8 +11,6 @@ const amountInvestedInputMask = event => {
     formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     input.value = formattedValue;
 }
-
-
 const highlightSelectedCheckInput = input => {
     let currentInputType;
     if(input.classList.contains('yearInput')){
@@ -32,7 +30,6 @@ const highlightSelectedCheckInput = input => {
     input.closest('.inputAndLabelContainer').classList.add('selected');
     input.nextElementSibling.classList.add('bold');
 };
-
 const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
     selectedMonth = document.querySelector(`.monthPaymentAndList #${selectedMonth}`)
     monthListSpans.forEach(span => {
@@ -42,10 +39,11 @@ const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
 
     selectedMonth.classList.add('textGreen');
     selectedMonth.classList.add('bold');
-}
+};
+
 
 //------------------------
-
+//backend methods
 
 
 const fixedFitQuota = {
@@ -411,7 +409,10 @@ const formatToOnlyNumbers = value => {
 
 let amountInvestedInput = document.querySelector("input[name='amountInvested']"),
     validityYearInputs  = document.querySelectorAll(".yearInput"),
+    validityYearsLabels = document.querySelectorAll('.yearInputLabel'),
+    checkBoxInputs      = document.querySelectorAll(".checkBoxInputContainer"),
     quotaTypeInputs     = document.querySelectorAll(".quotaTypeInput"),
+    quotaTypeLabels     = document.querySelectorAll('.quotaTypeLabel'),
     monthOfPaymentInput = document.querySelector("input[name='monthOfPayment']"),
     quotaInformation    = document.querySelector(".quotaInformationContainer .information"),
     monthDisplay        = document.querySelector('#selectedMonth'),
@@ -439,11 +440,22 @@ const startSimulation = (amountInvestedInput) => {
     )
 }
 
+
 amountInvestedInput.addEventListener('input', (e) => {
     startSimulation(e.target)
     amountInvestedInputMask(e)
 });
 
+validityYearsLabels.forEach(label => {
+    label.addEventListener('click', () => {
+        document.querySelector(`#${label.getAttribute('for')}`).click()
+    })
+})
+quotaTypeLabels.forEach(label => {
+    label.addEventListener('click', () => {
+        document.querySelector(`#${label.getAttribute('for')}`).click()
+    })
+})
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
