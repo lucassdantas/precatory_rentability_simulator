@@ -49,7 +49,7 @@
                     </div>
                     <div class="amountInvested userInputData">
                         <span class="inputIdentifier">Valor investido:</span>
-                        <div class="amoutInvestedContainer">
+                        <div class="amountInvestedContainer">
                             <span id='moneySimbol'>R$ </span>
                             <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100000'>
                         </div>
@@ -63,34 +63,37 @@
                     <div class="paymentMonth">
                         <div class="monthRowContainer">
                             <div class="monthContainer">
-                                <span class="monthOfPaymentTitle">Mês de pagamento </span>
-                                <span class="validityYearText">(do ano de vencimento)</span>
+                                <label class="monthOfPaymentTitle">Mês de pagamento </label>
+                                <br>
+                                <small class="validityYearText">(Ano de vencimento)</small>
                             </div>
                             <div class="selectedMonthContainer">
                                 <span id="selectedMonth"></span>
                             </div>
                         </div>
                         <div class="monthPaymentAndList">
-                        <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
-                        <div class="monthList">
-                            <span>Jan</span>
-                            <span>Fev</span>
-                            <span>Mar</span>
-                            <span>Abr</span>
-                            <span>Mai</span>
-                            <span>Jun</span>
-                            <span>Jul</span>
-                            <span>Ago</span>
-                            <span>Set</span>
-                            <span>Out</span>
-                            <span>Nov</span>
-                            <span>Dez</span>
-                        </div>
+                            <div class="monthList topMonthList">
+                                <span>Jan</span>
+                                <span>Mar</span>
+                                <span>Mai</span>
+                                <span>Jul</span>
+                                <span>Set</span>
+                                <span>Nov</span>  
+                            </div>
+                            <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
+                            <div class="monthList bottomMonthList">
+                                <span>Fev</span>
+                                <span>Abr</span>
+                                <span>Jun</span>
+                                <span>Ago</span>
+                                <span>Out</span>
+                                <span>Dez</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="chartContainer hidden">
-                        <h3>Previsão de rentabilidade</h3>
+                        <p class='rentabilityTitle'>Previsão de rentabilidade</p>
                         
                         <div class="chart">
                             <div class="bar" id="precnet">

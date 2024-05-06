@@ -15,6 +15,8 @@
 }
 body{
     padding:24px;
+    display:flex;
+    justify-content:center;
 }
 
 
@@ -25,8 +27,9 @@ body{
     align-items:center;
     color: white;
     background-color:#0b3379;
-    border-radius:20px;
+    border-radius:25px;
     padding:1em;
+    max-width:1200px;
 }
 
 .simulatorHeader{
@@ -88,15 +91,16 @@ body{
     display:none;
     visibility:hidden;
 }
-#simulatorContainer h3{
+#simulatorContainer .rentabilityTitle{
     font-size: 24px;
-    color:#474747;
+    color:#fff;
+    font-weight:700;
+    margin-bottom:12px;
 }
 #simulatorContainer .simulatorBody{
     padding:20px;
     min-height:250px;
     height:100%;
-
 }
 #simulatorContainer input[type='radio']{
     width:16px;
@@ -131,7 +135,7 @@ body{
 }
 
 .monthPaymentAndList{
-    border: 1.5px solid #0968bc;
+    border: 1.5px solid #066CBB;
     border-radius: 10px;
     padding: 3%;
     width: 100%;
@@ -157,23 +161,22 @@ body{
     margin-top:24px;
 }
 
-.chartContainer > h3{
-    
-    color: white!important;
-}
+
 #simulatorContainer .chart {
     
-    border: 1.5px solid #0968bc;
+    border: 1.5px solid #066CBB;
     border-radius: 10px;
     padding: 1.5%;
     
 }
 
 
-#simulatorContainer .amoutInvestedContainer{
-    border: 1.5px solid #0968bc;
+#simulatorContainer .amountInvestedContainer{
+    border: 1.5px solid #066CBB;
     border-radius: 10px;
-    padding: 1.5%;
+    padding: 25px 15px;
+    width:fit-content;
+    min-width:140px;
 }
 
 .bar {
@@ -207,8 +210,11 @@ body{
 
 .quotaInformationContainer{
     text-align:center;
+    margin-top:12px;
 }
-
+#simulatorContainer .information{
+    font-size:10px;
+}
 #precnet {
     height: 30px;
     background-color: #384DBA;
@@ -238,10 +244,8 @@ body{
     color: white;
     background-color: #0b3379;
     padding:6px 12px;
-    width:80%;
     outline: none;
     font-size:28px;
-    
 }
 
 
@@ -283,9 +287,7 @@ body{
     margin-right:5px;
 }
 
-#simulatorContainer .amoutInvestedContainer{
-    
-}
+
 #simulatorContainer .inputContainer{
     display:flex;
 }
@@ -295,6 +297,7 @@ body{
 }
 #simulatorContainer .monthContainer{
     font-weight:700;
+    margin-bottom:12px;
 }
 #simulatorContainer .selectedMonthContainer{
     display:none;
@@ -302,6 +305,11 @@ body{
 }
 #simulatorContainer .monthOfPaymentTitle{
     font-size:20px;
+}
+#simulatorContainer .validityYearText{
+    font-size:12px;
+    font-weight:400;
+    color:#54AA54;
 }
 @media(max-width:768px){
     #simulatorContainer .row{
@@ -349,7 +357,7 @@ body{
     #simulatorContainer .inputIdentifier{
         font-size:16px;
     }
-    #simulatorContainer h3{
+    #simulatorContainer .rentabilityTitle{
         font-size:18px;
     }
     #simulatorContainer .bar{
