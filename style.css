@@ -27,6 +27,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x:hidden;
     color: white;
     background: linear-gradient(to bottom right, #0C3782, #04265E);
     border-radius: 25px;
@@ -356,65 +357,6 @@ body{
 #simulatorContainer .bold {
     font-weight: bold;
 }
-@media(max-width:768px){
-    #simulatorContainer .row{
-        flex-direction:column;
-    }
-
-    #simulatorContainer .col{
-        width:100%;
-    }
-}
-
-@media(max-width:550px){
-    #simulatorContainer .inputContainer{
-        flex-direction:column;
-    }
-    #simulatorContainer .validityYearText{
-        display:block;
-    }
-    #simulatorContainer .monthList{
-        font-size:8px;
-    }
-    #simulatorContainer .monthRowContainer{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-    }
-    #simulatorContainer .monthContainer{
-        width:80%;
-    }
-    #simulatorContainer .monthList{
-        display:none;
-        visibility:hidden;
-    }
-    #simulatorContainer .selectedMonthContainer{
-        display:inline-block;
-        visibility:visible;
-    }
-    #simulatorContainer #selectedMonth{
-        color:#206218;
-        font-weight:bold;
-    }
-    #simulatorContainer .monthOfPaymentTitle{
-        font-size:16px;
-    }
-    #simulatorContainer .inputIdentifier{
-        font-size:16px;
-    }
-    #simulatorContainer .rentabilityTitle{
-        font-size:18px;
-    }
-    #simulatorContainer .bar{
-        max-width:300px;
-    }
-    
-}
-@media(max-width:300px){
-    #simulatorContainer .bar{
-      max-width:224px;
-  } 
-}
 
 #simulatorContainer input[type="range"] {
     /* Remove estilos padrão */
@@ -510,4 +452,86 @@ input[type="checkbox"]:checked + label::after {
    -o-transform: rotate(-45deg);
    -ms-transform: rotate(-45deg);
    transform: rotate(-45deg);
+}
+
+@media(max-width:768px){
+    #simulatorContainer .row{
+        flex-direction:column;
+    }
+
+    #simulatorContainer .col{
+        width:100%;
+    }
+
+    #simulatorContainer .inputAndLabelContainer{
+        margin-bottom:12px;
+    }
+}
+
+@media(max-width:550px){
+    .simulatorContainer{
+        padding:0.2em;
+    }
+    #simulatorContainer .simulatorHeader{
+        padding:30px 22px 0;
+    }
+    #simulatorContainer .simulatorBody{
+        padding:10px;
+    }
+    #simulatorContainer .inputContainer{
+        flex-direction:column;
+    }
+    #simulatorContainer .validityYearText{
+        display:block;
+    }
+    #simulatorContainer #moneySimbol{
+        font-size:24px;
+    }
+    #simulatorContainer #amountInvested{
+        width:79%;
+        font-size:24px;
+    }
+    #simulatorContainer .monthRowContainer{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+    #simulatorContainer .monthContainer{
+        width:80%;
+    }
+    #simulatorContainer .monthList{
+        font-size:8px;
+        display:none;
+        visibility:hidden;
+    }
+    #simulatorContainer .selectedMonthContainer{
+        display:inline-block;
+        visibility:visible;
+    }
+    #simulatorContainer #selectedMonth{
+        color:#25D366;
+        font-weight:bold;
+    }
+    #simulatorContainer .monthOfPaymentTitle{
+        font-size:16px;
+    }
+    #simulatorContainer .inputIdentifier{
+        font-size:16px;
+    }
+    #simulatorContainer .rentabilityTitle{
+        font-size:18px;
+    }
+    #simulatorContainer .quotaInformationContainer{
+        padding:0;
+    }
+    #simulatorContainer .precnetText, #simulatorContainer .cdbText, #simulatorContainer .lcilcaText{
+        width:95px;
+        min-width:95px;
+        max-width:95px;
+    }
+    
+}
+@media(max-width:300px){
+    #simulatorContainer .bar{
+  } 
 }
