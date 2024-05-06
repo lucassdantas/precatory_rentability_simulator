@@ -42,7 +42,7 @@ body{
     width:100%;
 }
 .simulatorTitleContainer{
-    border-bottom:2px solid #25D366;
+    border-bottom:2px solid #54AA54;
     width:100%;
 }
 .simulatorTitle{
@@ -182,7 +182,7 @@ body{
 }
 
 #simulatorContainer .userInputData{
-    margin-bottom:24px;
+    margin-bottom:28px;
     display:flex;
     flex-direction:column;
 }
@@ -220,7 +220,7 @@ body{
     background-color:rgba(10, 51, 122, 0.5)
 }
 #simulatorContainer .moneySimbolAndAmountInvestedInputContainer{
-    border-bottom: 2px solid #90d55e;
+    border-bottom: 2px solid #54AA54;
 }
 
 .bar {
@@ -352,6 +352,8 @@ body{
 #simulatorContainer .monthContainer{
     font-weight:700;
     margin-bottom:12px;
+    display:flex;
+    flex-direction:column;
 }
 #simulatorContainer .selectedMonthContainer{
     display:none;
@@ -417,6 +419,9 @@ body{
     box-shadow: 0 0 10px 3px  #54AA54;
     height: 15px;
     width: 15px;
+}
+#simulatorContainer .monthOfPaymentTitle{
+    margin-bottom:0px;
 }
 
 input[type="radio"],
