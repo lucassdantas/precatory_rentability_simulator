@@ -8,6 +8,9 @@
 </head>
 <body>
     <div id='simulatorContainer' class="simulatorContainer simulator">
+        <div class="simulatorHeader">
+            <div class="simulatorTitle">Simulador</div>
+        </div>
         <div class="simulatorBody">
             <div class="row">
                 <div class="col col50 leftUserInputContainer">
@@ -26,11 +29,11 @@
 
                     </div>
                     <div class="quotaType userInputData">
-                        <span class="inputIdentifier">Cota:</span>
+                        <span class="inputIdentifier">Cotas</span>
                         <div class="inputContainer">
                             <div class="inputAndLabelContainer">
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
-                                <label>Cota Master</label>
+                                <label class="teste">Cota Master</label>
                             </div>
                             <div class="inputAndLabelContainer">
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
@@ -46,8 +49,8 @@
                     </div>
                     <div class="amountInvested userInputData">
                         <span class="inputIdentifier">Valor investido:</span>
-                        <div>
-                            <span>R$ </span>
+                        <div class="amoutInvestedContainer">
+                            <span id='moneySimbol'>R$ </span>
                             <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100000'>
                         </div>
                         <div class="instructionContainer">
@@ -67,6 +70,7 @@
                                 <span id="selectedMonth"></span>
                             </div>
                         </div>
+                        <div class="monthPaymentAndList">
                         <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
                         <div class="monthList">
                             <span>Jan</span>
@@ -82,21 +86,27 @@
                             <span>Nov</span>
                             <span>Dez</span>
                         </div>
+                        </div>
                     </div>
 
                     <div class="chartContainer hidden">
                         <h3>Previsão de rentabilidade</h3>
+                        
                         <div class="chart">
                             <div class="bar" id="precnet">
+                                <span class="precnetText"> PrecNet </span>
                                 <span class="precnetValue" id="precnetValue" ></span>
                             </div>
                             <div class="bar" id="cdb">
+                                <span class="cdbText"> CDB </span>
                                 <span class="cdbValue" id="cdbValue"></span>
                             </div>
                             <div class="bar" id="lci-lca">
+                                <span class="lcilcaText"> LCI/LCA </span>
                                 <span class="lciLcaValue" id="lciLcaValue"></span>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -107,6 +117,7 @@
             </div>
         </div>
     </div>
+   
     
     <script src="./index.js"></script>
 </body>
