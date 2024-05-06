@@ -37,6 +37,7 @@ body{
 
 #simulatorContainer label{
     line-height:1;
+    color:#fff;
     
 }
 
@@ -62,9 +63,7 @@ body{
     height:100%;
     width:100%;
 }
-#simulatorContainer label{
-    color:#fff;
-}
+
 .precnetText{
     background-color: #04A5FF;
     border-radius: 45px;
@@ -514,7 +513,10 @@ body{
         padding:0.2em;
     }
     #simulatorContainer .simulatorHeader{
-        padding:30px 22px 0;
+        padding:20px 22px 0;
+    }
+    #simulatorContainer .simulatorTitle{
+        font-size:20px;
     }
     #simulatorContainer .simulatorBody{
         padding:10px;
@@ -526,11 +528,11 @@ body{
         display:block;
     }
     #simulatorContainer #moneySimbol{
-        font-size:22px;
+        font-size:16px;
     }
     #simulatorContainer #amountInvested{
         width:84%;
-        font-size:22px;
+        font-size:18px;
     }
     #simulatorContainer .monthRowContainer{
         display:flex;
@@ -550,7 +552,7 @@ body{
         visibility:visible;
     }
     #simulatorContainer #selectedMonth{
-        color:#54AA54;
+        color:#fff;
         font-weight:bold;
     }
     #simulatorContainer .monthOfPaymentTitle{
@@ -585,6 +587,21 @@ body{
     }
     #simulatorContainer .chart .bar{
         width:97%!important;
+    }
+    #simulatorContainer .amountInvestedContainer{
+        padding:5px;
+    }
+    #simulatorContainer .col{
+        padding:5px 12px;
+    }
+    #simulatorContainer .chartContainer{
+        height:fit-content;
+    }
+    #simulatorContainer .inputAndLabelContainer label{
+        font-size:12px;
+    }
+    #simulatorContainer .userInputData {
+        margin-bottom:5px;
     }
     
 }

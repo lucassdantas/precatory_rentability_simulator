@@ -288,7 +288,6 @@ const calcRentability = (amountInvested, rentabilitiesValuesByYear, selectedQuot
         counter = 0,
         currentYear = new Date().getFullYear(),
         yearsOfCalculation = [currentYear, currentYear+1, currentYear+2];
-    console.log(workingDays)
     for (year in rentabilitiesValuesByYear[selectedQuota]) {
         if (counter === 0 ){
             if(selectedQuota === 'fit') returnValue = (amountInvested*((1+rentabilitiesValuesByYear[selectedQuota][year]/100)**(workingDays.total/252)))
