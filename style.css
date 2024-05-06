@@ -119,7 +119,10 @@ body{
     display:none;
     visibility:hidden;
 }
-
+#simulatorContainer .paymentMonth{
+    height:184px;
+    min-height:fit-content;
+}
 
 #simulatorContainer input[type='radio']{
     width:16px;
@@ -189,13 +192,13 @@ body{
 }
 #simulatorContainer .inputIdentifier{
     margin-right:8px;
-    margin-bottom:15px;
+    margin-bottom:10px;
     font-weight:700;
     font-size:24px;
 }
 #simulatorContainer .chartContainer{
     
-    height:120px;
+    height:184px;
     margin-top:24px;
 }
 
@@ -493,6 +496,9 @@ body{
     }
     #simulatorContainer .chartQuotaValue{
         font-size:18px;
+    }
+    #simulatorContainer .paymentMonth{
+        height:fit-content;
     }
 }
 
