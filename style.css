@@ -107,7 +107,7 @@ body{
 }
 #simulatorContainer .row{
     display:flex;
-    margin:24px 0;
+    margin:24px 0 0 0;
 }
 
 #simulatorContainer .col{
@@ -147,7 +147,6 @@ body{
 }
 #simulatorContainer .rightCol{
     display:flex;
-    justify-content:space-between;
 }
 
 .monthPaymentAndList{
@@ -192,7 +191,6 @@ body{
     border-radius: 10px;
     padding: 25px 15px;
     width:fit-content;
-    min-width:140px;
 }
 
 .bar {

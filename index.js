@@ -324,6 +324,12 @@ const changeQuotaInformationText = (selectedQuota, quotaInformationText) => {
     if(selectedQuota === 'master') return quotaInformationText.innerText = '* valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.';
     if(selectedQuota === 'irFree') return quotaInformationText.innerText = '* valores líquidos caso o resgate seja inferior a R$35 mil. Com a PrecNet, os preços de cada cota ir free são calculados de modo que o investidor receba menos do que R$35 mil no resgate da operação, ficando assim isento de imposto de renda sobre o ganho de capital.';
 };
+const formatToOnlyNumbers = value => {
+    let formattedValue = value.replace(/\D/g, '');
+    formattedValue = formattedValue.replace(',', '.');
+
+    return formattedValue;
+};
 
 let amountInvestedInput = document.querySelector("input[name='amountInvested']"),
     validityYearInputs  = document.querySelectorAll(".yearInput"),
@@ -340,8 +346,8 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
 monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value)
 
 const startSimulation = (amountInvestedInput) => {
-    amountInvestedInput.value = formatNumber(amountInvestedInput.value)
-    showHiddenChartContainer(amountInvestedInput.value)
+    let formattedInputValue = formatToOnlyNumbers(amountInvestedInput.value)
+    showHiddenChartContainer(formattedInputValue)
     validateFields(
         amountInvestedInput, 
         pickCheckedRadio(validityYearInputs), 
@@ -349,7 +355,7 @@ const startSimulation = (amountInvestedInput) => {
         monthOfPaymentInput
     )
     showResultsOnScreen(
-        amountInvestedInput.value,
+        formattedInputValue,
         pickCheckedRadio(quotaTypeInputs).value,
         workingDays,validityDate.getFullYear()
     )
@@ -378,3 +384,20 @@ monthOfPaymentInput.addEventListener('input', () => {
 });
 
 startSimulation(amountInvestedInput)
+
+
+
+
+
+
+//------------------------
+//frontend interactions script
+const amountInvestedInputMask = event => {
+    let input = event.target;
+    let formattedValue = input.value.replace(/\D/g, '');
+    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    input.value = formattedValue;
+}
+
+amountInvestedInput.addEventListener('input', amountInvestedInputMask);
