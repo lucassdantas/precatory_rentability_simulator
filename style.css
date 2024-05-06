@@ -21,16 +21,17 @@ body{
 
 
 
-.simulatorContainer{
-    display:flex;
+.simulatorContainer {
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     color: white;
-    background-color:#0b3379;
-    border-radius:25px;
-    padding:1em;
-    max-width:1200px;
+    background: linear-gradient(to bottom right, #0C3782, #04265E);
+    border-radius: 25px;
+    padding: 1em;
+    max-width: 1200px;
 }
+
 
 .simulatorHeader{
     border-bottom:2px solid #25D366;
@@ -154,6 +155,7 @@ body{
     border-radius: 10px;
     padding: 3%;
     width: 100%;
+    background-color:rgba(10, 51, 122, 0.5);
 }
 
 #simulatorContainer .userInputData{
@@ -178,7 +180,8 @@ body{
 
 
 #simulatorContainer .chart {
-    
+    background-color:rgba(10, 51, 122, 0.5);
+
     border: 1.5px solid #066CBB;
     border-radius: 10px;
     padding: 1.5%;
@@ -191,6 +194,10 @@ body{
     border-radius: 10px;
     padding: 25px 15px;
     width:fit-content;
+    background-color:rgba(10, 51, 122, 0.5)
+}
+#simulatorContainer .moneySimbolAndAmountInvestedInputContainer{
+    border-bottom: 2px solid #90d55e;
 }
 
 .bar {
@@ -251,31 +258,15 @@ body{
     font-weight:700;
 }
 #amountInvested{
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid #90d55e;
+    border:unset;
     color: white;
-    background-color: #0b3379;
+    background-color: unset;
     padding:6px 12px;
     outline: none;
     font-size:28px;
 }
 
-#monthOfPayment{
-    width: 100%!important;
-    height: 5px!important;
 
-    margin-top:12px;
-    
-}
-
-#monthOfPayment::-webkit-slider-thumb{
-    background: #90d55e!important;
-    box-shadow: 0 0 10px 3px  #90d55e;
-    height: 15px!important;
-    width: 15px!important;
-}
 
 
 
@@ -399,32 +390,41 @@ body{
     -webkit-appearance: none;
     -moz-apperance: none;
     appearance: none;
-    /* Dimensões e layout */
-    width: 100%;
-    height: 20px;
-    /* Track */
+
     background-color: #ccc; /* Cor de fundo cinza */
     border-radius: 10px;
     /* Thumb (alça) */
     cursor: pointer;
   }
 
-  #simulatorContainer input[type="range"]::-webkit-slider-thumb {
+#simulatorContainer input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     /* Dimensões e layout */
-    width: 20px;
-    height: 20px;
+
     background-color: #04265E; /* Cor da bola */
     border-radius: 50%; /* Forma circular */
-  }
+}
 
-  #simulatorContainer input[type="range"]::-moz-range-thumb {
+#simulatorContainer input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
     appearance: none;
     /* Dimensões e layout */
-    width: 20px;
-    height: 20px;
+
     background-color: #04265E; /* Cor da bola */
     border-radius: 50%; /* Forma circular */
-  }
+}
+
+#monthOfPayment{
+    width: 100%;
+    height: 5px;
+    margin-top:12px;
+    
+}
+
+#monthOfPayment::-webkit-slider-thumb{
+    background: #90d55e!important;
+    box-shadow: 0 0 10px 3px  #90d55e;
+    height: 15px;
+    width: 15px;
+}

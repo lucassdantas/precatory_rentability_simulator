@@ -379,8 +379,6 @@ const changeMonthDisplay = (selectedMonthIndex, monthsList) => {
             selectedMonth = '';
             selectedMonthId = '';
     }
-    
-
     highlightSelectedMonth(selectedMonthId, monthsList)
     return selectedMonth
 }; 
