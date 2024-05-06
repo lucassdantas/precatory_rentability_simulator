@@ -262,19 +262,10 @@ body{
     font-size:28px;
 }
 
-#simulatorContainer .selected {
-    border: 2px solid green;
-}
-
-#simulatorContainer .bold {
-    font-weight: bold;
-}
-
-
 #monthOfPayment{
     width: 100%!important;
     height: 5px!important;
-    
+
     margin-top:12px;
     
 }
@@ -330,6 +321,14 @@ body{
     font-size:12px;
     font-weight:400;
     color:#54AA54;
+}
+
+#simulatorContainer .selected {
+    border: 1px solid #25D366;
+}
+
+#simulatorContainer .bold {
+    font-weight: bold;
 }
 @media(max-width:768px){
     #simulatorContainer .row{

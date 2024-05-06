@@ -370,12 +370,15 @@ amountInvestedInput.addEventListener('input', (e) => {
 validityYearInputs.forEach(input => input.addEventListener('click', () => {
     validityDate = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 30)
     workingDays =  workingDaysCalculator(new Date(), validityDate, holidays)
+    highlightSelectedCheckInput(input)
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
 }));
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
     if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
     changeQuotaInformationText(pickCheckedRadio(quotaTypeInputs).value, quotaInformation)
+    highlightSelectedCheckInput(input)
+
 }))
 
 monthOfPaymentInput.addEventListener('input', () => {
@@ -402,4 +405,23 @@ const amountInvestedInputMask = event => {
     input.value = formattedValue;
 }
 
+const highlightSelectedCheckInput = input => {
+    let currentInputType;
+    if(input.classList.contains('yearInput')){
+        currentInputType = '.validityYearInputContainer'
+    }
+    if(input.classList.contains('quotaTypeInput')){
+        currentInputType = '.quotaTypeInputContainer'
+    }
+
+    document.querySelectorAll(currentInputType +' .inputAndLabelContainer').forEach(container => {
+        container.classList.remove('selected');
+    });
+    document.querySelectorAll(currentInputType +' .inputAndLabelContainer label').forEach(label => {
+        label.classList.remove('bold');
+    });
+
+    input.closest('.inputAndLabelContainer').classList.add('selected');
+    input.nextElementSibling.classList.add('bold');
+};
 
