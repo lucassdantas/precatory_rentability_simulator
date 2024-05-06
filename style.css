@@ -121,12 +121,7 @@ body{
     display:none;
     visibility:hidden;
 }
-#simulatorContainer .rentabilityTitle{
-    font-size: 24px;
-    color:#fff;
-    font-weight:700;
-    margin-bottom:12px;
-}
+
 
 #simulatorContainer input[type='radio']{
     width:16px;
@@ -198,7 +193,7 @@ body{
     margin-right:8px;
     margin-bottom:15px;
     font-weight:700;
-    font-size:20px;
+    font-size:24px;
 }
 #simulatorContainer .chartContainer{
     
@@ -317,12 +312,12 @@ body{
 
 .inputAndLabelContainerSelected{
 
-    border: 1px solid #90d55e;
+    border: 1px solid #54AA54;
     
 }
 
 #simulatorContainer .validityYear .inputAndLabelContainer{
-    width:25%;
+    width:30%;
     display:flex;
     margin-right:35px;
     justify-content:center;
@@ -362,9 +357,7 @@ body{
     display:none;
     visibility:hidden;
 }
-#simulatorContainer .monthOfPaymentTitle{
-    font-size:20px;
-}
+
 #simulatorContainer .validityYearText{
     font-size:16px;
     font-weight:400;
@@ -372,11 +365,11 @@ body{
 }
 
 #simulatorContainer .selected {
-    border: 1px solid #25D366;
+    border: 1px solid #54AA54;
 }
 
 #simulatorContainer .textGreen{
-    color: #25D366;
+    color: #54AA54;
 }
 
 #simulatorContainer .bold {
@@ -420,8 +413,8 @@ body{
 }
 
 #monthOfPayment::-webkit-slider-thumb{
-    background: #90d55e!important;
-    box-shadow: 0 0 10px 3px  #90d55e;
+    background: #54AA54!important;
+    box-shadow: 0 0 10px 3px  #54AA54;
     height: 15px;
     width: 15px;
 }
@@ -491,6 +484,9 @@ input[type="checkbox"]:checked + label::after {
     #simulatorContainer .inputAndLabelContainer{
         margin-bottom:12px;
     }
+    #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
+        width:100%;
+    }
 }
 @media(max-width:550px){
     .simulatorContainer{
@@ -533,7 +529,7 @@ input[type="checkbox"]:checked + label::after {
         visibility:visible;
     }
     #simulatorContainer #selectedMonth{
-        color:#25D366;
+        color:#54AA54;
         font-weight:bold;
     }
     #simulatorContainer .monthOfPaymentTitle{

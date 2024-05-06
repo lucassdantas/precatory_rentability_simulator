@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col col50 leftUserInputContainer">
                     <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer">
-                        <span class="inputIdentifier">Vencimento do ativo:</span>
+                        <span class="inputIdentifier inputTitle">Vencimento do ativo:</span>
                         <div class="inputContainer">
                             <div class="inputAndLabelContainer selected">
                                 <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
@@ -67,9 +67,10 @@
                     <div class="paymentMonth">
                         <div class="monthRowContainer">
                             <div class="monthContainer">
-                                <label class="monthOfPaymentTitle">Mês de pagamento </label>
+                                <label class="monthOfPaymentTitle inputIdentifier">Mês de pagamento
                                 <br>
-                                <small class="validityYearText">(Ano de vencimento)</small>
+                                <small class="validityYearText">(Ano de vencimento)</small>    
+                                </label>
                             </div>
                             <div class="selectedMonthContainer">
                                 <span id="selectedMonth"></span>
@@ -101,7 +102,7 @@
                     </div>
 
                     <div class="chartContainer hidden">
-                        <p class='rentabilityTitle'>Previsão de rentabilidade</p>
+                        <p class='rentabilityTitle inputIdentifier'>Previsão de rentabilidade</p>
                         
                         <div class="chart">
                             <div class="bar" id="precnet">
