@@ -491,8 +491,14 @@ body{
     #simulatorContainer .inputAndLabelContainer{
         margin-bottom:12px;
     }
-    #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
+    #simulatorContainer .validityYear .inputAndLabelContainer{
+        max-width:150px;
         width:100%;
+    }
+    #simulatorContainer .quotaType .inputAndLabelContainer{
+        max-width:250px;
+        width:100%;
+
     }
     #simulatorContainer .chartQuotaValue{
         font-size:18px;
@@ -522,9 +528,13 @@ body{
         padding:10px;
     }
 
+    #simulatorContainer .validityYear .inputAndLabelContainer{
+        max-width:100px;    
+        margin-right:12px;
+    }
     #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
-        width:50%;
-        margin-right:5px;
+        max-width:160px;   
+        margin-right:12px;     
     }
     #simulatorContainer .validityYearText{
         display:block;
@@ -600,14 +610,20 @@ body{
         height:fit-content;
     }
     #simulatorContainer .inputAndLabelContainer label{
-        font-size:12px;
+        font-size:14px;
     }
     #simulatorContainer .userInputData {
         margin-bottom:5px;
     }
     
 }
-@media(max-width:375px){
+
+@media(max-width:430px){
+    #simulatorContainer .inputAndLabelContainer label{
+        font-size:10px;
+    }
+}
+@media(max-width:356px){
     .simulatorContainer{
         padding:2px;
     }
@@ -627,9 +643,10 @@ body{
     #simulatorContainer .quotaInformationContainer{
         padding:15px 5px;
     }
-    #simulatorContainer .inputAndLabelContainer, #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
-        margin-right:0;
+    #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
         width:100%;
+        max-width:100%;
+        margin-right:0;
     }
     #simulatorContainer .chartQuotaValue{
         font-size:10px;
