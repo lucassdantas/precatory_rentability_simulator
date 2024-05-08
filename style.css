@@ -521,8 +521,10 @@ body{
     #simulatorContainer .simulatorBody{
         padding:10px;
     }
-    #simulatorContainer .inputContainer{
-        flex-direction:column;
+
+    #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
+        width:50%;
+        margin-right:5px;
     }
     #simulatorContainer .validityYearText{
         display:block;
@@ -605,7 +607,7 @@ body{
     }
     
 }
-@media(max-width:350px){
+@media(max-width:375px){
     .simulatorContainer{
         padding:2px;
     }
@@ -625,11 +627,14 @@ body{
     #simulatorContainer .quotaInformationContainer{
         padding:15px 5px;
     }
-    #simulatorContainer .inputAndLabelContainer{
+    #simulatorContainer .inputAndLabelContainer, #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
         margin-right:0;
         width:100%;
     }
     #simulatorContainer .chartQuotaValue{
         font-size:10px;
+    }
+    #simulatorContainer .inputContainer{
+        flex-direction:column;
     }
 }
