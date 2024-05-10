@@ -565,7 +565,7 @@ body{
         visibility:visible;
     }
     #simulatorContainer #selectedMonth{
-        color:#fff;
+        color:#90d55e;
         font-weight:bold;
     }
     #simulatorContainer .monthOfPaymentTitle{
