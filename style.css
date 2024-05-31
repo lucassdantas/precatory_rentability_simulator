@@ -255,6 +255,7 @@ body{
     text-align:center;
     margin-top:0px;
     padding:0 80px;
+    width:100%;
 }
 #simulatorContainer .informationSimbol{
     color:#0495EC;
