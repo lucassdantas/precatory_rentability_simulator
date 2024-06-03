@@ -1,3 +1,4 @@
+        
 
 //frontend interactions methods
 const amountInvestedInputMask = event => {
@@ -41,7 +42,6 @@ const highlightSelectedMonth = (selectedMonth, monthListSpans) => {
     selectedMonth.classList.add('bold');
 };
 
-
 //------------------------
 //backend methods
 
@@ -64,13 +64,13 @@ const dailyRentability = {
             afterNextYearOptionChosen: 0.036781
         },
         irFree: {
-            currentYearOptionChosen: 0.059751,
-            nextYearOptionChosen: 0.051874,
+            currentYearOptionChosen: 0.059789,
+            nextYearOptionChosen: 0.059560,
             afterNextYearOptionChosen: 0.050764
         },
         lciLca: {
-            currentYearOptionChosen: 0.031435,
-            nextYearOptionChosen: 0.030139,
+            currentYearOptionChosen: 0.029604,
+            nextYearOptionChosen: 0.029375,
             afterNextYearOptionChosen: 0.029029
         },
         fit: {
@@ -85,16 +85,16 @@ const dailyRentability = {
             afterNextOptionYearChosen: 0.063923
         },
         cdb: {
-            nextYearOptionChosen: 0.036708,
-            afterNextOptionYearChosen: 0.036857
+            nextYearOptionChosen: 0.037325,
+            afterNextOptionYearChosen: 0.036219
         },
         irFree: {
-            nextYearOptionChosen: 0.058717,
-            afterNextOptionYearChosen: 0.050840
+            nextYearOptionChosen: 0.059560,
+            afterNextOptionYearChosen: 0.060409
         },
         lciLca: {
-            nextYearOptionChosen: 0.030401,
-            afterNextOptionYearChosen: 0.029105
+            nextYearOptionChosen: 0.029375,
+            afterNextOptionYearChosen: 0.030933
         },
         fit: {
             nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -103,24 +103,24 @@ const dailyRentability = {
     },
     afterNextYearRentabilityOn: {
         master: {
-            currentYearOptionChosen: 0.063089,
+            currentYearOptionChosen: 0.065072,
             nextYearOptionChosen: 0.064843,
             afterNextYearOptionChosen: 0.063923
         },
         cdb: {
-            currentYearOptionChosen: 0.037891,
-            nextYearOptionChosen: 0.036857,
-            afterNextYearOptionChosen: 0.036781
+            currentYearOptionChosen: 0.037368,
+            nextYearOptionChosen: 0.037138,
+            afterNextYearOptionChosen: 0.036219
         },
         irFree: {
-            currentYearOptionChosen: 0.051874,
-            nextYearOptionChosen: 0.050840,
-            afterNextYearOptionChosen: 0.050764
+            currentYearOptionChosen: 0.061558,
+            nextYearOptionChosen: 0.061329,
+            afterNextYearOptionChosen: 0.060409
         },
         lciLca: {
-            currentYearOptionChosen: 0.030139,
-            nextYearOptionChosen: 0.029105,
-            afterNextYearOptionChosen: 0.029029
+            currentYearOptionChosen: 0.032082,
+            nextYearOptionChosen: 0.031853,
+            afterNextYearOptionChosen: 0.030933
         },
         fit: {
             currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
@@ -436,6 +436,8 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     quotaInformation    = document.querySelector(".quotaInformationContainer .information"),
     monthDisplay        = document.querySelector('#selectedMonth'),
     monthListNames      = document.querySelectorAll('.monthList span'),
+    questionMarkIcon    = document.querySelector('.simulatorQuestionMarkIcon'),
+    questionPopUp       = document.querySelector(".simuladorQuotaExplanationContainer"),
     validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 31),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
@@ -512,10 +514,19 @@ monthOfPaymentInput.addEventListener('input', () => {
     }
 });
 
+questionMarkIcon.addEventListener('mouseenter', () => {
+    questionPopUp.classList.add('simulatorVisible')
+})
+
+questionPopUp.addEventListener('mouseleave', (e) => {
+    e.target.classList.remove('simulatorVisible')
+})
+questionPopUp.addEventListener('click', (e) => {
+    e.target.classList.remove('simulatorVisible')
+})
+document.addEventListener('click', (e) => {
+    if (!questionPopUp.contains(e.target) && !questionMarkIcon.contains(e.target)) {
+        questionPopUp.classList.remove('simulatorVisible');
+    }
+});
 startSimulation(amountInvestedInput)
-
-
-
-
-
-

@@ -22,7 +22,31 @@ body{
 }
 
 
-
+.simulatorQuestionMarkIcon{
+    width:20px;
+    fill:#04265E;
+}
+.simuladorQuotaExplanationContainer{
+    position:absolute;
+    
+    background-color:#FFF;
+    box-shadow:0 0 2px rgba(0,0,0,.5);
+    
+    border-radius:25px;
+    border:1px solid #444;
+    
+    padding:1.5em;
+    width:90%;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    
+    opacity:0;
+    visibility: hidden;
+    z-index:2;
+}
+.simulatorVisible{
+    opacity:1;
+    visibility:visible;
+}
 .simulatorContainer {
     display: flex;
     flex-direction: column;
@@ -658,5 +682,8 @@ body{
     }
     #simulatorContainer .amountInvestedContainer{
         padding:15px;
+    }
+    #simulatorContainer .simuladorQuotaExplanationContainer{
+        font-size:12px;
     }
 }
