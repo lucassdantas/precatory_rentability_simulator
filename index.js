@@ -1,5 +1,3 @@
-        
-
 //frontend interactions methods
 const amountInvestedInputMask = event => {
     let input = event.target;
