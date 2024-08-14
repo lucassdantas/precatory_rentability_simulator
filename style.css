@@ -26,7 +26,7 @@ body{
     width:20px;
     fill:#04265E;
 }
-.simuladorQuotaExplanationContainer{
+.infoPopup{
     position:absolute;
     
     background-color:#FFF;
@@ -42,6 +42,9 @@ body{
     opacity:0;
     visibility: hidden;
     z-index:2;
+}
+.rightCol .infoPopup{
+  max-width:600px;
 }
 .simulatorVisible{
     opacity:1;
@@ -375,8 +378,11 @@ body{
     width:100%;
     margin-top:24px;
 }
+#simulatorContainer .monthContainer span{
+  font-weight:700;
+
+}
 #simulatorContainer .monthContainer{
-    font-weight:700;
     margin-bottom:12px;
     display:flex;
     flex-direction:column;
@@ -682,7 +688,7 @@ body{
     #simulatorContainer .amountInvestedContainer{
         padding:15px;
     }
-    #simulatorContainer .simuladorQuotaExplanationContainer{
+    #simulatorContainer .infoPopup{
         font-size:12px;
     }
 }

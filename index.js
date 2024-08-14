@@ -435,7 +435,9 @@ let amountInvestedInput = document.querySelector("input[name='amountInvested']")
     monthDisplay        = document.querySelector('#selectedMonth'),
     monthListNames      = document.querySelectorAll('.monthList span'),
     questionMarkIcon    = document.querySelector('.simulatorQuestionMarkIcon'),
+    monthQuestionMark   = document.querySelector('.monthQuestionMarkIcon'),
     questionPopUp       = document.querySelector(".simuladorQuotaExplanationContainer"),
+    monthQuestionPopup  = document.querySelector('.monthExplanationContainer'),
     validityDate        = new Date(pickCheckedRadio(validityYearInputs).value, monthOfPaymentInput.value, 31),
     workingDays         = workingDaysCalculator(new Date(), validityDate, holidays),
     validityYearValue,
@@ -499,6 +501,8 @@ quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
 
 }))
 
+
+
 monthOfPaymentInput.addEventListener('input', () => {
     const selectedYear = pickCheckedRadio(validityYearInputs).value; // Obtém o ano selecionado
     const selectedMonth = monthOfPaymentInput.value; // Obtém o mês selecionado
@@ -515,16 +519,30 @@ monthOfPaymentInput.addEventListener('input', () => {
 questionMarkIcon.addEventListener('mouseenter', () => {
     questionPopUp.classList.add('simulatorVisible')
 })
-
+monthQuestionMark.addEventListener('mouseenter', () => {
+  monthQuestionPopup.classList.add('simulatorVisible')
+})
 questionPopUp.addEventListener('mouseleave', (e) => {
     e.target.classList.remove('simulatorVisible')
 })
 questionPopUp.addEventListener('click', (e) => {
     e.target.classList.remove('simulatorVisible')
 })
+
+monthQuestionPopup.addEventListener('mouseleave', (e) => {
+  e.target.classList.remove('simulatorVisible')
+})
+monthQuestionPopup.addEventListener('click', (e) => {
+    e.target.classList.remove('simulatorVisible')
+})
 document.addEventListener('click', (e) => {
     if (!questionPopUp.contains(e.target) && !questionMarkIcon.contains(e.target)) {
         questionPopUp.classList.remove('simulatorVisible');
     }
+
+    if (!monthQuestionPopup.contains(e.target) && !monthQuestionMark.contains(e.target)) {
+      monthQuestionPopup.classList.remove('simulatorVisible');
+    }
 });
+
 startSimulation(amountInvestedInput)
