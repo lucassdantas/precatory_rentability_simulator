@@ -519,7 +519,13 @@ monthOfPaymentInput.addEventListener('input', () => {
 questionMarkIcon.addEventListener('mouseenter', () => {
     questionPopUp.classList.add('simulatorVisible')
 })
+questionMarkIcon.addEventListener('click', () => {
+    questionPopUp.classList.add('simulatorVisible')
+})
 monthQuestionMark.addEventListener('mouseenter', () => {
+  monthQuestionPopup.classList.add('simulatorVisible')
+})
+monthQuestionMark.addEventListener('click', () => {
   monthQuestionPopup.classList.add('simulatorVisible')
 })
 questionPopUp.addEventListener('mouseleave', (e) => {
