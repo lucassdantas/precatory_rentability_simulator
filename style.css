@@ -26,7 +26,7 @@ body{
     width:20px;
     fill:#04265E;
 }
-.infoPopup{
+#simulatorContainer .infoPopup{
     position:absolute;
     
     background-color:#FFF;
