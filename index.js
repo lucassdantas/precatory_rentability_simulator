@@ -69,7 +69,7 @@ const dailyRentability = {
         lciLca: {
             currentYearOptionChosen: 0.036377,
             nextYearOptionChosen: 0.034928,
-            afterNextYearOptionChosen: 0.029029
+            afterNextYearOptionChosen: 0.035015
         },
         fit: {
             currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -92,7 +92,7 @@ const dailyRentability = {
         },
         lciLca: {
             nextYearOptionChosen: 0.034928,
-            afterNextOptionYearChosen: 0.032341
+            afterNextOptionYearChosen: 0.033566
         },
         fit: {
             nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
