@@ -50,83 +50,161 @@ const fixedFitQuota = {
     afterNextYearOptionChosen:13.00
 };
 const dailyRentability = {
-    currentYearRentabilityOn: {
-        master: {
-            currentYearOptionChosen: 0.065227,
-            nextYearOptionChosen: 0.063778,
-            afterNextYearOptionChosen: 0.064306
-        },
-        cdb: {
-            currentYearOptionChosen: 0.041519,
-            nextYearOptionChosen: 0.040070,
-            afterNextYearOptionChosen: 0.036781
-        },
-        irFree: {
-            currentYearOptionChosen: 0.061698,
-            nextYearOptionChosen: 0.060248,
-            afterNextYearOptionChosen: 0.050764
-        },
-        lciLca: {
-            currentYearOptionChosen: 0.036377,
-            nextYearOptionChosen: 0.034928,
-            afterNextYearOptionChosen: 0.035015
-        },
-        fit: {
-            currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
-            nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
-            afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
-        }
-    },
-    nextYearRentabilityOn: {
-        master: {
-            nextYearOptionChosen: 0.065227,
-            afterNextOptionYearChosen: 0.064306
-        },
-        cdb: {
-            nextYearOptionChosen: 0.040070,
-            afterNextOptionYearChosen: 0.037725
-        },
-        irFree: {
-            nextYearOptionChosen: 0.060248,
-            afterNextOptionYearChosen: 0.060792
-        },
-        lciLca: {
-            nextYearOptionChosen: 0.034928,
-            afterNextOptionYearChosen: 0.033566
-        },
-        fit: {
-            nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
-            afterNextOptionYearChosen: fixedFitQuota.nextYearOptionChosen
-        }
-    },
-    afterNextYearRentabilityOn: {
-        master: {
-            currentYearOptionChosen: 0.066980,
-            nextYearOptionChosen: 0.065531,
-            afterNextYearOptionChosen: 0.064306
-        },
-        cdb: {
-            currentYearOptionChosen: 0.040399,
-            nextYearOptionChosen: 0.038950,
-            afterNextYearOptionChosen: 0.037725
-        },
-        irFree: {
-            currentYearOptionChosen: 0.063466,
-            nextYearOptionChosen: 0.062017,
-            afterNextYearOptionChosen: 0.060792
-        },
-        lciLca: {
-            currentYearOptionChosen: 0.036377,
-            nextYearOptionChosen: 0.034928,
-            afterNextYearOptionChosen: 0.032341
-        },
-        fit: {
-            currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
-            nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
-            afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
-        }
-    }
+  currentYearRentabilityOn: {
+      master: {
+          currentYearOptionChosen: 0.065988,
+          nextYearOptionChosen: 0.064045,
+          afterNextYearOptionChosen: 0.064306
+      },
+      cdb: {
+          currentYearOptionChosen: 0.041906,
+          nextYearOptionChosen: 0.039964,
+          afterNextYearOptionChosen: 0.036781
+      },
+      irFree: {
+          currentYearOptionChosen: 0.069227,
+          nextYearOptionChosen: 0.062284,
+          afterNextYearOptionChosen: 0.050764
+      },
+      lciLca: {
+          currentYearOptionChosen: 0.036547,
+          nextYearOptionChosen: 0.034515,
+          afterNextYearOptionChosen: 0.036722
+      },
+      fit: {
+          currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
+          nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+          afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
+      }
+  },
+  nextYearRentabilityOn: {
+      master: {
+          nextYearOptionChosen: 0.064045,
+          afterNextOptionYearChosen: 0.064306
+      },
+      cdb: {
+          nextYearOptionChosen: 0.039964,
+          afterNextOptionYearChosen: 0.038883
+      },
+      irFree: {
+          nextYearOptionChosen: 0.062284,
+          afterNextOptionYearChosen: 0.062553
+      },
+      lciLca: {
+          nextYearOptionChosen: 0.034515,
+          afterNextOptionYearChosen: 0.034779
+      },
+      fit: {
+          nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
+          afterNextOptionYearChosen: fixedFitQuota.nextYearOptionChosen
+      }
+  },
+  afterNextYearRentabilityOn: {
+      master: {
+          currentYearOptionChosen: 0.067741,
+          nextYearOptionChosen: 0.065798,
+          afterNextYearOptionChosen: 0.064306
+      },
+      cdb: {
+          currentYearOptionChosen: 0.042317,
+          nextYearOptionChosen: 0.040375,
+          afterNextYearOptionChosen: 0.038883
+      },
+      irFree: {
+          currentYearOptionChosen: 0.065988,
+          nextYearOptionChosen: 0.064045,
+          afterNextYearOptionChosen: 0.062553
+      },
+      lciLca: {
+          currentYearOptionChosen: 0.036722,
+          nextYearOptionChosen: 0.034779,
+          afterNextYearOptionChosen: 0.033288
+      },
+      fit: {
+          currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+          nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+          afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
+      }
+  }
 };
+// const dailyRentability = {
+//     currentYearRentabilityOn: {
+//         master: {
+//             currentYearOptionChosen: 0.065227,
+//             nextYearOptionChosen: 0.063778,
+//             afterNextYearOptionChosen: 0.064306
+//         },
+//         cdb: {
+//             currentYearOptionChosen: 0.041519,
+//             nextYearOptionChosen: 0.040070,
+//             afterNextYearOptionChosen: 0.036781
+//         },
+//         irFree: {
+//             currentYearOptionChosen: 0.061698,
+//             nextYearOptionChosen: 0.060248,
+//             afterNextYearOptionChosen: 0.050764
+//         },
+//         lciLca: {
+//             currentYearOptionChosen: 0.036377,
+//             nextYearOptionChosen: 0.034928,
+//             afterNextYearOptionChosen: 0.035015
+//         },
+//         fit: {
+//             currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
+//             nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+//             afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
+//         }
+//     },
+//     nextYearRentabilityOn: {
+//         master: {
+//             nextYearOptionChosen: 0.065227,
+//             afterNextOptionYearChosen: 0.064306
+//         },
+//         cdb: {
+//             nextYearOptionChosen: 0.040070,
+//             afterNextOptionYearChosen: 0.037725
+//         },
+//         irFree: {
+//             nextYearOptionChosen: 0.060248,
+//             afterNextOptionYearChosen: 0.060792
+//         },
+//         lciLca: {
+//             nextYearOptionChosen: 0.034928,
+//             afterNextOptionYearChosen: 0.033566
+//         },
+//         fit: {
+//             nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
+//             afterNextOptionYearChosen: fixedFitQuota.nextYearOptionChosen
+//         }
+//     },
+//     afterNextYearRentabilityOn: {
+//         master: {
+//             currentYearOptionChosen: 0.066980,
+//             nextYearOptionChosen: 0.065531,
+//             afterNextYearOptionChosen: 0.064306
+//         },
+//         cdb: {
+//             currentYearOptionChosen: 0.040399,
+//             nextYearOptionChosen: 0.038950,
+//             afterNextYearOptionChosen: 0.037725
+//         },
+//         irFree: {
+//             currentYearOptionChosen: 0.063466,
+//             nextYearOptionChosen: 0.062017,
+//             afterNextYearOptionChosen: 0.060792
+//         },
+//         lciLca: {
+//             currentYearOptionChosen: 0.036377,
+//             nextYearOptionChosen: 0.034928,
+//             afterNextYearOptionChosen: 0.032341
+//         },
+//         fit: {
+//             currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+//             nextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
+//             afterNextYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen
+//         }
+//     }
+// };
 const holidays = [
     new Date('01/01/2024').getTime(),
     new Date('02/12/2024').getTime(),
