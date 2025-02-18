@@ -52,24 +52,24 @@ const fixedFitQuota = {
 const dailyRentability = {
   currentYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.068186,
-          nextYearOptionChosen: 0.066218,
-          afterNextYearOptionChosen: 0.066218
+          currentYearOptionChosen: 0.066616,
+          nextYearOptionChosen: 0.067171,
+          afterNextYearOptionChosen: 0.067171
       },
       cdb: {
-          currentYearOptionChosen: 0.048558,
-          nextYearOptionChosen: 0.048558,
-          afterNextYearOptionChosen: 0.043433
+          currentYearOptionChosen: 0.050149,
+          nextYearOptionChosen: 0.050149,
+          afterNextYearOptionChosen: 0.045052
       },
       irFree: {
-          currentYearOptionChosen: 0.066425,
-          nextYearOptionChosen: 0.066425,
-          afterNextYearOptionChosen: 0.064465
+          currentYearOptionChosen: 0.070146,
+          nextYearOptionChosen: 0.070146,
+          afterNextYearOptionChosen: 0.075383
       },
       lciLca: {
-          currentYearOptionChosen: 0.040466,
-          nextYearOptionChosen: 0.040466,
-          afterNextYearOptionChosen: 0.037198
+          currentYearOptionChosen: 0.042690,
+          nextYearOptionChosen: 0.042690,
+          afterNextYearOptionChosen: 0.037586
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -80,19 +80,19 @@ const dailyRentability = {
   nextYearRentabilityOn: {
       master: {
           nextYearOptionChosen: 0.067729,
-          afterNextOptionYearChosen: 0.066218
+          afterNextOptionYearChosen: 0.067171
       },
       cdb: {
           nextYearOptionChosen: 0.042033,
-          afterNextOptionYearChosen: 0.043433
+          afterNextOptionYearChosen: 0.045052
       },
       irFree: {
           nextYearOptionChosen: 0.065765,
-          afterNextOptionYearChosen: 0.064465
+          afterNextOptionYearChosen: 0.075383
       },
       lciLca: {
-          nextYearOptionChosen: 0.037198,
-          afterNextOptionYearChosen: 0.037198
+          nextYearOptionChosen: 0.037586,
+          afterNextOptionYearChosen: 0.037586
       },
       fit: {
           nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -101,24 +101,24 @@ const dailyRentability = {
   },
   afterNextYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.069939,
-          nextYearOptionChosen: 0.069939,
-          afterNextYearOptionChosen: 0.066218
+          currentYearOptionChosen: 0.071899,
+          nextYearOptionChosen: 0.071899,
+          afterNextYearOptionChosen: 0.067171
       },
       cdb: {
-          currentYearOptionChosen: 0.047153,
-          nextYearOptionChosen: 0.047153,
-          afterNextYearOptionChosen: 0.043433
+          currentYearOptionChosen: 0.049779,
+          nextYearOptionChosen: 0.049779,
+          afterNextYearOptionChosen: 0.045052
       },
       irFree: {
-          currentYearOptionChosen: 0.068186,
-          nextYearOptionChosen: 0.064465,
-          afterNextYearOptionChosen: 0.064465
+          currentYearOptionChosen: 0.066616,
+          nextYearOptionChosen: 0.075383,
+          afterNextYearOptionChosen: 0.075383
       },
       lciLca: {
-          currentYearOptionChosen: 0.040918,
-          nextYearOptionChosen: 0.037198,
-          afterNextYearOptionChosen: 0.037198
+          currentYearOptionChosen: 0.042313,
+          nextYearOptionChosen: 0.037586,
+          afterNextYearOptionChosen: 0.037586
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
