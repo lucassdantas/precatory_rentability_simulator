@@ -526,6 +526,7 @@ monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value, monthList
 const startSimulation = (amountInvestedInput) => {
     let formattedInputValue = formatToOnlyNumbers(amountInvestedInput.value)
     showHiddenChartContainer(formattedInputValue)
+    selectQuotaOptionByAmountValue(formattedInputValue)
     validateFields(
         amountInvestedInput, 
         pickCheckedRadio(validityYearInputs), 
@@ -539,6 +540,27 @@ const startSimulation = (amountInvestedInput) => {
     )
 }
 
+const hideOrShowQuotaAndCheck = (quotaContainer,hideOrShow) => {
+  const quota = quotaContainer.querySelector('input')
+  if(hideOrShow === 'hide') {
+    quota.checked = false
+    return quotaContainer.classList.add('hidden')
+  }
+  quota.checked = true
+  return quotaContainer.classList.remove('hidden')
+}
+
+const selectQuotaOptionByAmountValue = (amountValue) => {
+  let irFreeQuota = document.querySelector('#irFreeQuotaContainer')
+  let masterQuota = document.querySelector('#masterQuotaContainer')
+  if(amountValue < 25000){
+    hideOrShowQuotaAndCheck(masterQuota, 'hide')
+    hideOrShowQuotaAndCheck(irFreeQuota, 'show')
+    return 
+  }
+  hideOrShowQuotaAndCheck(irFreeQuota, 'hide')
+  hideOrShowQuotaAndCheck(masterQuota, 'show')
+}
 
 amountInvestedInput.addEventListener('input', (e) => {
     startSimulation(e.target)

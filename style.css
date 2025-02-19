@@ -142,8 +142,9 @@ body{
 
 
 #simulatorContainer .hidden{
-    display:none;
+    display:none!important;
     visibility:hidden;
+    
 }
 #simulatorContainer .paymentMonth{
     height:184px;

@@ -20,12 +20,14 @@
                         <span class="inputIdentifier inputTitle"
                         >Vencimento do ativo: </span>
                         <div class="inputContainer">
+                            <!-- 
                             <div class="inputAndLabelContainer selected">
                                 <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
                                 <label for='year2025' class="bold yearLabel" data-value="2025">2025</label>
-                            </div>
-                            <div class="inputAndLabelContainer">
-                                <input type="radio" name="year" class='yearInput' id="year2026" value="2026">
+                            </div> 
+                            -->
+                            <div class="inputAndLabelContainer selected">
+                                <input type="radio" name="year" class='yearInput' id="year2026" value="2026" checked>
                                 <label for="year2026" class="yearLabel" data-value="2026">2026</label>
                             </div>
                         </div>
@@ -37,14 +39,14 @@
                             </svg>
                         </span>
                         <div class="simuladorQuotaExplanationContainer infoPopup">
-                          <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda. A Opção Master corresponde, em geral, a um conjunto de 3 ou 4 Cotas IR Free. Segue um exemplo para ilustrar: imagine um precatório que valha R$ 200 mil e seja dividido em 8 Cotas IR Free de R$ 25 mil. Isso significa que quem investir em 1 Cota IR Free receberá na liquidação um valor inferior a R$ 35 mil para ser isento de imposto de renda. Neste exemplo, a Opção Master poderá equivaler a um conjunto de 3 ou mais cotas IR Free, tendo, portanto, aporte mínimo de R$ 75 mil.</p>
+                          <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda. </p>
                         </div>
                         <div class="inputContainer">
-                            <div class="inputAndLabelContainer selected">
+                            <div class="inputAndLabelContainer selected" id='masterQuotaContainer'>
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
                                 <label for='masterQuota' class="bold quotaTypeLabel" data-value="master">Opção Master</label>
                             </div>
-                            <div class="inputAndLabelContainer">
+                            <div class="inputAndLabelContainer" id='irFreeQuotaContainer'>
                                 <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
                                 <label for="irFreeQuota" class="quotaTypeLabel" data-value="irFree">Cota IR Free</label>
                             </div>
