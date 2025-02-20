@@ -146,6 +146,19 @@ body{
     visibility:hidden;
     
 }
+
+#simulatorContainer .disabled, #simulatorContainer .disabled div{
+  color:#000!important;
+  border:1px solid #222!important;
+}
+#simulatorContainer .disabled label{
+  color:#000!important;
+}
+#simulatorContainer .disabled input[type="radio"] + label::before,
+#simulatorContainer .disabled input[type="checkbox"] + label::before {
+   background-color: #999;
+   border: 1px solid #eee;
+}
 #simulatorContainer .paymentMonth{
     height:184px;
     min-height:fit-content;

@@ -540,26 +540,30 @@ const startSimulation = (amountInvestedInput) => {
     )
 }
 
-const hideOrShowQuotaAndCheck = (quotaContainer,hideOrShow) => {
+const disableOrEnableQuotaAndCheck = (quotaContainer,disableOrEnable) => {
   const quota = quotaContainer.querySelector('input')
-  if(hideOrShow === 'hide') {
+  if(disableOrEnable === 'disable') {
     quota.checked = false
-    return quotaContainer.classList.add('hidden')
+    quota.disabled = true
+    quotaContainer.classList.add('disabled')
+    return quotaContainer.classList.remove('selected')
   }
+  quota.disabled = false
   quota.checked = true
-  return quotaContainer.classList.remove('hidden')
+  quotaContainer.classList.add('selected')
+  return quotaContainer.classList.remove('disabled')
 }
 
 const selectQuotaOptionByAmountValue = (amountValue) => {
   let irFreeQuota = document.querySelector('#irFreeQuotaContainer')
   let masterQuota = document.querySelector('#masterQuotaContainer')
   if(amountValue < 25000){
-    hideOrShowQuotaAndCheck(masterQuota, 'hide')
-    hideOrShowQuotaAndCheck(irFreeQuota, 'show')
+    disableOrEnableQuotaAndCheck(masterQuota, 'disable')
+    disableOrEnableQuotaAndCheck(irFreeQuota, 'enable')
     return 
   }
-  hideOrShowQuotaAndCheck(irFreeQuota, 'hide')
-  hideOrShowQuotaAndCheck(masterQuota, 'show')
+  disableOrEnableQuotaAndCheck(irFreeQuota, 'disable')
+  disableOrEnableQuotaAndCheck(masterQuota, 'enable')
 }
 
 amountInvestedInput.addEventListener('input', (e) => {
