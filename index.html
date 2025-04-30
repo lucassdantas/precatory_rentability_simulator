@@ -7,150 +7,150 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id='simulatorContainer' class="simulatorContainer simulator">
-        <div class="simulatorHeader">
-            <div class="simulatorTitleContainer">
-                <div class="simulatorTitle">Simulador</div>
-            </div>
-        </div>
-        <div class="simulatorBody">
-            <div class="row">
-                <div class="col col50 leftUserInputContainer">
-                    <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer">
-                        <span class="inputIdentifier inputTitle"
-                        >Vencimento do ativo: </span>
-                        <div class="inputContainer">
-                            <!-- 
-                            <div class="inputAndLabelContainer selected">
-                                <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
-                                <label for='year2025' class="bold yearLabel" data-value="2025">2025</label>
-                            </div> 
-                            -->
-                            <div class="inputAndLabelContainer selected">
-                                <input type="radio" name="year" class='yearInput' id="year2026" value="2026" checked>
-                                <label for="year2026" class="yearLabel" data-value="2026">2026</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quotaType quotaTypeInputContainer userInputData checkBoxInputContainer">
-                        <span class="inputIdentifier">Modalidades
-                            <svg aria-hidden="true" class="simulatorQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
-                            </svg>
-                        </span>
-                        <div class="simuladorQuotaExplanationContainer infoPopup">
-                          <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda. Aportes a partir de R$ 25 mil em cotas de um precatório recebem upgrade de rentabilidade automático para a Opção Master, independente do valor de resgate previsto.</p>
-                        </div>
-                        <div class="inputContainer">
-                            <div class="inputAndLabelContainer selected" id='masterQuotaContainer'>
-                                <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
-                                <label for='masterQuota' class="bold quotaTypeLabel" data-value="master">Opção Master</label>
-                            </div>
-                            <div class="inputAndLabelContainer" id='irFreeQuotaContainer'>
-                                <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
-                                <label for="irFreeQuota" class="quotaTypeLabel" data-value="irFree">Cota IR Free</label>
-                            </div>
-                           <!-- 
-                            <div class="inputAndLabelContainer">
-                                <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
-                                <label for="fitQuota" class='quotaTypeLabel' data-value="fit">Fit</label>
-                            </div>
-                            -->
-                        </div>
-                    </div>
-                    <div class="amountInvested userInputData">
-                        <span class="inputIdentifier">Valor investido:</span>
-                        <div class="amountInvestedContainer">
-                            <div class="moneySimbolAndAmountInvestedInputContainer">
-                                <span id='moneySimbol'>R$ </span>
-                                <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100.000'>
-                            </div>
-                        </div>
-                        <div class="instructionContainer">
-                            <span class="instruction">Insira um valor para realizar sua simulação</span>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col col50 rightCol ">
-                    <div class="paymentMonth">
-                        <div class="monthRowContainer">
-                            <div class="monthContainer">
-                                <span class="monthOfPaymentTitle inputIdentifier">Mês de pagamento
-                                  <svg aria-hidden="true" class="simulatorQuestionMarkIcon monthQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
-                                  </svg>
-                                </span>
-                                <div class="monthExplanationContainer infoPopup">
-                                  <p>A regra estabelecida na Constituição Federal determina o ano, mas não o mês de pagamento, sendo uma escolha do governo.</p>
-                                </div>
-                                <small class="validityYearText">(Ano de vencimento)</small>    
-                            </div>
-                            <div class="selectedMonthContainer">
-                                <span id="selectedMonth"></span>
-                            </div>
-                        </div>
-                        <div class="monthPaymentAndList">
-                            <div class="monthListContainer topMonthList">
-                                <div class="monthList ">
-                                    <span class="month" id="janMonth">Jan</span>
-                                    <span class="month" id="marMonth">Mar</span>
-                                    <span class="month" id="maiMonth">Mai</span>
-                                    <span class="month" id="julMonth">Jul</span>
-                                    <span class="month" id="setMonth">Set</span>
-                                    <span class="month" id="novMonth">Nov</span>
-                                </div>
-                            </div>
-                            <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
-                            <div class="monthListContainer bottomMonthList">
-                                <div class="monthList ">
-                                    <span id="fevMonth">Fev</span>
-                                    <span id="abrMonth">Abr</span>
-                                    <span id="junMonth">Jun</span>
-                                    <span id="agoMonth">Ago</span>
-                                    <span id="outMonth">Out</span>
-                                    <span id="dezMonth">Dez</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <div id='simulatorContainer' class="simulatorContainer simulator">
+      <div class="simulatorHeader">
+          <div class="simulatorTitleContainer">
+              <div class="simulatorTitle">Simulador</div>
+          </div>
+      </div>
+      <div class="simulatorBody">
+          <div class="row">
+              <div class="col col50 leftUserInputContainer">
+                  <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer">
+                      <span class="inputIdentifier inputTitle"
+                      >Vencimento do ativo: </span>
+                      <div class="inputContainer">
+                          <!-- 
+                          <div class="inputAndLabelContainer selected">
+                              <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
+                              <label for='year2025' class="bold yearLabel" data-value="2025">2025</label>
+                          </div> 
+                          -->
+                          <div class="inputAndLabelContainer selected">
+                              <input type="radio" name="year" class='yearInput' id="year2026" value="2026" checked>
+                              <label for="year2026" class="yearLabel" data-value="2026">2026</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="quotaType quotaTypeInputContainer userInputData checkBoxInputContainer">
+                      <span class="inputIdentifier">Modalidades
+                          <svg aria-hidden="true" class="simulatorQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
+                          </svg>
+                      </span>
+                      <div class="simuladorQuotaExplanationContainer infoPopup">
+                        <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda. Aportes a partir de R$ 25 mil em cotas de um precatório recebem upgrade de rentabilidade automático para a Opção Master, independente do valor de resgate previsto.</p>
+                      </div>
+                      <div class="inputContainer">
+                          <div class="inputAndLabelContainer selected" id='masterQuotaContainer'>
+                              <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" checked>
+                              <label for='masterQuota' class="bold quotaTypeLabel" data-value="master">Opção Master</label>
+                          </div>
+                          <div class="inputAndLabelContainer" id='irFreeQuotaContainer'>
+                              <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' >
+                              <label for="irFreeQuota" class="quotaTypeLabel" data-value="irFree">Cota IR Free</label>
+                          </div>
+                        <!-- 
+                          <div class="inputAndLabelContainer">
+                              <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
+                              <label for="fitQuota" class='quotaTypeLabel' data-value="fit">Fit</label>
+                          </div>
+                          -->
+                      </div>
+                  </div>
+                  <div class="amountInvested userInputData">
+                      <span class="inputIdentifier">Valor investido:</span>
+                      <div class="amountInvestedContainer">
+                          <div class="moneySimbolAndAmountInvestedInputContainer">
+                              <span id='moneySimbol'>R$ </span>
+                              <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='100.000'>
+                          </div>
+                      </div>
+                      <div class="instructionContainer">
+                          <span class="instruction">Insira um valor para realizar sua simulação</span>
+                      </div>
+                      
+                  </div>
+              </div>
+              <div class="col col50 rightCol ">
+                  <div class="paymentMonth">
+                      <div class="monthRowContainer">
+                          <div class="monthContainer">
+                              <span class="monthOfPaymentTitle inputIdentifier">Mês de pagamento
+                                <svg aria-hidden="true" class="simulatorQuestionMarkIcon monthQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
+                                </svg>
+                              </span>
+                              <div class="monthExplanationContainer infoPopup">
+                                <p>A regra estabelecida na Constituição Federal determina o ano, mas não o mês de pagamento, sendo uma escolha do governo.</p>
+                              </div>
+                              <small class="validityYearText">(Ano de vencimento)</small>    
+                          </div>
+                          <div class="selectedMonthContainer">
+                              <span id="selectedMonth"></span>
+                          </div>
+                      </div>
+                      <div class="monthPaymentAndList">
+                          <div class="monthListContainer topMonthList">
+                              <div class="monthList ">
+                                  <span class="month" id="janMonth">Jan</span>
+                                  <span class="month" id="marMonth">Mar</span>
+                                  <span class="month" id="maiMonth">Mai</span>
+                                  <span class="month" id="julMonth">Jul</span>
+                                  <span class="month" id="setMonth">Set</span>
+                                  <span class="month" id="novMonth">Nov</span>
+                              </div>
+                          </div>
+                          <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
+                          <div class="monthListContainer bottomMonthList">
+                              <div class="monthList ">
+                                  <span id="fevMonth">Fev</span>
+                                  <span id="abrMonth">Abr</span>
+                                  <span id="junMonth">Jun</span>
+                                  <span id="agoMonth">Ago</span>
+                                  <span id="outMonth">Out</span>
+                                  <span id="dezMonth">Dez</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-                    <div class="chartContainer hidden">
-                        <p class='rentabilityTitle inputIdentifier'>Previsão de resgate</p>
-                        
-                        <div class="chart">
-                            <div class="bar" id="precnet">
-                                <span class="precnetText"> PrecNet </span>
-                                <span class="precnetValue chartQuotaValue" id="precnetValue"></span>
+                  <div class="chartContainer hidden">
+                      <p class='rentabilityTitle inputIdentifier'>Previsão de resgate</p>
+                      
+                      <div class="chart">
+                          <div class="bar" id="precnet">
+                              <span class="precnetText"> PrecNet </span>
+                              <span class="precnetValue chartQuotaValue" id="precnetValue"></span>
 
-                            </div>
-                            <div class="bar" id="cdb">
-                                <span class="cdbText"> CDB </span>
-                                <span class="cdbValue chartQuotaValue" id="cdbValue"></span>
-                            </div>
-                            <div class="bar" id="lci-lca">
-                                <span class="lcilcaText"> LCI/LCA </span>
-                                <span class="lciLcaValue chartQuotaValue" id="lciLcaValue"></span>
-                            </div>
-                        </div>
+                          </div>
+                          <div class="bar" id="cdb">
+                              <span class="cdbText"> CDB </span>
+                              <span class="cdbValue chartQuotaValue" id="cdbValue"></span>
+                          </div>
+                          <div class="bar" id="lci-lca">
+                              <span class="lcilcaText"> LCI/LCA </span>
+                              <span class="lciLcaValue chartQuotaValue" id="lciLcaValue"></span>
+                          </div>
+                      </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="quotaInformationContainer">
-                    <span class="informationSimbol">*</span>
-                    <small class="information"> Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.</small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="quotaInformationContainer">
-                    <span class="informationSimbol">*</span>
-                    <small class="informationSimulation">A simulação é meramente estimativa e não constitui garantia por parte da PrecNet.</small>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="quotaInformationContainer">
+                  <span class="informationSimbol">*</span>
+                  <small class="information"> Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.</small>
+              </div>
+          </div>
+          <div class="row">
+              <div class="quotaInformationContainer">
+                  <span class="informationSimbol">*</span>
+                  <small class="informationSimulation">A simulação é meramente estimativa e não constitui garantia por parte da PrecNet.</small>
+              </div>
+          </div>
+      </div>
+  </div>
     <script src='./index.js' defer ></script>
     
     
