@@ -1,6 +1,5 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 :root{
     --buttonColor:#25D366;
@@ -11,6 +10,7 @@
     --borderBlue:#066CBB;
     
 }
+
 
 .simulatorQuestionMarkIcon{
     width:20px;
@@ -697,7 +697,7 @@
         font-size:12px;
     }
 }
-
+    
 </style>
 <div id='simulatorContainer' class="simulatorContainer simulator">
       <div class="simulatorHeader">
@@ -898,24 +898,24 @@ const fixedFitQuota = {
 const dailyRentability = {
   currentYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.066616,
-          nextYearOptionChosen: 0.067171,
-          afterNextYearOptionChosen: 0.067171
+          currentYearOptionChosen: 0.075119,
+          nextYearOptionChosen: 0.071262,
+          afterNextYearOptionChosen: 0.071262
       },
       cdb: {
-          currentYearOptionChosen: 0.050149,
-          nextYearOptionChosen: 0.050149,
-          afterNextYearOptionChosen: 0.045052
+          currentYearOptionChosen: 0.054112,
+          nextYearOptionChosen: 0.050256,
+          afterNextYearOptionChosen: 0.050256
       },
       irFree: {
-          currentYearOptionChosen: 0.070146,
-          nextYearOptionChosen: 0.070146,
-          afterNextYearOptionChosen: 0.075383
+          currentYearOptionChosen: 0.075119,
+          nextYearOptionChosen: 0.071262,
+          afterNextYearOptionChosen: 0.071262
       },
       lciLca: {
-          currentYearOptionChosen: 0.042690,
-          nextYearOptionChosen: 0.042690,
-          afterNextYearOptionChosen: 0.037586
+          currentYearOptionChosen: 0.045763,
+          nextYearOptionChosen: 0.041907,
+          afterNextYearOptionChosen: 0.041907
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -925,20 +925,20 @@ const dailyRentability = {
   },
   nextYearRentabilityOn: {
       master: {
-          nextYearOptionChosen: 0.067729,
-          afterNextOptionYearChosen: 0.067171
+          nextYearOptionChosen: 0.075119,
+          afterNextOptionYearChosen: 0.071262
       },
       cdb: {
-          nextYearOptionChosen: 0.042033,
-          afterNextOptionYearChosen: 0.045052
+          nextYearOptionChosen: 0.050256,
+          afterNextOptionYearChosen: 0.050256
       },
       irFree: {
-          nextYearOptionChosen: 0.065765,
-          afterNextOptionYearChosen: 0.075383
+          nextYearOptionChosen: 0.071262,
+          afterNextOptionYearChosen: 0.071262
       },
       lciLca: {
-          nextYearOptionChosen: 0.037586,
-          afterNextOptionYearChosen: 0.037586
+          nextYearOptionChosen: 0.041907,
+          afterNextOptionYearChosen: 0.041907
       },
       fit: {
           nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -947,24 +947,24 @@ const dailyRentability = {
   },
   afterNextYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.071899,
-          nextYearOptionChosen: 0.071899,
-          afterNextYearOptionChosen: 0.067171
+          currentYearOptionChosen: 0.075119,
+          nextYearOptionChosen: 0.071262,
+          afterNextYearOptionChosen: 0.071262
       },
       cdb: {
-          currentYearOptionChosen: 0.049779,
-          nextYearOptionChosen: 0.049779,
-          afterNextYearOptionChosen: 0.045052
+          currentYearOptionChosen: 0.054112,
+          nextYearOptionChosen: 0.050256,
+          afterNextYearOptionChosen: 0.050256
       },
       irFree: {
-          currentYearOptionChosen: 0.066616,
-          nextYearOptionChosen: 0.075383,
-          afterNextYearOptionChosen: 0.075383
+          currentYearOptionChosen: 0.075119,
+          nextYearOptionChosen: 0.071262,
+          afterNextYearOptionChosen: 0.071262
       },
       lciLca: {
-          currentYearOptionChosen: 0.042313,
-          nextYearOptionChosen: 0.037586,
-          afterNextYearOptionChosen: 0.037586
+          currentYearOptionChosen: 0.045763,
+          nextYearOptionChosen: 0.041907,
+          afterNextYearOptionChosen: 0.041907
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
@@ -1175,7 +1175,6 @@ const workingDaysCalculator = (initialDate, finalDate, holidays) => {
     }
 
     workingDays.totalYears = Object.keys(workingDays).length - 1; // Exclui a propriedade 'total'
-
     return workingDays;
 };
 
@@ -1486,7 +1485,8 @@ monthOfPaymentInput.addEventListener('input', () => {
     monthDisplay.innerHTML = changeMonthDisplay(selectedMonth, monthListNames); // Atualiza o display do mês
     workingDays = workingDaysCalculator(new Date(), validityDate, holidays); // Calcula os dias úteis
     if(amountInvestedInput.value != undefined) {
-        showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+        let result = quotaResults(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+        showResultsOnScreen(result)
     }
 });
 
