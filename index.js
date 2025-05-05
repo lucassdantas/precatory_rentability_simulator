@@ -260,7 +260,6 @@ const updateChart = (precnetRentabilityValue, cdbRentabilityValue, lciLcaRentabi
           precnetValue  = document.querySelector("#precnetValue"), 
           cdbValue      = document.querySelector("#cdbValue"), 
           lciLcaValue   = document.querySelector("#lciLcaValue") ;
-
     if (precnetRentabilityValue) precnetValue.innerHTML = "R$ " + formatNumber(precnetRentabilityValue)
     if (cdbRentabilityValue)     cdbValue.innerHTML     = "R$ "     + formatNumber(cdbRentabilityValue)
     if (lciLcaRentabilityValue)  lciLcaValue.innerHTML  = "R$ " + formatNumber(lciLcaRentabilityValue)
@@ -403,12 +402,22 @@ const handleQuotaResult = (amountInvested, selectedQuota, workingDays, payBackDa
     }
     return false;
 };
-const showResultsOnScreen = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
+
+const quotaResults = (amountInvested, selectedQuota, workingDays, payBackDate ) => {
+    selectedQuota='irFree'
     amountInvested = formatToOnlyNumbers(amountInvested)
-    const   precnetValue =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).precnet || null,
-            cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb     || null,
+    const   precnetValue =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).precnet || null;
+
+    if(precnetValue > 35000) selectedQuota='master'
+    const   cdbValue     =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).cdb     || null,
             lciLcaValue  =  handleQuotaResult(amountInvested, selectedQuota, workingDays, payBackDate ).lciLca  || null;
-    updateChart(precnetValue, cdbValue, lciLcaValue);
+
+    changeQuotaInformationText(selectedQuota, quotaInformation)
+    
+    return{precnetValue, cdbValue, lciLcaValue};
+};
+const showResultsOnScreen = (quotaResults ) => {
+    updateChart(quotaResults.precnetValue, quotaResults.cdbValue, quotaResults.lciLcaValue);
 };
 const showHiddenChartContainerIfValueIsEqualorMajorTenThousand = (inputValue) => {
     let chartContainer = document.querySelector('.simulatorContainer .investimentReturnChart')
@@ -495,8 +504,9 @@ const validateFields = (amountInvestedInput, validityYearInput, quotaTypeInput, 
     return true
 };
 const changeQuotaInformationText = (selectedQuota, quotaInformationText) => {
+
     if(selectedQuota === 'master') return quotaInformationText.innerText = 'Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.';
-    if(selectedQuota === 'irFree') return quotaInformationText.innerText = 'Valores líquidos caso o resgate seja inferior a R$35 mil. Com a PrecNet, os preços de cada cota ir free são calculados de modo que o investidor receba menos do que R$35 mil no resgate da operação, ficando assim isento de imposto de renda sobre o ganho de capital.';
+    if(selectedQuota === 'irFree') return quotaInformationText.innerText = 'Este será o valor estimado que o investidor receberá em sua conta bancária. Nesta simulação, como o valor estimado a ser recebido é inferior a R$ 35 mil, o investidor será isento do pagamento de imposto de renda.'
 };
 const formatToOnlyNumbers = value => {
     let formattedValue = value.replace(/\D/g, '');
@@ -529,17 +539,22 @@ monthDisplay.innerHTML = changeMonthDisplay(monthOfPaymentInput.value, monthList
 const startSimulation = (amountInvestedInput) => {
     let formattedInputValue = formatToOnlyNumbers(amountInvestedInput.value)
     showHiddenChartContainerIfValueIsEqualorMajorTenThousand(formattedInputValue)
-    selectQuotaOptionByAmountValue(formattedInputValue)
+    //selectQuotaOptionByAmountValue(formattedInputValue)
     validateFields(
         amountInvestedInput, 
         pickCheckedRadio(validityYearInputs), 
         pickCheckedRadio(quotaTypeInputs), 
         monthOfPaymentInput
     )
-    showResultsOnScreen(
+    let quotas = quotaResults(
         formattedInputValue,
         pickCheckedRadio(quotaTypeInputs).value,
         workingDays,validityDate.getFullYear()
+    )
+    selectQuotaOptionByAmountValue(quotas.precnetValue)
+
+    showResultsOnScreen(
+     quotas 
     )
 }
 
@@ -560,7 +575,7 @@ const disableOrEnableQuotaAndCheck = (quotaContainer,disableOrEnable) => {
 const selectQuotaOptionByAmountValue = (amountValue) => {
   let irFreeQuota = document.querySelector('#irFreeQuotaContainer')
   let masterQuota = document.querySelector('#masterQuotaContainer')
-  if(amountValue < 25000){
+  if(amountValue < 35000){
     disableOrEnableQuotaAndCheck(masterQuota, 'disable')
     disableOrEnableQuotaAndCheck(irFreeQuota, 'enable')
     return 
@@ -597,17 +612,22 @@ validityYearInputs.forEach(input => input.addEventListener('click', () => {
     highlightSelectedCheckInput(input);
     
     if (amountInvestedInput.value != undefined) {
-        showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+        let results = quotaResults(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear(), lastDayOfMonth);
+        showResultsOnScreen(results);
     }
 }));
 
 
 quotaTypeInputs.forEach(input => input.addEventListener('click', () => {
-    if(amountInvestedInput.value != undefined) showResultsOnScreen(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
+    if(amountInvestedInput.value != undefined) {
+      let results = quotaResults(amountInvestedInput.value, pickCheckedRadio(quotaTypeInputs).value, workingDays, validityDate.getFullYear())
+      showResultsOnScreen(results)
+    }
     changeQuotaInformationText(pickCheckedRadio(quotaTypeInputs).value, quotaInformation)
     highlightSelectedCheckInput(input)
 
 }))
+
 
 
 
