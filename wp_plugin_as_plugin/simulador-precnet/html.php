@@ -543,7 +543,22 @@
     }
 }
 
+#simulatorContainer .firstRow{
+  display:flex;
+  flex-direction:row;
+}
+#simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+  width:50%;
+}
+
 @media(max-width:768px){
+  #simulatorContainer .firstRow{
+    display:flex;
+    flex-direction:column;
+  }
+  #simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+    width:100%;
+  }
     #simulatorContainer .chartQuotaValue{
         font-size:16px;
     }
@@ -707,7 +722,7 @@
       </div>
       <div class="simulatorBody">
           <div class="row">
-              <div class="col col50 leftUserInputContainer">
+              <div class="col col50 leftUserInputContainer firstRow">
                   <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer">
                       <span class="inputIdentifier inputTitle"
                       >Vencimento do ativo: </span>

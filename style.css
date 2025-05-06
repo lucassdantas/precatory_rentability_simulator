@@ -524,7 +524,7 @@ body{
    transform: rotate(-45deg);
 }
 
-@media(max-width:1045px){
+
     #simulatorContainer .row{
         flex-direction:column;
     }
@@ -551,9 +551,23 @@ body{
     #simulatorContainer .paymentMonth{
         height:fit-content;
     }
+
+#simulatorContainer .firstRow{
+  display:flex;
+  flex-direction:row;
+}
+#simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+  width:50%;
 }
 
 @media(max-width:768px){
+  #simulatorContainer .firstRow{
+    display:flex;
+    flex-direction:column;
+  }
+  #simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+    width:100%;
+  }
     #simulatorContainer .chartQuotaValue{
         font-size:16px;
     }
