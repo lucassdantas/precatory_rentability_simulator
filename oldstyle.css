@@ -1,30 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-*{
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-    font-family:'manrope', sans-serif;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 :root{
     --buttonColor:#25D366;
     --buttonHover:#075E54;
     --darkGreen:#2D6218;
     --checkBoxGreen:#54AA54;
-    --blue:#0C3782;
-    --borderBlue:#84A5ED;
-    --lines:#84A5ED;
+    --blue:#04265E;
+    --borderBlue:#066CBB;
     
-}
-body{
-    padding:24px;
-    display:flex;
-    justify-content:center;
 }
 
 
 .simulatorQuestionMarkIcon{
-    width:16px;
-    fill:var(--checkBoxGreen);
+    width:20px;
+    fill:#04265E;
 }
 .infoPopup{
     position:absolute;
@@ -33,6 +22,7 @@ body{
     box-shadow:0 0 2px rgba(0,0,0,.5);
     
     border-radius:25px;
+    border:1px solid #444;
     
     padding:1.5em;
     width:90%;
@@ -49,16 +39,16 @@ body{
     opacity:1;
     visibility:visible;
 }
-.simulatorCardBody {
+.simulatorContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     overflow-x:hidden;
     color: #213E85;
-    background: linear-gradient(to bottom , #FFF, #F2F4FA);
+    background: linear-gradient(to bottom , #FFF, #E5E5E5);
     border-radius: 25px;
-    padding: 2em;
-    margin:0 1em;
+    border:1px solid #E5E5E5;
+    padding: 1em;
 }
 
 #simulatorContainer label{
@@ -72,12 +62,11 @@ body{
     width:100%;
 }
 .simulatorTitleContainer{
-    border-bottom:2px solid var(--borderBlue);
+    border-bottom:3px solid #54AA54;
     width:99.8%;
-    margin-bottom:12px;
 }
 .simulatorTitle{
-    font-size:32px;
+    font-size:40px;
     text-align:left;
     font-weight:700;
     margin-bottom:15px;
@@ -103,7 +92,7 @@ body{
 
 
 .lcilcaText{
-    background-color: var(--checkBoxGreen);
+    background-color: #90d55e;
     border-radius: 45px;
     padding: 5px;
     font-weight: bold;
@@ -119,7 +108,7 @@ body{
 
 }
 .cdbText{
-    background-color:  var(--checkBoxGreen);
+    background-color: #90d55e;
     border-radius: 45px;
     z-index: 1;
     padding: 5px;
@@ -149,6 +138,7 @@ body{
 
 #simulatorContainer .disabled, #simulatorContainer .disabled div{
   color:#000!important;
+  border:1px solid #222!important;
 }
 #simulatorContainer .disabled label{
   color:#000!important;
@@ -156,10 +146,11 @@ body{
 #simulatorContainer .disabled input[type="radio"] + label::before,
 #simulatorContainer .disabled input[type="checkbox"] + label::before {
    background-color: #999;
+   border: 1px solid #eee;
 }
 #simulatorContainer .paymentMonth{
+    height:184px;
     min-height:fit-content;
-    width:100%;
 }
 
 #simulatorContainer input[type='radio']{
@@ -168,11 +159,11 @@ body{
 #simulatorContainer .row{
     display:flex;
     margin:0 0 0 0;
-    width:100%;
 }
 
 #simulatorContainer .col{
     flex-direction:column;
+    padding:12px 12px 0;
 }
 
 #simulatorContainer .col50{
@@ -188,7 +179,7 @@ body{
     display:flex;
 }
 #simulatorContainer .monthList{
-    width:100%;
+    width:92%;
     display:flex;
     justify-content:space-between;
     margin:5px 0;
@@ -213,7 +204,9 @@ body{
 }
 
 .monthPaymentAndList{
+    border: 1.5px solid #90d55e;
     border-radius: 10px;
+    padding: 3% 35px;
     width: 100%;
  
 }
@@ -230,18 +223,19 @@ body{
     margin-right:8px;
     margin-bottom:10px;
     font-weight:700;
-    font-size:18px;
+    font-size:24px;
 }
 #simulatorContainer .chartContainer{
-    margin-top:12px;
+    
+    height:184px;
+    margin-top:24px;
 }
 
-#simulatorContainer .investimentReturnChart{
-  border-bottom:2px solid var(--borderBlue);
-}
 
 #simulatorContainer .chart {
     color:#fff;
+    border: 1.5px solid #90d55e;
+    border-radius: 10px;
     padding: 1.5%;
     
 }
@@ -251,9 +245,15 @@ body{
 }
 
 
+#simulatorContainer .amountInvestedContainer{
+    border: 1.5px solid #90d55e;
+    border-radius: 10px;
+    padding: 25px 15px;
+    width:93%;
 
+}
 #simulatorContainer .moneySimbolAndAmountInvestedInputContainer{
-    border-bottom: 2px solid var(--borderBlue);
+    border-bottom: 3px solid #54AA54;
 }
 
 .bar {
@@ -263,7 +263,7 @@ body{
     height: 100%;
     flex-grow: 1;
     transition: width 0.5s ease;
-    margin-bottom: 12px;
+    margin: 12px 0;
     border-radius: 20px;
     position: relative;
     background-color: rgba(0, 0, 0, 0.1); /* Adicionando um tom de cinza claro */
@@ -285,10 +285,9 @@ body{
 }
 
 .quotaInformationContainer{
-  display:flex;
-    text-align:left;
-    margin-top:12px;
-    padding:0 0;
+    text-align:center;
+    margin-top:0px;
+    padding:0 80px;
     width:100%;
 }
 #simulatorContainer .informationSimbol{
@@ -298,7 +297,6 @@ body{
 #simulatorContainer .information{
     font-size:12px;
     font-weight:400;
-    line-height: 1.2em;
 }
 #precnet {
     height: 30px;
@@ -322,19 +320,22 @@ body{
     font-size:22px;
 }
 #simulatorContainer #moneySimbol{
-    font-size:18px;
+    font-size:28px;
+    font-weight:700;
 }
 #amountInvested{
     border:unset;
     color: #213E85;
     background-color: unset;
+    padding:6px 12px;
     outline: none;
-    font-size:18px;
-    width:82%;
+    font-size:28px;
+    width:85%;
 }
 
 
 #simulatorContainer .inputAndLabelContainer{
+    border: 2px solid #213E85;
     border-radius: 50px;
     padding: 7px 10px;
     margin-right: 25px;
@@ -343,10 +344,13 @@ body{
 }
 
 .inputAndLabelContainerSelected{
+
+    border: 1px solid #54AA54;
+    
 }
 
 #simulatorContainer .validityYear .inputAndLabelContainer{
-    width:fit-content;
+    width:30%;
     display:flex;
     margin-right:35px;
     justify-content:center;
@@ -382,15 +386,10 @@ body{
   font-weight:700;
 
 }
-
-#simulatorContainer .monthRowContainer{
-  text-align:right;
-}
 #simulatorContainer .monthContainer{
     margin-bottom:12px;
     display:flex;
     flex-direction:column;
-    text-align:left;
 }
 #simulatorContainer .selectedMonthContainer{
     display:none;
@@ -399,11 +398,13 @@ body{
 
 #simulatorContainer .validityYearText{
     font-size:16px;
-    font-weight:600;
+    font-weight:400;
     color:#54AA54;
 }
 
-
+#simulatorContainer .selected {
+    border: 2px solid #54AA54;
+}
 
 #simulatorContainer .textGreen{
     color: #54AA54;
@@ -418,7 +419,7 @@ body{
     -webkit-appearance: none;
     -moz-apperance: none;
     appearance: none;
-    background-color: var(--borderBlue); /* Cor de fundo cinza */
+    background-color: #213E85; /* Cor de fundo cinza */
     border-radius: 10px;
     /* Thumb (alça) */
     cursor: pointer;
@@ -427,41 +428,33 @@ body{
 #simulatorContainer input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-     border:unset;
-    box-shadow:0 0 10px rgba(84, 170, 84, 0.8);
-    width:18px;
-    height:18px;
     /* Dimensões e layout */
 
-    background-color: var(--checkBoxGreen); /* Cor da bola */
+    background-color: #04265E; /* Cor da bola */
     border-radius: 50%; /* Forma circular */
 }
 
 #simulatorContainer input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
     appearance: none;
-    border:unset;
-    box-shadow:0 0 10px rgba(84, 170, 84, 0.8);
-    width:18px;
-    height:18px;
     /* Dimensões e layout */
 
-    background-color: var(--checkBoxGreen); /* Cor da bola */
+    background-color: #04265E; /* Cor da bola */
     border-radius: 50%; /* Forma circular */
 }
 
 #monthOfPayment{
     width: 100%;
-    height: 2px;
+    height: 5px;
     margin-top:12px;
     
 }
 
 #monthOfPayment::-webkit-slider-thumb{
-    background: var(--checkBoxGreen)!important;
-    box-shadow: 0 0 10px 3px  var(--checkBoxGreen);
-    width:18px;
-    height: 18px;
+    background: #54AA54!important;
+    box-shadow: 0 0 10px 3px  #54AA54;
+    height: 15px;
+    width: 15px;
 }
 #simulatorContainer .monthOfPaymentTitle{
     margin-bottom:0px;
@@ -488,6 +481,7 @@ body{
    height: 2ex;
    width: 2ex;
    background-color: white;
+   border: 1px solid #213E85;
    border-radius: 4px;
    box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
    margin-right: 0.5em;
@@ -509,6 +503,7 @@ body{
    background: rgba(0, 0, 0, 0);
    top: 0.9ex;
    left: 0.4ex;
+   border: 3px solid #1062a4;
    border-top: none;
    border-right: none;
    -webkit-transform: rotate(-45deg);
@@ -518,25 +513,97 @@ body{
    transform: rotate(-45deg);
 }
 
+@media(max-width:1045px){
+    #simulatorContainer .row{
+        flex-direction:column;
+    }
 
-@media(max-width:1024px){
-  #simulatorContainer .cardsRow{
-    display:flex;
-    flex-direction:column;
-    
-  }
+    #simulatorContainer .col{
+        width:100%;
+    }
+
+    #simulatorContainer .inputAndLabelContainer{
+        margin-bottom:12px;
+    }
+    #simulatorContainer .validityYear .inputAndLabelContainer{
+        max-width:150px;
+        width:100%;
+    }
+    #simulatorContainer .quotaType .inputAndLabelContainer{
+        max-width:250px;
+        width:100%;
+
+    }
+    #simulatorContainer .chartQuotaValue{
+        font-size:18px;
+    }
+    #simulatorContainer .paymentMonth{
+        height:fit-content;
+    }
+}
+
+#simulatorContainer .firstRow{
+  display:flex;
+  flex-direction:row;
+}
+#simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+  width:50%;
+}
+
+@media(max-width:768px){
   #simulatorContainer .firstRow{
     display:flex;
     flex-direction:column;
-    
   }
-  #simulatorContainer .simulatorCardBody{
-    margin:1em 0;
+  #simulatorContainer .validityYear, #simulatorContainer .amountInvested{
     width:100%;
-    height:fit-content;
-    justify-content:center;
   }
-  #simulatorContainer .monthList{
+    #simulatorContainer .chartQuotaValue{
+        font-size:16px;
+    }
+}
+
+@media(max-width:667px){
+    .simulatorContainer{
+        padding:0.2em;
+    }
+    #simulatorContainer .simulatorHeader{
+        padding:20px 22px 0;
+    }
+    #simulatorContainer .simulatorTitle{
+        font-size:20px;
+    }
+    #simulatorContainer .simulatorBody{
+        padding:10px;
+    }
+
+    #simulatorContainer .validityYear .inputAndLabelContainer{
+        max-width:100px;    
+        margin-right:12px;
+    }
+    #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
+        max-width:160px;   
+        margin-right:12px;     
+    }
+    #simulatorContainer .validityYearText{
+        display:block;
+    }
+    #simulatorContainer #moneySimbol{
+        font-size:16px;
+    }
+    #simulatorContainer #amountInvested{
+        width:84%;
+        font-size:18px;
+    }
+    #simulatorContainer .monthRowContainer{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+    #simulatorContainer .monthContainer{
+        width:80%;
+    }
+    #simulatorContainer .monthList{
         font-size:8px;
         color:#213E85;
         display:none;
@@ -550,35 +617,98 @@ body{
         color:#90d55e;
         font-weight:bold;
     }
-    #simulatorContainer .col50{
-      width:100%;
+    #simulatorContainer .monthOfPaymentTitle{
+        font-size:16px;
     }
-
-  }
-
-  @media(max-width:592px){
-    #simulatorContainer .chartQuotaValue{
-      font-size:18px;
+    #simulatorContainer .inputIdentifier{
+        font-size:16px;
+    }
+    #simulatorContainer .rentabilityTitle{
+        font-size:18px;
+    }
+    #simulatorContainer .quotaInformationContainer{
+        padding:0;
+    }
+    #simulatorContainer .precnetText, #simulatorContainer .cdbText, #simulatorContainer .lcilcaText{
+        width:95px;
+        min-width:95px;
+        max-width:95px;
+        padding:2% 0;
     }
     #simulatorContainer .chart{
-      padding:0;
+        font-size:14px;
     }
-  }
+    #simulatorCOntainer .chartQuotaValue{
+        font-size:12px;
+    }
+    #simulatorContainer .chart #precnet{
+        width:100%!important;
+    }
+    #simulatorContainer .chart .bar{
+        width:97%!important;
+    }
+    #simulatorContainer .chart .bar{
+        width:97%!important;
+    }
+    #simulatorContainer .amountInvestedContainer{
+        padding:3% 35px;
+    }
+    #simulatorContainer .col{
+        padding:5px 12px;
+    }
+    #simulatorContainer .chartContainer{
+        height:fit-content;
+    }
+    #simulatorContainer .inputAndLabelContainer label{
+        font-size:14px;
+    }
+    #simulatorContainer .userInputData {
+        margin-bottom:5px;
+    }
+    
+}
 
-  @media(max-width:505px){
-    #simulatorContainer .simulatorBody {
-      padding:0;
+@media(max-width:430px){
+    #simulatorContainer .inputAndLabelContainer label{
+        font-size:10px;
+    }
+}
+@media(max-width:356px){
+    .simulatorContainer{
+        padding:2px;
+    }
+    #simulatorContainer .simulatorHeader{
+        padding:15px 10px 0;
+    }
+    #simulatorContainer .simulatorBody{
+        padding:0px;
+    }
+    #simulatorContainer #moneySimbol{
+        font-size:16px;
+    }
+    #simulatorContainer #amountInvested{
+        width:80%;
+        font-size:16px;
+    }
+    #simulatorContainer .quotaInformationContainer{
+        padding:15px 5px;
+    }
+    #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
+        width:100%;
+        max-width:100%;
+        margin-right:0;
     }
     #simulatorContainer .chartQuotaValue{
-      font-size:14px;
+        font-size:10px;
     }
-    #simulatorContainer .simulatorCardBody{
-      padding:2em .8em
+    #simulatorContainer .inputContainer{
+        flex-direction:column;
     }
-  }
-
-  @media(max-width:389px){
-    #simulatorContainer .chartQuotaValue{
-      font-size:10px;
+    #simulatorContainer .amountInvestedContainer{
+        padding:15px;
     }
-  }
+    #simulatorContainer .infoPopup{
+        font-size:12px;
+    }
+}
+    
