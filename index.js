@@ -52,24 +52,24 @@ const fixedFitQuota = {
 const dailyRentability = {
   currentYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.075119,
-          nextYearOptionChosen: 0.071262,
-          afterNextYearOptionChosen: 0.071262
+          currentYearOptionChosen: 0.068526,
+          nextYearOptionChosen: 0.065988,
+          afterNextYearOptionChosen: 0.068526
       },
       cdb: {
-          currentYearOptionChosen: 0.054112,
-          nextYearOptionChosen: 0.050256,
-          afterNextYearOptionChosen: 0.050256
+          currentYearOptionChosen: 0.051657,
+          nextYearOptionChosen: 0.049120,
+          afterNextYearOptionChosen: 0.047604
       },
       irFree: {
-          currentYearOptionChosen: 0.075119,
-          nextYearOptionChosen: 0.071262,
-          afterNextYearOptionChosen: 0.071262
+          currentYearOptionChosen: 0.068526,
+          nextYearOptionChosen: 0.065988,
+          afterNextYearOptionChosen: 0.068526
       },
       lciLca: {
-          currentYearOptionChosen: 0.045763,
-          nextYearOptionChosen: 0.041907,
-          afterNextYearOptionChosen: 0.041907
+          currentYearOptionChosen: 0.049341,
+          nextYearOptionChosen: 0.049341,
+          afterNextYearOptionChosen: 0.044966
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -79,20 +79,20 @@ const dailyRentability = {
   },
   nextYearRentabilityOn: {
       master: {
-          nextYearOptionChosen: 0.075119,
-          afterNextOptionYearChosen: 0.071262
+          nextYearOptionChosen: 0.065988,
+          afterNextOptionYearChosen: 0.065988
       },
       cdb: {
-          nextYearOptionChosen: 0.050256,
-          afterNextOptionYearChosen: 0.050256
+          nextYearOptionChosen: 0.049120,
+          afterNextOptionYearChosen: 0.045067
       },
       irFree: {
-          nextYearOptionChosen: 0.071262,
-          afterNextOptionYearChosen: 0.071262
+          nextYearOptionChosen: 0.065988,
+          afterNextOptionYearChosen: 0.065988
       },
       lciLca: {
-          nextYearOptionChosen: 0.041907,
-          afterNextOptionYearChosen: 0.041907
+          nextYearOptionChosen: 0.046804,
+          afterNextOptionYearChosen: 0.042429
       },
       fit: {
           nextYearOptionChosen: fixedFitQuota.nextYearOptionChosen,
@@ -101,24 +101,24 @@ const dailyRentability = {
   },
   afterNextYearRentabilityOn: {
       master: {
-          currentYearOptionChosen: 0.075119,
-          nextYearOptionChosen: 0.071262,
-          afterNextYearOptionChosen: 0.071262
+          currentYearOptionChosen: 0.044966,
+          nextYearOptionChosen: 0.042429,
+          afterNextYearOptionChosen: 0.040525
       },
       cdb: {
-          currentYearOptionChosen: 0.054112,
-          nextYearOptionChosen: 0.050256,
-          afterNextYearOptionChosen: 0.050256
+          currentYearOptionChosen: 0.047604,
+          nextYearOptionChosen: 0.045067,
+          afterNextYearOptionChosen: 0.043163
       },
       irFree: {
-          currentYearOptionChosen: 0.075119,
-          nextYearOptionChosen: 0.071262,
-          afterNextYearOptionChosen: 0.071262
+          currentYearOptionChosen: 0.068526,
+          nextYearOptionChosen: 0.065988,
+          afterNextYearOptionChosen: 0.064083
       },
       lciLca: {
-          currentYearOptionChosen: 0.045763,
-          nextYearOptionChosen: 0.041907,
-          afterNextYearOptionChosen: 0.041907
+          currentYearOptionChosen: 0.044966,
+          nextYearOptionChosen: 0.042429,
+          afterNextYearOptionChosen: 0.040525
       },
       fit: {
           currentYearOptionChosen: fixedFitQuota.afterNextYearOptionChosen,
@@ -206,46 +206,77 @@ const dailyRentability = {
 //     }
 // };
 const holidays = [
-    new Date('01/01/2024').getTime(),
-    new Date('02/12/2024').getTime(),
-    new Date('02/13/2024').getTime(),
-    new Date('03/29/2024').getTime(),
-    new Date('04/21/2024').getTime(),
-    new Date('05/01/2024').getTime(),
-    new Date('05/30/2024').getTime(),
-    new Date('09/07/2024').getTime(),
-    new Date('10/12/2024').getTime(),
-    new Date('11/02/2024').getTime(),
-    new Date('11/15/2024').getTime(),
-    new Date('11/20/2024').getTime(),
-    new Date('12/25/2024').getTime(),
-    new Date('01/01/2025').getTime(),
-    new Date('03/03/2025').getTime(),
-    new Date('03/04/2025').getTime(),
-    new Date('04/18/2025').getTime(),
-    new Date('04/21/2025').getTime(),
-    new Date('05/01/2025').getTime(),
-    new Date('06/19/2025').getTime(),
-    new Date('09/07/2025').getTime(),
-    new Date('10/12/2025').getTime(),
-    new Date('11/02/2025').getTime(),
-    new Date('11/15/2025').getTime(),
-    new Date('11/20/2025').getTime(),
-    new Date('12/25/2025').getTime(),
-    new Date('01/01/2026').getTime(),
-    new Date('02/16/2026').getTime(),
-    new Date('02/17/2026').getTime(),
-    new Date('04/03/2026').getTime(),
-    new Date('04/21/2026').getTime(),
-    new Date('05/01/2026').getTime(),
-    new Date('06/04/2026').getTime(),
-    new Date('09/07/2026').getTime(),
-    new Date('10/12/2026').getTime(),
-    new Date('11/02/2026').getTime(),
-    new Date('11/15/2026').getTime(),
-    new Date('11/20/2026').getTime(),
-    new Date('12/25/2026').getTime(),
+  new Date('01/01/2024').getTime(),
+  new Date('02/12/2024').getTime(),
+  new Date('02/13/2024').getTime(),
+  new Date('03/29/2024').getTime(),
+  new Date('04/21/2024').getTime(),
+  new Date('05/01/2024').getTime(),
+  new Date('05/30/2024').getTime(),
+  new Date('09/07/2024').getTime(),
+  new Date('10/12/2024').getTime(),
+  new Date('11/02/2024').getTime(),
+  new Date('11/15/2024').getTime(),
+  new Date('11/20/2024').getTime(),
+  new Date('12/25/2024').getTime(),
+  new Date('01/01/2025').getTime(),
+  new Date('03/03/2025').getTime(),
+  new Date('03/04/2025').getTime(),
+  new Date('04/18/2025').getTime(),
+  new Date('04/21/2025').getTime(),
+  new Date('05/01/2025').getTime(),
+  new Date('06/19/2025').getTime(),
+  new Date('09/07/2025').getTime(),
+  new Date('10/12/2025').getTime(),
+  new Date('11/02/2025').getTime(),
+  new Date('11/15/2025').getTime(),
+  new Date('11/20/2025').getTime(),
+  new Date('12/25/2025').getTime(),
+  new Date('01/01/2026').getTime(),
+  new Date('02/16/2026').getTime(),
+  new Date('02/17/2026').getTime(),
+  new Date('04/03/2026').getTime(),
+  new Date('04/21/2026').getTime(),
+  new Date('05/01/2026').getTime(),
+  new Date('06/04/2026').getTime(),
+  new Date('09/07/2026').getTime(),
+  new Date('10/12/2026').getTime(),
+  new Date('11/02/2026').getTime(),
+  new Date('11/15/2026').getTime(),
+  new Date('11/20/2026').getTime(),
+  new Date('12/25/2026').getTime(),
+
+  // Feriados de 2027
+  new Date('01/01/2027').getTime(),
+  new Date('02/08/2027').getTime(), // Carnaval
+  new Date('02/09/2027').getTime(), // Carnaval
+  new Date('03/26/2027').getTime(), // Sexta-feira Santa
+  new Date('04/21/2027').getTime(),
+  new Date('05/01/2027').getTime(),
+  new Date('05/27/2027').getTime(), // Corpus Christi
+  new Date('09/07/2027').getTime(),
+  new Date('10/12/2027').getTime(),
+  new Date('11/02/2027').getTime(),
+  new Date('11/15/2027').getTime(),
+  new Date('11/20/2027').getTime(),
+  new Date('12/25/2027').getTime(),
+
+  // Feriados de 2028
+  new Date('01/01/2028').getTime(),
+  new Date('02/28/2028').getTime(), // Carnaval
+  new Date('02/29/2028').getTime(), // Carnaval
+  new Date('04/14/2028').getTime(), // Sexta-feira Santa
+  new Date('04/21/2028').getTime(),
+  new Date('05/01/2028').getTime(),
+  new Date('06/15/2028').getTime(), // Corpus Christi
+  new Date('09/07/2028').getTime(),
+  new Date('10/12/2028').getTime(),
+  new Date('11/02/2028').getTime(),
+  new Date('11/15/2028').getTime(),
+  new Date('11/20/2028').getTime(),
+  new Date('12/25/2028').getTime(),
 ];
+
 
 const formatNumber = number => number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 

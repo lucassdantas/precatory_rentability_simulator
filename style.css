@@ -13,6 +13,7 @@
     --blue:#0C3782;
     --borderBlue:#84A5ED;
     --lines:#84A5ED;
+    --linesTransparent:#84A5ED80;
     
 }
 body{
@@ -58,7 +59,8 @@ body{
     background: linear-gradient(to bottom , #FFF, #F2F4FA);
     border-radius: 25px;
     padding: 2em;
-    margin:0 1em;
+    margin:0 .4em;
+    border:1px solid var(--linesTransparent);
 }
 
 #simulatorContainer label{
@@ -81,6 +83,8 @@ body{
     text-align:left;
     font-weight:700;
     margin-bottom:15px;
+    color:var(--blue)!important;
+
 }
 
 #simulatorContainer .simulatorBody{
@@ -294,6 +298,7 @@ body{
 #simulatorContainer .informationSimbol{
     color:#0495EC;
     font-size:12px;
+    margin-right:6px;
 }
 #simulatorContainer .information{
     font-size:12px;
@@ -331,6 +336,8 @@ body{
     outline: none;
     font-size:18px;
     width:82%;
+    padding:0;
+
 }
 
 
@@ -531,7 +538,7 @@ body{
     
   }
   #simulatorContainer .simulatorCardBody{
-    margin:1em 0;
+    margin:.5em 0;
     width:100%;
     height:fit-content;
     justify-content:center;

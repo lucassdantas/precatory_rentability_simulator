@@ -1,20 +1,18 @@
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
-
 :root{
     --buttonColor:#25D366;
     --buttonHover:#075E54;
     --darkGreen:#2D6218;
     --checkBoxGreen:#54AA54;
-    --blue:#04265E;
-    --borderBlue:#066CBB;
-    
+    --blue:#0C3782;
+    --borderBlue:#84A5ED;
+    --lines:#84A5ED;
+    --linesTransparent:#84A5ED80;
 }
 
-
 .simulatorQuestionMarkIcon{
-    width:20px;
-    fill:#04265E;
+    width:16px;
+    fill:var(--checkBoxGreen);
 }
 .infoPopup{
     position:absolute;
@@ -23,7 +21,6 @@
     box-shadow:0 0 2px rgba(0,0,0,.5);
     
     border-radius:25px;
-    border:1px solid #444;
     
     padding:1.5em;
     width:90%;
@@ -40,16 +37,17 @@
     opacity:1;
     visibility:visible;
 }
-.simulatorContainer {
+.simulatorCardBody {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     overflow-x:hidden;
     color: #213E85;
-    background: linear-gradient(to bottom , #FFF, #E5E5E5);
+    background: linear-gradient(to bottom , #FFF, #F2F4FA);
     border-radius: 25px;
-    border:1px solid #E5E5E5;
-    padding: 1em;
+    padding: 2em;
+    margin:0 .4em;
+    border:1px solid var(--linesTransparent);
 }
 
 #simulatorContainer label{
@@ -63,14 +61,16 @@
     width:100%;
 }
 .simulatorTitleContainer{
-    border-bottom:3px solid #54AA54;
+    border-bottom:2px solid var(--borderBlue);
     width:99.8%;
+    margin-bottom:12px;
 }
 .simulatorTitle{
-    font-size:40px;
+    font-size:32px;
     text-align:left;
     font-weight:700;
     margin-bottom:15px;
+    color:var(--blue)!important;
 }
 
 #simulatorContainer .simulatorBody{
@@ -93,7 +93,7 @@
 
 
 .lcilcaText{
-    background-color: #90d55e;
+    background-color: var(--checkBoxGreen);
     border-radius: 45px;
     padding: 5px;
     font-weight: bold;
@@ -109,7 +109,7 @@
 
 }
 .cdbText{
-    background-color: #90d55e;
+    background-color:  var(--checkBoxGreen);
     border-radius: 45px;
     z-index: 1;
     padding: 5px;
@@ -139,7 +139,6 @@
 
 #simulatorContainer .disabled, #simulatorContainer .disabled div{
   color:#000!important;
-  border:1px solid #222!important;
 }
 #simulatorContainer .disabled label{
   color:#000!important;
@@ -147,11 +146,10 @@
 #simulatorContainer .disabled input[type="radio"] + label::before,
 #simulatorContainer .disabled input[type="checkbox"] + label::before {
    background-color: #999;
-   border: 1px solid #eee;
 }
 #simulatorContainer .paymentMonth{
-    height:184px;
     min-height:fit-content;
+    width:100%;
 }
 
 #simulatorContainer input[type='radio']{
@@ -160,11 +158,11 @@
 #simulatorContainer .row{
     display:flex;
     margin:0 0 0 0;
+    width:100%;
 }
 
 #simulatorContainer .col{
     flex-direction:column;
-    padding:12px 12px 0;
 }
 
 #simulatorContainer .col50{
@@ -180,7 +178,7 @@
     display:flex;
 }
 #simulatorContainer .monthList{
-    width:92%;
+    width:100%;
     display:flex;
     justify-content:space-between;
     margin:5px 0;
@@ -205,9 +203,7 @@
 }
 
 .monthPaymentAndList{
-    border: 1.5px solid #90d55e;
     border-radius: 10px;
-    padding: 3% 35px;
     width: 100%;
  
 }
@@ -224,19 +220,18 @@
     margin-right:8px;
     margin-bottom:10px;
     font-weight:700;
-    font-size:24px;
+    font-size:18px;
 }
 #simulatorContainer .chartContainer{
-    
-    height:184px;
-    margin-top:24px;
+    margin-top:12px;
 }
 
+#simulatorContainer .investimentReturnChart{
+  border-bottom:2px solid var(--borderBlue);
+}
 
 #simulatorContainer .chart {
     color:#fff;
-    border: 1.5px solid #90d55e;
-    border-radius: 10px;
     padding: 1.5%;
     
 }
@@ -246,15 +241,9 @@
 }
 
 
-#simulatorContainer .amountInvestedContainer{
-    border: 1.5px solid #90d55e;
-    border-radius: 10px;
-    padding: 25px 15px;
-    width:93%;
 
-}
 #simulatorContainer .moneySimbolAndAmountInvestedInputContainer{
-    border-bottom: 3px solid #54AA54;
+    border-bottom: 2px solid var(--borderBlue);
 }
 
 .bar {
@@ -264,7 +253,7 @@
     height: 100%;
     flex-grow: 1;
     transition: width 0.5s ease;
-    margin: 12px 0;
+    margin-bottom: 12px;
     border-radius: 20px;
     position: relative;
     background-color: rgba(0, 0, 0, 0.1); /* Adicionando um tom de cinza claro */
@@ -286,18 +275,21 @@
 }
 
 .quotaInformationContainer{
-    text-align:center;
-    margin-top:0px;
-    padding:0 80px;
+  display:flex;
+    text-align:left;
+    margin-top:12px;
+    padding:0 0;
     width:100%;
 }
 #simulatorContainer .informationSimbol{
     color:#0495EC;
     font-size:12px;
+    margin-right:6px;
 }
 #simulatorContainer .information{
     font-size:12px;
     font-weight:400;
+    line-height: 1.2em;
 }
 #precnet {
     height: 30px;
@@ -321,22 +313,20 @@
     font-size:22px;
 }
 #simulatorContainer #moneySimbol{
-    font-size:28px;
-    font-weight:700;
+    font-size:18px;
 }
 #amountInvested{
     border:unset;
     color: #213E85;
     background-color: unset;
-    padding:6px 12px;
     outline: none;
-    font-size:28px;
-    width:85%;
+    font-size:18px;
+    width:82%;
+    padding:0;
 }
 
 
 #simulatorContainer .inputAndLabelContainer{
-    border: 2px solid #213E85;
     border-radius: 50px;
     padding: 7px 10px;
     margin-right: 25px;
@@ -345,13 +335,10 @@
 }
 
 .inputAndLabelContainerSelected{
-
-    border: 1px solid #54AA54;
-    
 }
 
 #simulatorContainer .validityYear .inputAndLabelContainer{
-    width:30%;
+    width:fit-content;
     display:flex;
     margin-right:35px;
     justify-content:center;
@@ -387,10 +374,15 @@
   font-weight:700;
 
 }
+
+#simulatorContainer .monthRowContainer{
+  text-align:right;
+}
 #simulatorContainer .monthContainer{
     margin-bottom:12px;
     display:flex;
     flex-direction:column;
+    text-align:left;
 }
 #simulatorContainer .selectedMonthContainer{
     display:none;
@@ -399,13 +391,11 @@
 
 #simulatorContainer .validityYearText{
     font-size:16px;
-    font-weight:400;
+    font-weight:600;
     color:#54AA54;
 }
 
-#simulatorContainer .selected {
-    border: 2px solid #54AA54;
-}
+
 
 #simulatorContainer .textGreen{
     color: #54AA54;
@@ -420,7 +410,7 @@
     -webkit-appearance: none;
     -moz-apperance: none;
     appearance: none;
-    background-color: #213E85; /* Cor de fundo cinza */
+    background-color: var(--borderBlue); /* Cor de fundo cinza */
     border-radius: 10px;
     /* Thumb (alça) */
     cursor: pointer;
@@ -429,33 +419,41 @@
 #simulatorContainer input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
+     border:unset;
+    box-shadow:0 0 10px rgba(84, 170, 84, 0.8);
+    width:18px;
+    height:18px;
     /* Dimensões e layout */
 
-    background-color: #04265E; /* Cor da bola */
+    background-color: var(--checkBoxGreen); /* Cor da bola */
     border-radius: 50%; /* Forma circular */
 }
 
 #simulatorContainer input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
     appearance: none;
+    border:unset;
+    box-shadow:0 0 10px rgba(84, 170, 84, 0.8);
+    width:18px;
+    height:18px;
     /* Dimensões e layout */
 
-    background-color: #04265E; /* Cor da bola */
+    background-color: var(--checkBoxGreen); /* Cor da bola */
     border-radius: 50%; /* Forma circular */
 }
 
 #monthOfPayment{
     width: 100%;
-    height: 5px;
+    height: 2px;
     margin-top:12px;
     
 }
 
 #monthOfPayment::-webkit-slider-thumb{
-    background: #54AA54!important;
-    box-shadow: 0 0 10px 3px  #54AA54;
-    height: 15px;
-    width: 15px;
+    background: var(--checkBoxGreen)!important;
+    box-shadow: 0 0 10px 3px  var(--checkBoxGreen);
+    width:18px;
+    height: 18px;
 }
 #simulatorContainer .monthOfPaymentTitle{
     margin-bottom:0px;
@@ -482,7 +480,6 @@
    height: 2ex;
    width: 2ex;
    background-color: white;
-   border: 1px solid #213E85;
    border-radius: 4px;
    box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
    margin-right: 0.5em;
@@ -504,7 +501,6 @@
    background: rgba(0, 0, 0, 0);
    top: 0.9ex;
    left: 0.4ex;
-   border: 3px solid #1062a4;
    border-top: none;
    border-right: none;
    -webkit-transform: rotate(-45deg);
@@ -514,97 +510,25 @@
    transform: rotate(-45deg);
 }
 
-@media(max-width:1045px){
-    #simulatorContainer .row{
-        flex-direction:column;
-    }
 
-    #simulatorContainer .col{
-        width:100%;
-    }
-
-    #simulatorContainer .inputAndLabelContainer{
-        margin-bottom:12px;
-    }
-    #simulatorContainer .validityYear .inputAndLabelContainer{
-        max-width:150px;
-        width:100%;
-    }
-    #simulatorContainer .quotaType .inputAndLabelContainer{
-        max-width:250px;
-        width:100%;
-
-    }
-    #simulatorContainer .chartQuotaValue{
-        font-size:18px;
-    }
-    #simulatorContainer .paymentMonth{
-        height:fit-content;
-    }
-}
-
-#simulatorContainer .firstRow{
-  display:flex;
-  flex-direction:row;
-}
-#simulatorContainer .validityYear, #simulatorContainer .amountInvested{
-  width:50%;
-}
-
-@media(max-width:768px){
+@media(max-width:1024px){
+  #simulatorContainer .cardsRow{
+    display:flex;
+    flex-direction:column;
+    
+  }
   #simulatorContainer .firstRow{
     display:flex;
     flex-direction:column;
+    
   }
-  #simulatorContainer .validityYear, #simulatorContainer .amountInvested{
+ #simulatorContainer .simulatorCardBody{
+    margin:.5em 0;
     width:100%;
+    height:fit-content;
+    justify-content:center;
   }
-    #simulatorContainer .chartQuotaValue{
-        font-size:16px;
-    }
-}
-
-@media(max-width:667px){
-    .simulatorContainer{
-        padding:0.2em;
-    }
-    #simulatorContainer .simulatorHeader{
-        padding:20px 22px 0;
-    }
-    #simulatorContainer .simulatorTitle{
-        font-size:20px;
-    }
-    #simulatorContainer .simulatorBody{
-        padding:10px;
-    }
-
-    #simulatorContainer .validityYear .inputAndLabelContainer{
-        max-width:100px;    
-        margin-right:12px;
-    }
-    #simulatorContainer .quotaTypeInputContainer .inputAndLabelContainer{
-        max-width:160px;   
-        margin-right:12px;     
-    }
-    #simulatorContainer .validityYearText{
-        display:block;
-    }
-    #simulatorContainer #moneySimbol{
-        font-size:16px;
-    }
-    #simulatorContainer #amountInvested{
-        width:84%;
-        font-size:18px;
-    }
-    #simulatorContainer .monthRowContainer{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-    }
-    #simulatorContainer .monthContainer{
-        width:80%;
-    }
-    #simulatorContainer .monthList{
+  #simulatorContainer .monthList{
         font-size:8px;
         color:#213E85;
         display:none;
@@ -618,246 +542,191 @@
         color:#90d55e;
         font-weight:bold;
     }
-    #simulatorContainer .monthOfPaymentTitle{
-        font-size:16px;
+    #simulatorContainer .col50{
+      width:100%;
     }
-    #simulatorContainer .inputIdentifier{
-        font-size:16px;
-    }
-    #simulatorContainer .rentabilityTitle{
-        font-size:18px;
-    }
-    #simulatorContainer .quotaInformationContainer{
-        padding:0;
-    }
-    #simulatorContainer .precnetText, #simulatorContainer .cdbText, #simulatorContainer .lcilcaText{
-        width:95px;
-        min-width:95px;
-        max-width:95px;
-        padding:2% 0;
+
+  }
+
+  @media(max-width:592px){
+    #simulatorContainer .chartQuotaValue{
+      font-size:18px;
     }
     #simulatorContainer .chart{
-        font-size:14px;
+      padding:0;
     }
-    #simulatorCOntainer .chartQuotaValue{
-        font-size:12px;
-    }
-    #simulatorContainer .chart #precnet{
-        width:100%!important;
-    }
-    #simulatorContainer .chart .bar{
-        width:97%!important;
-    }
-    #simulatorContainer .chart .bar{
-        width:97%!important;
-    }
-    #simulatorContainer .amountInvestedContainer{
-        padding:3% 35px;
-    }
-    #simulatorContainer .col{
-        padding:5px 12px;
-    }
-    #simulatorContainer .chartContainer{
-        height:fit-content;
-    }
-    #simulatorContainer .inputAndLabelContainer label{
-        font-size:14px;
-    }
-    #simulatorContainer .userInputData {
-        margin-bottom:5px;
-    }
-    
-}
+  }
 
-@media(max-width:430px){
-    #simulatorContainer .inputAndLabelContainer label{
-        font-size:10px;
-    }
-}
-@media(max-width:356px){
-    .simulatorContainer{
-        padding:2px;
-    }
-    #simulatorContainer .simulatorHeader{
-        padding:15px 10px 0;
-    }
-    #simulatorContainer .simulatorBody{
-        padding:0px;
-    }
-    #simulatorContainer #moneySimbol{
-        font-size:16px;
-    }
-    #simulatorContainer #amountInvested{
-        width:80%;
-        font-size:16px;
-    }
-    #simulatorContainer .quotaInformationContainer{
-        padding:15px 5px;
-    }
-    #simulatorContainer .validityYear .inputAndLabelContainer, #simulatorContainer .quotaType .inputAndLabelContainer{
-        width:100%;
-        max-width:100%;
-        margin-right:0;
+  @media(max-width:505px){
+    #simulatorContainer .simulatorBody {
+      padding:0;
     }
     #simulatorContainer .chartQuotaValue{
-        font-size:10px;
+      font-size:14px;
     }
-    #simulatorContainer .inputContainer{
-        flex-direction:column;
+    #simulatorContainer .simulatorCardBody{
+      padding:2em .8em
     }
-    #simulatorContainer .amountInvestedContainer{
-        padding:15px;
+  }
+
+  @media(max-width:389px){
+    #simulatorContainer .chartQuotaValue{
+      font-size:10px;
     }
-    #simulatorContainer .infoPopup{
-        font-size:12px;
-    }
-}
+  }
     
 </style>
 <div id='simulatorContainer' class="simulatorContainer simulator">
-      <div class="simulatorHeader">
+    <div class="simulatorBody">
+      <div class="row cardsRow">
+        <div class="simulatorCardBody col col50 leftUserInputContainer firstRow">
           <div class="simulatorTitleContainer">
-              <div class="simulatorTitle">Simulador</div>
+            <h2 class="simulatorTitle">Simulador</h2>
           </div>
-      </div>
-      <div class="simulatorBody">
-          <div class="row">
-              <div class="col col50 leftUserInputContainer firstRow">
-                  <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer">
-                      <span class="inputIdentifier inputTitle"
-                      >Vencimento do ativo: </span>
-                      <div class="inputContainer">
-                          <!-- 
-                          <div class="inputAndLabelContainer selected">
-                              <input type="radio" name="year" class='yearInput' id="year2025" value="2025" checked>
-                              <label for='year2025' class="bold yearLabel" data-value="2025">2025</label>
-                          </div> 
-                          -->
-                          <div class="inputAndLabelContainer selected">
-                              <input type="radio" name="year" class='yearInput' id="year2026" value="2026" checked>
-                              <label for="year2026" class="yearLabel" data-value="2026">2026</label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="quotaType quotaTypeInputContainer userInputData checkBoxInputContainer hidden">
-                      <span class="inputIdentifier">Modalidades
-                          <svg aria-hidden="true" class="simulatorQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
-                          </svg>
-                      </span>
-                      <div class="simuladorQuotaExplanationContainer infoPopup">
-                        <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda. Aportes a partir de R$ 25 mil em cotas de um precatório recebem upgrade de rentabilidade automático para a Opção Master, independente do valor de resgate previsto.</p>
-                      </div>
-                      <div class="inputContainer">
-                          <div class="inputAndLabelContainer selected" id='masterQuotaContainer'>
-                              <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master" >
-                              <label for='masterQuota' class="bold quotaTypeLabel" data-value="master">Opção Master</label>
-                          </div>
-                          <div class="inputAndLabelContainer" id='irFreeQuotaContainer'>
-                              <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' checked>
-                              <label for="irFreeQuota" class="quotaTypeLabel" data-value="irFree">Cota IR Free</label>
-                          </div>
-                        <!-- 
-                          <div class="inputAndLabelContainer">
-                              <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
-                              <label for="fitQuota" class='quotaTypeLabel' data-value="fit">Fit</label>
-                          </div>
-                          -->
-                      </div>
-                  </div>
-                  <div class="amountInvested userInputData">
-                      <span class="inputIdentifier">Valor investido:</span>
-                      <div class="amountInvestedContainer">
-                          <div class="moneySimbolAndAmountInvestedInputContainer">
-                              <span id='moneySimbol'>R$ </span>
-                              <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='10.000'>
-                          </div>
-                      </div>
-                      <div class="instructionContainer">
-                          <span class="instruction">Insira um valor de no mínimo R$ 10.000 para realizar sua simulação</span>
-                      </div>
-                      
-                  </div>
+          <div class="row firstRow">
+            <div class="validityYear validityYearInputContainer userInputData checkBoxInputContainer col col50 ">
+              <span class="inputIdentifier inputTitle">Vencimento do ativo</span>
+              <div class="inputContainer">
+                <div class="inputAndLabelContainer selected">
+                  <input type="radio" name="year" class='yearInput' id="year2026" value="2026" checked>
+                  <label for="year2026" class="yearLabel" data-value="2026">2026</label>
+                </div>
               </div>
-              <div class="col col50 rightCol ">
-                  <div class="paymentMonth">
-                      <div class="monthRowContainer">
-                          <div class="monthContainer">
-                              <span class="monthOfPaymentTitle inputIdentifier">Mês de pagamento
-                                <svg aria-hidden="true" class="simulatorQuestionMarkIcon monthQuestionMarkIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z"></path>
-                                </svg>
-                              </span>
-                              <div class="monthExplanationContainer infoPopup">
-                                <p>A regra estabelecida na Constituição Federal determina o ano, mas não o mês de pagamento, sendo uma escolha do governo.</p>
-                              </div>
-                              <small class="validityYearText">(Ano de vencimento)</small>    
-                          </div>
-                          <div class="selectedMonthContainer">
-                              <span id="selectedMonth"></span>
-                          </div>
-                      </div>
-                      <div class="monthPaymentAndList">
-                          <div class="monthListContainer topMonthList">
-                              <div class="monthList ">
-                                  <span class="month" id="janMonth">Jan</span>
-                                  <span class="month" id="marMonth">Mar</span>
-                                  <span class="month" id="maiMonth">Mai</span>
-                                  <span class="month" id="julMonth">Jul</span>
-                                  <span class="month" id="setMonth">Set</span>
-                                  <span class="month" id="novMonth">Nov</span>
-                              </div>
-                          </div>
-                          <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
-                          <div class="monthListContainer bottomMonthList">
-                              <div class="monthList ">
-                                  <span id="fevMonth">Fev</span>
-                                  <span id="abrMonth">Abr</span>
-                                  <span id="junMonth">Jun</span>
-                                  <span id="agoMonth">Ago</span>
-                                  <span id="outMonth">Out</span>
-                                  <span id="dezMonth">Dez</span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="chartContainer">
-                      <p class='rentabilityTitle inputIdentifier'>Previsão de resgate</p>
-                      <p class='chart warningChart'>⚠️ Insira um valor de, no mínimo, R$ 10.000 para iniciar a simulação</p>
-                      <div class="chart investimentReturnChart">
-                          <div class="bar" id="precnet">
-                              <span class="precnetText"> PrecNet </span>
-                              <span class="precnetValue chartQuotaValue" id="precnetValue"></span>
-
-                          </div>
-                          <div class="bar" id="cdb">
-                              <span class="cdbText"> CDB </span>
-                              <span class="cdbValue chartQuotaValue" id="cdbValue"></span>
-                          </div>
-                          <div class="bar" id="lci-lca">
-                              <span class="lcilcaText"> LCI/LCA </span>
-                              <span class="lciLcaValue chartQuotaValue" id="lciLcaValue"></span>
-                          </div>
-                      </div>
-
-                  </div>
+            </div>
+            <div class="amountInvested userInputData col col50 ">
+              <span class="inputIdentifier">Valor investido</span>
+              <div class="amountInvestedContainer">
+                <div class="moneySimbolAndAmountInvestedInputContainer">
+                  <span id='moneySimbol'>R$ </span>
+                  <input type="text" name="amountInvested" id="amountInvested" placeholder="100.000,00" value='10.000'>
+                </div>
               </div>
+              <div class="instructionContainer">
+                <span class="instruction">Insira um valor de no mínimo R$ 10.000 para realizar sua simulação</span>
+              </div>
+
+            </div>
+            <div class="quotaType quotaTypeInputContainer userInputData checkBoxInputContainer hidden">
+              <span class="inputIdentifier">Modalidades
+                <svg aria-hidden="true" class="simulatorQuestionMarkIcon" viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z">
+                  </path>
+                </svg>
+              </span>
+              <div class="simuladorQuotaExplanationContainer infoPopup">
+                <p>Cada precatório é dividido em tantas Cotas IR Free de modo que o valor futuro de liquidação do
+                  investimento em 1 Cota IR Free seja inferior a R$ 35 mil e, portanto, isento de imposto de renda.
+                  Aportes a partir de R$ 25 mil em cotas de um precatório recebem upgrade de rentabilidade automático
+                  para a Opção Master, independente do valor de resgate previsto.</p>
+              </div>
+              <div class="inputContainer">
+                <div class="inputAndLabelContainer selected" id='masterQuotaContainer'>
+                  <input type="radio" name="quotaType" class='quotaTypeInput' id="masterQuota" value="master">
+                  <label for='masterQuota' class="bold quotaTypeLabel" data-value="master">Opção Master</label>
+                </div>
+                <div class="inputAndLabelContainer" id='irFreeQuotaContainer'>
+                  <input type="radio" name="quotaType" class='quotaTypeInput' id="irFreeQuota" value='irFree' checked>
+                  <label for="irFreeQuota" class="quotaTypeLabel" data-value="irFree">Cota IR Free</label>
+                </div>
+                <!-- 
+                            <div class="inputAndLabelContainer">
+                                <input type="radio" name="quotaType" class='quotaTypeInput' id="fitQuota"    value='fit'>
+                                <label for="fitQuota" class='quotaTypeLabel' data-value="fit">Fit</label>
+                            </div>
+                            -->
+              </div>
+            </div>
           </div>
           <div class="row">
+            <div class="paymentMonth">
+              <div class="monthRowContainer">
+                <div class="monthContainer">
+                  <span class="monthOfPaymentTitle inputIdentifier">Mês de pagamento
+                    <svg aria-hidden="true" class="simulatorQuestionMarkIcon monthQuestionMarkIcon" viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z">
+                      </path>
+                    </svg>
+                  </span>
+                  <div class="monthExplanationContainer infoPopup">
+                    <p>A regra estabelecida na Constituição Federal determina o ano, mas não o mês de pagamento, sendo uma
+                      escolha do governo.</p>
+                  </div>
+                  <small class="validityYearText">(Ano de vencimento)</small>
+                </div>
+                <div class="selectedMonthContainer">
+                  <span id="selectedMonth"></span>
+                </div>
+              </div>
+              <div class="monthPaymentAndList">
+                <input type="range" name="monthOfPayment" id="monthOfPayment" min='0' max="11" value="11">
+                <div class="monthListContainer bottomMonthList">
+                  <div class="monthList ">
+                    <span class="month" id="janMonth">Jan</span>
+                    <span id="fevMonth">Fev</span>
+                    <span class="month" id="marMonth">Mar</span>
+                    <span id="abrMonth">Abr</span>
+                    <span class="month" id="maiMonth">Mai</span>
+                    <span id="junMonth">Jun</span>
+                    <span class="month" id="julMonth">Jul</span>
+                    <span id="agoMonth">Ago</span>
+                    <span class="month" id="setMonth">Set</span>
+                    <span id="outMonth">Out</span>
+                    <span class="month" id="novMonth">Nov</span>
+                    <span id="dezMonth">Dez</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="simulatorCardBody col col50 rightCol  ">
+          <div class="chartContainer">
+            <p class='rentabilityTitle inputIdentifier'>Previsão de resgate</p>
+            <p class='chart warningChart'>⚠️ Insira um valor de, no mínimo, R$ 10.000 para iniciar a simulação</p>
+            <div class="chart investimentReturnChart">
+              <div class="bar" id="precnet">
+                <span class="precnetText"> PrecNet </span>
+                <span class="precnetValue chartQuotaValue" id="precnetValue"></span>
+
+              </div>
+              <div class="bar" id="cdb">
+                <span class="cdbText"> CDB </span>
+                <span class="cdbValue chartQuotaValue" id="cdbValue"></span>
+              </div>
+              <div class="bar" id="lci-lca">
+                <span class="lcilcaText"> LCI/LCA </span>
+                <span class="lciLcaValue chartQuotaValue" id="lciLcaValue"></span>
+              </div>
+            </div>
+             <div class="row">
               <div class="quotaInformationContainer">
-                  <span class="informationSimbol">*</span>
-                  <small class="information"> Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.</small>
+                <span class="informationSimbol">*</span>
+                <small class="information"> Valores brutos. Com a PrecNet, o investidor receberá o valor bruto em sua conta
+                  bancária e deverá recolher o imposto de renda sobre o ganho de capital até o final do mês seguinte na
+                  alíquota fixa de 15%. No investimento com CDB, a instituição financeira fará a retenção do imposto de renda
+                  na fonte, de acordo com a tabela regressiva, que pode ser de 22,5% a 15%.</small>
               </div>
-          </div>
-          <div class="row">
+            </div>
+            <div class="row">
               <div class="quotaInformationContainer">
-                  <span class="informationSimbol">*</span>
-                  <small class="informationSimulation">A simulação é meramente estimativa e não constitui garantia por parte da PrecNet.</small>
+                <span class="informationSimbol">*</span>
+                <small class="information">A simulação é meramente estimativa e não constitui garantia por parte da
+                  PrecNet.</small>
               </div>
+            </div>
+
           </div>
+        </div>
       </div>
-  </div>
+     
+    </div>
+</div>
 <script defer>
 //frontend interactions methods
 const amountInvestedInputMask = event => {
