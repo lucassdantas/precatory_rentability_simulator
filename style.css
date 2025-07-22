@@ -378,6 +378,7 @@ body{
 }
 
 
+
 #simulatorContainer .inputContainer{
     display:flex;
 }
@@ -524,7 +525,9 @@ body{
    -ms-transform: rotate(-45deg);
    transform: rotate(-45deg);
 }
-
+#simulatorContainer .rentabilityTitle{
+  font-size:24px;
+}
 
 @media(max-width:1024px){
   #simulatorContainer .cardsRow{
