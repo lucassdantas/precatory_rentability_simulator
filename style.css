@@ -530,6 +530,9 @@ body{
 }
 
 @media(max-width:1024px){
+      #simulatorContainer .rentabilityTitle{
+        font-size:18px;
+    }
   #simulatorContainer .cardsRow{
     display:flex;
     flex-direction:column;
